@@ -1,6 +1,18 @@
+import Footer from "../components/footer";
+import Header from "../components/header";
+import { useRouter } from "next/router";
+import "../public/css/global.css";
+
 const Layout = (props) => {
-  const { yellowfooter } = props;
-  return <div className="layout">{props.children}</div>;
+  const router = useRouter();
+
+  return (
+    <div className="layout">
+      {router.pathname !== "/" && <Header />}
+      {props.children}
+      <Footer />
+    </div>
+  );
 };
 
 export default Layout;

@@ -1,0 +1,56 @@
+@font-face {
+  font-family: "GT America Thin";
+  src: url("/fonts/GT-America-Light.otf");
+}
+@font-face {
+  font-family: "GT America Regular";
+  src: url("/fonts/GT-America-Regular.otf");
+}
+@font-face {
+  font-family: "GT America Medium";
+  src: url("/fonts/GT-America-Medium.otf");
+}
+@font-face {
+  font-family: "GT America Bold";
+  src: url("/fonts/GT-America-Bold.otf");
+}
+
+.f-gtam-thin {
+  font-family: "GT America Thin";
+}
+.f-gtam-regular {
+  font-family: "GT America Regular";
+}
+.f-gtam-medium {
+  font-family: "GT America Medium";
+}
+.f-gtam-bold {
+  font-family: "GT America Bold";
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  width: 100vw;
+  overflow-x: hidden;
+}
+textarea:hover,
+input:hover,
+textarea:active,
+input:active,
+textarea:focus,
+input:focus,
+button:focus,
+button:active,
+button:hover,
+label:focus,
+.btn:active,
+.btn.active {
+  outline: 0px !important;
+  -webkit-appearance: none;
+  box-shadow: none !important;
+}
+.container {
+  padding: 0;
+}

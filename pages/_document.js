@@ -11,6 +11,7 @@ export default class MyDocument extends Document {
             integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
             crossOrigin="anonymous"
           />
+          <link rel="stylesheet" href="../public/css/global.css" />
         </Head>
         <body>
           <Main />
