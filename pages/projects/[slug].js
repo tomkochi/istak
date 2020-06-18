@@ -282,6 +282,17 @@ const Project = (props) => {
           {/* .container */}
         </section>
         {/* section.photos */}
+        <section className="bottom-para">
+          <div className="container">
+            <p className="f-gtam-thin">
+              Karl Andreassen, framkvæmdastjóri Ístaks, Charlotte Ludvigsen,
+              borgarstjóri sveitarfélagsins Sermersooq, sem Nuuk tilheyrir, og
+              Hermann Sigurðsson yfirverkfræðingur Ístaks á verkstað.
+            </p>
+          </div>
+          {/* .container */}
+        </section>
+        {/* .bottom-para */}
         <BottomPick />
       </div>
       {/* .project */}
@@ -412,6 +423,16 @@ const Project = (props) => {
             font-size: 20px;
             color: $brand;
             width: 150px;
+          }
+        }
+        section.bottom-para {
+          p {
+            font-size: 18px;
+            color: $black;
+            max-width: 550px;
+            margin: 0 auto;
+            text-align: center;
+            margin-bottom: 140px;
           }
         }
       `}</style>
