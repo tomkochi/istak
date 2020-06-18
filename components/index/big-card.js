@@ -30,7 +30,7 @@ const BigCard = ({
               <h2 className="f-gtam-bold">{heading}</h2>
               <p className="f-gtam-thin">{para}</p>
               <h3 className="f-gtam-medium d-flex align-items-center">
-                <div className="arrow d-flex align-items-center justify-content-center">
+                <div className="icon d-flex align-items-center justify-content-center">
                   <svg
                     width="13"
                     height="12"
@@ -110,7 +110,7 @@ const BigCard = ({
                 font-size: 18px;
                 color: $brand;
                 line-height: 120%;
-                .arrow {
+                .icon {
                   width: 42px;
                   height: 42px;
                   border: 1px solid rgba(32, 79, 156, 0.2);
