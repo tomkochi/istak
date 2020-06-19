@@ -1,6 +1,26 @@
-import Dropdown from "react-dropdown";
+import { useState, useEffect, useRef } from "react";
 
 const Filter = (props) => {
+  const options = ["Raða eftir", "Nýtt fyrst", "Gamalt fyrst"];
+  const [selection, setSelection] = useState(options[0]);
+  const [showDropdown, setShowDropdown] = useState(false);
+  const dropdownRef = useRef();
+
+  const handleOutsideClick = (e) => {
+    if (dropdownRef.current.contains(e.target)) return;
+    setShowDropdown(false);
+  };
+
+  useEffect(() => {
+    if (showDropdown) {
+      document.addEventListener("click", handleOutsideClick, false);
+      console.log("Added");
+    } else {
+      document.removeEventListener("click", handleOutsideClick, false);
+      console.log("Removed");
+    }
+  }, [showDropdown]);
+
   return (
     <>
       <div className="filter">
@@ -27,13 +47,56 @@ const Filter = (props) => {
           </div>
           {/* .left */}
           <div className="right f-gtam-medium">
-            <div className="sort">
-              <Dropdown
-                options={["Raða eftir", "Nýtt fyrst", "Gamalt fyrst"]}
-                value={"Raða eftir"}
-                className="sort-dropdown f-cap-b"
-                menuClassName="sortby"
-              />
+            <div className="sort" ref={dropdownRef}>
+              <div
+                className="d-flex align-items-center"
+                onClick={() => setShowDropdown(!showDropdown)}
+              >
+                <h4 className="f-gtam-medium">{selection}</h4>
+                <div className={`icon ${showDropdown ? "showing" : ""}`}>
+                  <svg
+                    width="42"
+                    height="42"
+                    viewBox="0 0 42 42"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <circle
+                      opacity="0.2"
+                      r="20.5"
+                      transform="matrix(-1 0 0 1 21 21)"
+                      stroke="#204F9C"
+                    />
+                    <path
+                      d="M26 19L21 24L16 19"
+                      stroke="#204F9C"
+                      stroke-width="2"
+                    />
+                  </svg>
+                </div>
+              </div>
+              <ul
+                className={`sort-dropdown list-unstyled ${
+                  showDropdown ? "show" : ""
+                }`}
+              >
+                {options.map((o, i) => {
+                  return (
+                    <li
+                      className="sort-item f-gtam-bold"
+                      key={i}
+                      onClick={() => {
+                        if (selection !== o) {
+                          setSelection(o);
+                          setShowDropdown(false);
+                        }
+                      }}
+                    >
+                      {o}
+                    </li>
+                  );
+                })}
+              </ul>
             </div>
             {/* .sort */}
           </div>
@@ -82,72 +145,46 @@ const Filter = (props) => {
             line-height: 120%;
             color: $brand;
             .sort {
-            }
-          }
-        }
-      `}</style>
-
-      <style jsx global>{`
-        $brand: #204f9c;
-
-        .sort-dropdown {
-          color: $brand;
-          border: none;
-          background: transparent;
-          padding: 0;
-          cursor: pointer;
-          .Dropdown-control {
-            position: relative;
-            transform: translate(-54px);
-            &:after {
-              content: "";
-              position: absolute;
-              right: -60px;
-              top: -10px;
-              width: 42px;
-              height: 42px;
-              display: block;
-              background: url("/img/caret-down-blue.svg") no-repeat center;
-              -webkit-transform: rotate(0deg);
-              -moz-transform: rotate(0deg);
-              -ms-transform: rotate(0deg);
-              -o-transform: rotate(0deg);
-              transform: rotate(0deg);
-              -webkit-transition: all 0.5s;
-              -moz-transition: all 0.5s;
-              -ms-transition: all 0.5s;
-              -o-transition: all 0.5s;
-              transition: all 0.5s;
-            }
-          }
-          .sortby {
-            position: absolute;
-            transform: translate(-60px, 20px);
-            padding: 12px 0;
-            overflow: hidden;
-            text-align: left;
-            background: white;
-            color: $brand;
-            min-width: 180px;
-            z-index: 4000;
-            box-shadow: 0px 17px 50px rgba(0, 0, 0, 0.05);
-            .Dropdown-option {
-              font-family: "GT America Bold";
-              padding: 12px;
-              color: $brand;
-              background: white;
-              &:hover {
-                background: #d1d1d1;
+              position: relative;
+              cursor: pointer;
+              h4 {
+                font-size: 18px;
+                line-height: 120%;
+                color: $brand;
               }
-            }
-          }
-          &.is-open {
-            .Dropdown-control:after {
-              -webkit-transform: rotate(180deg);
-              -moz-transform: rotate(180deg);
-              -ms-transform: rotate(180deg);
-              -o-transform: rotate(180deg);
-              transform: rotate(180deg);
+              .icon {
+                margin-left: 15px;
+                transition: all 0.3s;
+                &.showing {
+                  transform: rotate(180deg);
+                }
+              }
+              .sort-dropdown {
+                position: absolute;
+                right: 0;
+                top: 60px;
+                width: 223px;
+                background: white;
+                box-shadow: 0px 17px 50px rgba(0, 0, 0, 0.05);
+                padding: 15px 0;
+                transform: scaleY(0);
+                transform-origin: 0 0;
+                opacity: 0;
+                z-index: 4000;
+                transition: all 0.3s;
+                &.show {
+                  transform: scaleY(1);
+                  opacity: 1;
+                }
+                .sort-item {
+                  font-size: 18px;
+                  background: white;
+                  padding: 10px 25px;
+                  &:hover {
+                    background: rgb(205, 205, 205);
+                  }
+                }
+              }
             }
           }
         }

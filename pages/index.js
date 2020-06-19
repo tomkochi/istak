@@ -1,7 +1,7 @@
 import Layout from "../components/Layout";
 import Hero from "../components/index/hero";
 import BlueParaOnWhite from "../components/index/blue-para-on-white";
-import BigCard from "../components/index/big-card";
+import BigCard from "../components/big-card";
 import ServiceDepartments from "../components/index/service-departments";
 import Projects from "../components/index/projects";
 import BottomPick from "../components/bottom-pick";
@@ -26,6 +26,7 @@ const Index = (props) => {
         link="Laus störf"
       />
       <ServiceDepartments
+        id="servide-dept"
         image="/img/services.jpg"
         departments={[
           "Innkaupadeild",
@@ -57,7 +58,12 @@ const Index = (props) => {
           },
         ]}
       />
-      <BottomPick image="" heading="" para="" />
+      <BottomPick
+        image="/img/bottom-pick.jpg"
+        title="Saga stofnun Ístaks"
+        para="Myndband um stofnendur og uppruna Ístaks árið 1970."
+        video="my-video-url"
+      />
     </Layout>
   );
 };

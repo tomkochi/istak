@@ -29,24 +29,26 @@ const BigCard = ({
             <div className="wrapper">
               <h2 className="f-gtam-bold">{heading}</h2>
               <p className="f-gtam-thin">{para}</p>
-              <h3 className="f-gtam-medium d-flex align-items-center">
-                <div className="icon d-flex align-items-center justify-content-center">
-                  <svg
-                    width="13"
-                    height="12"
-                    viewBox="0 0 13 12"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M0 6H11M11 6L5.92308 1M11 6L5.92308 11"
-                      stroke="#204F9C"
-                      stroke-width="1.75"
-                    />
-                  </svg>
-                </div>
-                {link}
-              </h3>
+              {link && (
+                <h3 className="f-gtam-medium d-flex align-items-center">
+                  <div className="icon d-flex align-items-center justify-content-center">
+                    <svg
+                      width="13"
+                      height="12"
+                      viewBox="0 0 13 12"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M0 6H11M11 6L5.92308 1M11 6L5.92308 11"
+                        stroke="#204F9C"
+                        stroke-width="1.75"
+                      />
+                    </svg>
+                  </div>
+                  {link}
+                </h3>
+              )}
             </div>
             {/* .wrapper */}
           </div>

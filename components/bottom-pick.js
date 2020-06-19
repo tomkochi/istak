@@ -1,27 +1,44 @@
-const BottomPick = (props) => {
+const BottomPick = ({ image, title, para, video }) => {
   return (
     <>
       <div className="bottom-pick d-flex align-items-center">
-        <img src="/img/bottom-pick.jpg" alt="" />
+        <img src={image} alt="" />
         <div className="container">
-          <div className="content">
-            <h2 className="f-gtam-bold">Saga stofnun Ístaks</h2>
-            <p className="f-gtam-thin">
-              Myndband um stofnendur og uppruna Ístaks árið 1970.
-            </p>
-            <div className="play-video d-flex align-items-center">
+          <div className="content" style={{ width: video ? "437px" : "404px" }}>
+            <h2 className="f-gtam-bold">{title}</h2>
+            {para && <p className="f-gtam-thin">{para}</p>}
+            <div className="d-flex align-items-center">
               <div className="icon d-flex align-items-center justify-content-center">
-                <svg
-                  width="8"
-                  height="10"
-                  viewBox="0 0 8 10"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M0 0L8 5L0 10V0Z" fill="white" />
-                </svg>
+                {video && (
+                  <svg
+                    width="8"
+                    height="10"
+                    viewBox="0 0 8 10"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="M0 0L8 5L0 10V0Z" fill="white" />
+                  </svg>
+                )}
+                {!video && (
+                  <svg
+                    width="13"
+                    height="12"
+                    viewBox="0 0 13 12"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M0 5.99951H11M11 5.99951L5.92308 0.999512M11 5.99951L5.92308 10.9995"
+                      stroke="white"
+                      stroke-width="1.75"
+                    />
+                  </svg>
+                )}
               </div>
-              <h3 className="f-gtam-medium">Spila myndband</h3>
+              <h3 className="f-gtam-medium">
+                {video ? "Spila myndband" : "Sjá öll verkefni"}
+              </h3>
             </div>
             {/* .play-video */}
           </div>
@@ -72,7 +89,6 @@ const BottomPick = (props) => {
           }
           .content {
             position: relative;
-            width: 440px;
             padding: 50px;
             background: $brand;
             color: white;

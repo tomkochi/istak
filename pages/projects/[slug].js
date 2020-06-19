@@ -293,14 +293,16 @@ const Project = (props) => {
           {/* .container */}
         </section>
         {/* .bottom-para */}
-        <BottomPick />
+        <BottomPick
+          image="/img/bottom-pick.jpg"
+          title="Viltu sjá fleiri verkefni?"
+        />
       </div>
       {/* .project */}
 
       <style jsx>{`
         $brand: #204f9c;
         $black: #202020;
-        $tst: 120px;
 
         section.hero {
           margin-top: 150px;

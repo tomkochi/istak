@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const ServiceDepartments = ({ departments, image }) => {
   return (
     <>
@@ -10,9 +12,19 @@ const ServiceDepartments = ({ departments, image }) => {
           <div className="text">
             <div className="wrapper">
               <h3 className="f-gtam-medium">Þjónustudeildir</h3>
-              {departments.map((d, i) => {
-                return <h2 className="f-gtam-bold">{d}</h2>;
-              })}
+              <ul className="list-unstyled">
+                {departments.map((d, i) => {
+                  return (
+                    <li className="f-gtam-bold">
+                      <h2>
+                        <Link href="#" passHref>
+                          <a>{d}</a>
+                        </Link>
+                      </h2>
+                    </li>
+                  );
+                })}
+              </ul>
             </div>
             {/* .wrapper */}
           </div>
@@ -61,9 +73,15 @@ const ServiceDepartments = ({ departments, image }) => {
               }
               h2 {
                 font-size: 36px;
-                color: $brand;
                 line-height: 120%;
                 margin-bottom: 23px;
+                a {
+                  color: $brand;
+                  transition: all 0.2s;
+                  &:hover {
+                    opacity: 0.6;
+                  }
+                }
               }
             }
           }

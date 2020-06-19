@@ -7,9 +7,90 @@ const Hero = () => {
         <div className="header">
           <Header />
         </div>
-        <div className="carousel slide" data-pause="false" data-ride="carousel">
+        <div className="carousel slide" data-pause="false">
           <div className="carousel-inner">
             <div className="carousel-item active">
+              <img src="/img/home-hero-image.jpg" alt="" />
+              <div className="container">
+                <div className="carousel-caption d-flex justify-content-between">
+                  <div className="blue-box">
+                    <h2 className="f-gtam-bold">
+                      Brautriðjandi á Íslandi í 50 ár
+                    </h2>
+                    <p className="f-gtam-thin">
+                      Við erum orðin 50 ára! Við fögnum því með nýjum og
+                      glæsilegum vef. Kynntu þér stærstu áfanga okkar síðustu
+                      áratuga.
+                    </p>
+                    <div className="link  d-flex align-items-center">
+                      <div className="icon  d-flex align-items-center justify-content-center">
+                        <svg
+                          width="13"
+                          height="12"
+                          viewBox="0 0 13 12"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M0 6H11M11 6L5.92308 1M11 6L5.92308 11"
+                            stroke="white"
+                            stroke-width="1.75"
+                          />
+                        </svg>
+                      </div>
+                      <h3 className="f-gtam-regular">Sjáðu söguna</h3>
+                    </div>
+                  </div>
+                  {/* .blue-box */}
+                  <div className="links text-right align-self-end">
+                    <div className="name f-gtam-medium">
+                      Búrfell – Valdi, Þorvaldur K, Helgi Laxdal
+                    </div>
+                    <div className="year f-gtam-medium">1971</div>
+                    <div className="controls">
+                      <a href=".carousel" role="button" data-slide="prev">
+                        <div className="icon d-flex align-items-center justify-content-center">
+                          <svg
+                            width="10"
+                            height="10"
+                            viewBox="0 0 10 10"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M1.93846 5L6 1M1.93846 5L6 9M1.93846 5H10"
+                              stroke="white"
+                              stroke-width="1.5"
+                            />
+                          </svg>
+                        </div>
+                      </a>
+                      <a href=".carousel" role="button" data-slide="next">
+                        <div className="icon d-flex align-items-center justify-content-center">
+                          <svg
+                            width="10"
+                            height="10"
+                            viewBox="0 0 10 10"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M8.06154 5L4 1M8.06154 5L4 9M8.06154 5H0"
+                              stroke="white"
+                              stroke-width="1.5"
+                            />
+                          </svg>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                  {/* .links */}
+                </div>
+                {/* .carousel-caption */}
+              </div>
+              {/* .container */}
+            </div>
+            <div className="carousel-item">
               <img src="/img/home-hero-image.jpg" alt="" />
               <div className="container">
                 <div className="carousel-caption d-flex justify-content-between">
@@ -149,7 +230,7 @@ const Hero = () => {
               text-align: left;
               bottom: 20%;
               transition: all 0.3s;
-              z-index: 12000;
+              z-index: 300;
               .blue-box {
                 background: $brand;
                 max-width: 465px;
