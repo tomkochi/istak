@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const ArticleCard = ({ image, title, link }) => {
+const NewsCard = ({ image, title, link }) => {
   return (
     <>
       <div className="article-card container">
@@ -95,4 +95,4 @@ const ArticleCard = ({ image, title, link }) => {
   );
 };
 
-export default ArticleCard;
+export default NewsCard;

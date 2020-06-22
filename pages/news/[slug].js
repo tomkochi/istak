@@ -1,5 +1,4 @@
 import Layout from "../../components/Layout";
-import ArticleCard from "../../components/articles/article-card";
 import Link from "next/link";
 
 const Article = (props) => {
