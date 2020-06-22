@@ -1,13 +1,29 @@
 const BottomPick = ({ image, title, para, video }) => {
   return (
     <>
-      <div className="bottom-pick d-flex align-items-center">
+      <div
+        className="bottom-pick d-flex align-items-center wow fadeIn"
+        data-wow-duration="3s"
+      >
         <img src={image} alt="" />
         <div className="container">
-          <div className="content" style={{ width: video ? "437px" : "404px" }}>
-            <h2 className="f-gtam-bold">{title}</h2>
-            {para && <p className="f-gtam-thin">{para}</p>}
-            <div className="d-flex align-items-center">
+          <div
+            className="content wow fadeIn"
+            data-wow-duration="3s"
+            style={{ width: video ? "437px" : "404px" }}
+          >
+            <h2 className="f-gtam-bold wow fadeInUp" data-wow-delay="1s">
+              {title}
+            </h2>
+            {para && (
+              <p className="f-gtam-thin wow fadeInUp" data-wow-delay="2s">
+                {para}
+              </p>
+            )}
+            <div
+              className="d-flex align-items-center wow fadeInUp"
+              data-wow-delay="3s"
+            >
               <div className="icon d-flex align-items-center justify-content-center">
                 {video && (
                   <svg
@@ -31,7 +47,7 @@ const BottomPick = ({ image, title, para, video }) => {
                     <path
                       d="M0 5.99951H11M11 5.99951L5.92308 0.999512M11 5.99951L5.92308 10.9995"
                       stroke="white"
-                      stroke-width="1.75"
+                      strokeWidth="1.75"
                     />
                   </svg>
                 )}

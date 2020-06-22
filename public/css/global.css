@@ -65,4 +65,6 @@ a {
 }
 .container {
   padding: 0;
+  width: calc(100vw - 100px);
+  max-width: 1300px;
 }

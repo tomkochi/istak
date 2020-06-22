@@ -1,7 +1,7 @@
 const BlueParaOnWhite = ({ para }) => {
   return (
     <>
-      <div className="blue-para">
+      <div className="blue-para wow flipInX" data-wow-duration="2s">
         <p className="f-gtam-bold">{para}</p>
       </div>
       <style jsx>{`

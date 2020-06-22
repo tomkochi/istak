@@ -26,7 +26,7 @@ const Project = (props) => {
     <Layout>
       <div className="project">
         <section className="hero container">
-          <div className="nav-back">
+          <div className="nav-back wow fadeIn" data-wow-delay="1s">
             <Link href="/projects" passHref>
               <a href="#" className="d-flex align-items-center">
                 <div className="icon d-flex align-items-center justify-content-center">
@@ -40,7 +40,7 @@ const Project = (props) => {
                     <path
                       d="M13 6H2M2 6L7.07692 1M2 6L7.07692 11"
                       stroke="#204F9C"
-                      stroke-width="1.75"
+                      strokeWidth="1.75"
                     />
                   </svg>
                 </div>
@@ -49,18 +49,20 @@ const Project = (props) => {
             </Link>
           </div>
           {/* .nav-back */}
-          <h1 className="f-gtam-bold">Flugstöð Leyfs Eiríkssonar</h1>
+          <h1 className="f-gtam-bold wow fadeInUp">
+            Flugstöð Leyfs Eiríkssonar
+          </h1>
         </section>
         {/* .hero */}
 
-        <section className="image">
+        <section className="image wow fadeInUp">
           <img src="/img/services.jpg" alt="" />
         </section>
         {/* .image */}
 
         <section className="main">
           <div className="container">
-            <div className="project-details">
+            <div className="project-details wow fadeInUp">
               <div className="head d-flex">
                 <div className="text">
                   <h4>Verkkaupi</h4>
@@ -83,8 +85,8 @@ const Project = (props) => {
             {/* .project-details */}
 
             <div className="matter">
-              <h2>Verklýsing</h2>
-              <p>
+              <h2 className="wow fadeInUp">Verklýsing</h2>
+              <p className="wow fadeInUp">
                 Verkið – Flugstöð Leifs Eiríkssonar – Norðurbygging – er áfangi
                 í u.þ.b. 4300 fermetra stækkun norðurbyggingar Flugstöðvar Leifs
                 Eiríkssonar og snýr annars vegar að viðbyggingu til suðvesturs
@@ -94,7 +96,7 @@ const Project = (props) => {
                 inngangi flugstöðvarinnar og rífa vegg sem skilur að núverandi
                 þjónustuinngang og brottfararumferð.
               </p>
-              <p>
+              <p className="wow fadeInUp">
                 Húsið verður stálgrindarhús klætt með yleiningum
                 (samlokueiningar). Innveggir verða byggðir úr blikkstoðum,
                 eldvarnarspónaplötum og efni sem þolir mikinn ágang. Kerfisloft
@@ -102,14 +104,14 @@ const Project = (props) => {
                 Byggingin mun verða fullloftræst, með góðri hljóðeinangrun og
                 frágengin með slitsterkum efnum.
               </p>
-              <p>
+              <p className="wow fadeInUp">
                 Viðbygging til suðausturs verður á einni hæð með staðsteyptum
                 undirstöðum, núverandi flughlað verður nýtt sem botnplata.
               </p>
             </div>
             {/* .matter */}
 
-            <div className="key-figures">
+            <div className="key-figures wow fadeInUp">
               <h2>Helstu magntölur</h2>
               <div className="figure">
                 <h4>Uppgröftur</h4>
@@ -173,7 +175,7 @@ const Project = (props) => {
             </div>
             {/* .key-figures */}
 
-            <div className="consultants">
+            <div className="consultants wow fadeInUp">
               <h2>Ráðgjafar</h2>
               <div className="consultant-details d-flex flex-wrap">
                 <div className="consultant">
@@ -205,26 +207,26 @@ const Project = (props) => {
         </section>
         {/* section.main */}
 
-        <section className="photos">
+        <section className="photos wow fadeInUp">
           <div className="container">
             <div className="slider">
               <div
-                class="carousel slide"
+                className="carousel slide"
                 data-ride="carousel"
                 data-interval="false"
               >
-                <div class="carousel-inner">
-                  <div class="carousel-item active">
+                <div className="carousel-inner">
+                  <div className="carousel-item active">
                     <img
                       src="/img/project-photo-1.jpg"
-                      class="d-block w-100"
+                      className="d-block w-100"
                       alt="..."
                     />
                   </div>
-                  <div class="carousel-item">
+                  <div className="carousel-item">
                     <img
                       src="/img/project-photo-1.jpg"
-                      class="d-block w-100"
+                      className="d-block w-100"
                       alt="..."
                     />
                   </div>
@@ -249,7 +251,7 @@ const Project = (props) => {
                   <path
                     d="M13 6H2M2 6L7.07692 1M2 6L7.07692 11"
                     stroke="#204F9C"
-                    stroke-width="1.75"
+                    strokeWidth="1.75"
                   />
                 </svg>
               </a>
@@ -272,7 +274,7 @@ const Project = (props) => {
                   <path
                     d="M0 6H11M11 6L5.92308 1M11 6L5.92308 11"
                     stroke="#204F9C"
-                    stroke-width="1.75"
+                    strokeWidth="1.75"
                   />
                 </svg>
               </a>

@@ -23,7 +23,7 @@ const Filter = (props) => {
 
   return (
     <>
-      <div className="filter">
+      <div className="filter wow fadeIn" data-wow-duration="2s">
         <div className="container d-flex justify-content-between align-items-center">
           <div className="left d-flex">
             <div className="icon d-flex align-items-center justify-content-center">
@@ -35,7 +35,7 @@ const Filter = (props) => {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <circle cx="6" cy="6" r="5" stroke="#204F9C" stroke-width="2" />
-                <path d="M10 10L13.5 13.5" stroke="#204F9C" stroke-width="2" />
+                <path d="M10 10L13.5 13.5" stroke="#204F9C" strokeWidth="2" />
               </svg>
             </div>
             {/* .icon */}
@@ -70,7 +70,7 @@ const Filter = (props) => {
                     <path
                       d="M26 19L21 24L16 19"
                       stroke="#204F9C"
-                      stroke-width="2"
+                      strokeWidth="2"
                     />
                   </svg>
                 </div>

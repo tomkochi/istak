@@ -3,13 +3,18 @@ const Contact = (props) => {
     <>
       <div className="contact-card">
         <div className="wrapper d-flex align-items-center">
-          <div className="image">
+          <div className="image wow fadeIn">
             <img src="/img/contact-photo.jpg" alt="" />
-            <div className="overlay f-gtam-bold">Tengiliður</div>
+            <div
+              className="overlay f-gtam-bold wow fadeInLeft"
+              data-wow-delay="1s"
+            >
+              Tengiliður
+            </div>
             {/* .overlay */}
           </div>
           {/* .image */}
-          <div className="text">
+          <div className="text wow fadeInUp" data-wow-delay="2s">
             <div className="name f-gtam-bold">
               Ingibjörg Birna Kjartansdóttir
             </div>

@@ -22,7 +22,12 @@ const Services = (props) => {
           para="Gerð BIM líkana fyrir hönnun, framleiðslu og magntöku, þ.m.t stafræn járnabinding. Árekstrargreiningar og samræming. Notkun sýndarveruleika. Umsýsla með verkefnavefslausnum."
         />
         <Contact />
-        <BottomPick />
+        <BottomPick
+          image="/img/bottom-pick.jpg"
+          title="Saga stofnun Ístaks"
+          para="Myndband um stofnendur og uppruna Ístaks árið 1970."
+          video="my-video-url"
+        />
       </Layout>
     </>
   );

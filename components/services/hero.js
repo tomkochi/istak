@@ -4,7 +4,7 @@ const Hero = (props) => {
   return (
     <>
       <div className="hero container">
-        <div className="nav-back">
+        <div className="nav-back wow fadeIn" data-wow-delay="1s">
           <Link href="/" passHref>
             <a href="#" className="d-flex align-items-center">
               <div className="icon d-flex align-items-center justify-content-center">
@@ -18,7 +18,7 @@ const Hero = (props) => {
                   <path
                     d="M13 6H2M2 6L7.07692 1M2 6L7.07692 11"
                     stroke="#204F9C"
-                    stroke-width="1.75"
+                    strokeWidth="1.75"
                   />
                 </svg>
               </div>
@@ -27,7 +27,7 @@ const Hero = (props) => {
           </Link>
         </div>
         {/* .nav-back */}
-        <h1 className="f-gtam-bold">BIM upplýsingatækni</h1>
+        <h1 className="f-gtam-bold wow fadeInUp">BIM upplýsingatækni</h1>
       </div>
       {/* .hero */}
       <style jsx>{`

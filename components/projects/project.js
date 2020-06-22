@@ -1,7 +1,7 @@
-const Project = ({ image, year, name }) => {
+const Project = ({ image, year, name, index }) => {
   return (
     <>
-      <div className="project">
+      <div className="project wow fadeInUp">
         <img src={image} alt="" />
         <div className="overlay">
           <div className="year f-gtam-regular">{year}</div>
@@ -13,7 +13,11 @@ const Project = ({ image, year, name }) => {
           width: 50%;
           height: 600px;
           position: relative;
+          &:hover:before {
+            opacity: 0;
+          }
           &:before {
+            transition: all 0.3s;
             content: "";
             position: absolute;
             left: 0;
@@ -48,6 +52,7 @@ const Project = ({ image, year, name }) => {
             position: absolute;
             left: 60px;
             bottom: 60px;
+            width: auto;
             z-index: 3000;
             .year {
               font-size: 18px;

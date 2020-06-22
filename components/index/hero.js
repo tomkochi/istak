@@ -1,4 +1,5 @@
 import Header from "../home-header";
+import { useEffect } from "react";
 
 const Hero = () => {
   return (
@@ -34,7 +35,7 @@ const Hero = () => {
                           <path
                             d="M0 6H11M11 6L5.92308 1M11 6L5.92308 11"
                             stroke="white"
-                            stroke-width="1.75"
+                            strokeWidth="1.75"
                           />
                         </svg>
                       </div>
@@ -60,7 +61,7 @@ const Hero = () => {
                             <path
                               d="M1.93846 5L6 1M1.93846 5L6 9M1.93846 5H10"
                               stroke="white"
-                              stroke-width="1.5"
+                              strokeWidth="1.5"
                             />
                           </svg>
                         </div>
@@ -77,7 +78,7 @@ const Hero = () => {
                             <path
                               d="M8.06154 5L4 1M8.06154 5L4 9M8.06154 5H0"
                               stroke="white"
-                              stroke-width="1.5"
+                              strokeWidth="1.5"
                             />
                           </svg>
                         </div>
@@ -115,7 +116,7 @@ const Hero = () => {
                           <path
                             d="M0 6H11M11 6L5.92308 1M11 6L5.92308 11"
                             stroke="white"
-                            stroke-width="1.75"
+                            strokeWidth="1.75"
                           />
                         </svg>
                       </div>
@@ -141,7 +142,7 @@ const Hero = () => {
                             <path
                               d="M1.93846 5L6 1M1.93846 5L6 9M1.93846 5H10"
                               stroke="white"
-                              stroke-width="1.5"
+                              strokeWidth="1.5"
                             />
                           </svg>
                         </div>
@@ -158,7 +159,7 @@ const Hero = () => {
                             <path
                               d="M8.06154 5L4 1M8.06154 5L4 9M8.06154 5H0"
                               stroke="white"
-                              stroke-width="1.5"
+                              strokeWidth="1.5"
                             />
                           </svg>
                         </div>
@@ -181,7 +182,7 @@ const Hero = () => {
         .hero {
           width: 100%;
           height: 100vh;
-          background: red;
+          background: $brand;
           overflow: hidden;
           position: relative;
           &:after {
@@ -236,7 +237,6 @@ const Hero = () => {
                 max-width: 465px;
                 padding: 50px;
                 box-shadow: 0px 34px 94px rgba(0, 0, 0, 0.3);
-
                 h2 {
                   font-size: 48px;
                   line-height: 120%;
@@ -287,6 +287,60 @@ const Hero = () => {
                     }
                   }
                 }
+              }
+            }
+          }
+
+          /* animation starts here */
+          .carousel-item {
+            .carousel-caption {
+              .blue-box {
+                opacity: 0;
+                transform: translateX(-100%);
+                transition: all 2s;
+                h2 {
+                  opacity: 0;
+                  transform: translateY(100%);
+                  transition: all 1s;
+                  transition-delay: 2s;
+                }
+                p {
+                  opacity: 0;
+                  transform: translateY(100%);
+                  transition: all 1s;
+                  transition-delay: 3s;
+                }
+                .link {
+                  opacity: 0;
+                  transition: all 2s;
+                  transition-delay: 4s;
+                }
+              }
+              .links {
+                opacity: 0;
+                transform: translateX(100%);
+                transition: all 2s;
+              }
+            }
+            &.active .carousel-caption {
+              .blue-box {
+                opacity: 1;
+                transform: translateX(0);
+                h2 {
+                  opacity: 1;
+                  transform: translateY(0);
+                }
+                p {
+                  opacity: 1;
+                  transform: translateY(0);
+                }
+                .link {
+                  opacity: 1;
+                }
+              }
+              .links {
+                opacity: 1;
+                transform: translateX(0);
               }
             }
           }

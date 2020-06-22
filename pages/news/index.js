@@ -1,6 +1,6 @@
 import Layout from "../../components/Layout";
-import Hero from "../../components/articles/hero";
-import ArticleCard from "../../components/articles/article-card";
+import Hero from "../../components/news/hero";
+import ArticleCard from "../../components/news/news-card";
 
 const Index = (props) => {
   return (

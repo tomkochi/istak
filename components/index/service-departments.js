@@ -5,17 +5,21 @@ const ServiceDepartments = ({ departments, image }) => {
     <>
       <div className="service-dept">
         <div className="d-flex align-items-center">
-          <div className="image">
+          <div className="image wow fadeInUp">
             <img src={image} alt="" />
           </div>
           {/* .image */}
-          <div className="text">
+          <div className="text wow fadeInRight">
             <div className="wrapper">
-              <h3 className="f-gtam-medium">Þjónustudeildir</h3>
+              <h3 className="f-gtam-medium wow fadeInUp">Þjónustudeildir</h3>
               <ul className="list-unstyled">
                 {departments.map((d, i) => {
                   return (
-                    <li className="f-gtam-bold">
+                    <li
+                      className="f-gtam-bold wow fadeIn"
+                      key={i}
+                      data-wow-duration={`${i}s`}
+                    >
                       <h2>
                         <Link href="#" passHref>
                           <a>{d}</a>
