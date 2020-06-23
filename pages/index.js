@@ -1,7 +1,8 @@
 import Layout from "../components/Layout";
 import Hero from "../components/index/hero";
 import BlueParaOnWhite from "../components/index/blue-para-on-white";
-import BigCard from "../components/big-card";
+import BigCardImageAtRight from "../components/big-card-image-at-right";
+import BigCardImageAtLeftt from "../components/big-card-image-at-left";
 import ServiceDepartments from "../components/index/service-departments";
 import Projects from "../components/index/projects";
 import BottomPick from "../components/bottom-pick";
@@ -11,15 +12,13 @@ const Index = (props) => {
     <Layout>
       <Hero />
       <BlueParaOnWhite para="Við erum leiðandi verktakafyrirtæki sem mætir þörfum framkvæmda af ýmsum toga og veitir bestu þjónustu sem völ er á." />
-      <BigCard
-        image-position="left"
+      <BigCardImageAtRight
         image="/img/big-card-image-1.jpg"
         heading="Ístak byggir skóla í Nuuk"
         para="Byggingin mun þjóna bæði leik- og grunnskólum en jafnframt sem íþrótta- og menningarmiðstöð."
         link="Sjá nánar"
       />
-      <BigCard
-        image-position="right"
+      <BigCardImageAtLeftt
         image="/img/big-card-image-2.jpg"
         heading="Vilt þú vinna hjá Ístak?"
         para="Hjá Ístak starfa yfir 300 starfsfólk  spennandi og fjölbreytt verk."

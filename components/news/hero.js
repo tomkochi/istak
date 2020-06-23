@@ -2,8 +2,10 @@ const Hero = (props) => {
   return (
     <>
       <div className="hero container">
-        <h1 className="f-gtam-bold">Lestu nýjustu greinar og uppfærslur</h1>
-        <div className="search d-flex">
+        <h1 className="f-gtam-bold wow fadeInUp">
+          Lestu nýjustu greinar og uppfærslur
+        </h1>
+        <div className="search d-flex wow fadeInUp" data-wow-delay="1s">
           <div className="icon d-flex align-items-center justify-content-center">
             <svg
               width="15"

@@ -6,7 +6,7 @@ const Article = (props) => {
     <Layout>
       <div className="article">
         <div className="hero container">
-          <div className="nav-back">
+          <div className="nav-back wow fadeInUp">
             <Link href="/articles" passHref>
               <a href="#" className="d-flex align-items-center">
                 <div className="icon d-flex align-items-center justify-content-center">
@@ -29,7 +29,7 @@ const Article = (props) => {
             </Link>
           </div>
           {/* .nav-back */}
-          <div className="article-card">
+          <div className="article-card wow fadeInUp" data-wow-delay="0.5s">
             <div className="wrapper d-flex align-items-center">
               <div className="image">
                 <img src="/img/article-image-1.jpg" alt="" />
@@ -46,7 +46,7 @@ const Article = (props) => {
           {/* .article-card */}
         </div>
         {/* .hero */}
-        <div className="social-sharing">
+        <div className="social-sharing wow fadeInUp">
           <div className="container d-flex align-items-center">
             <h4 className="f-gtam-bold">Deila grein</h4>
             <div className="icons d-flex align-items-center">
@@ -120,43 +120,45 @@ const Article = (props) => {
 
         <div className="contents">
           <div className="container">
-            <p>
-              Í gær var undirritaður samningur á milli ÍSTAKS og NCD í Nuuk um
-              byggingu nýs skóla í Nuuk á Grænlandi.
-            </p>
-            <p>
-              Við erum sérstaklega stolt og ánægð með að hafa landað þessu
-              verkefni en við val á verktaka var tekið tillit til verðs,
-              útfærslu og rekstrarkostnaðar. Samningurinn er upp á 615 MDKK og
-              er því einn af stærstu samningum sem að Ístak hefur tekið að sér.
-              Einnig er þetta stærsti samningur sem að bæjarfélagið Nuuk hefur
-              sett í verk.
-            </p>
-            <p>
-              Byggingin rís við aðalgötuna í Nuuk, við hlið Hótels Hans Egede,
-              en skammt frá eru einnig aðalverslunarmiðstöð bæjarins og
-              skrifstofur landsstjórnar Grænlands.
-            </p>
-            <p>
-              Þetta verður stærsta skólabygging landsins, samtals sextán þúsund
-              fermetrar, og mun bæði þjóna sem leik- og grunnskóli en jafnframt
-              sem íþrótta- og menningarmiðstöð á kvöldin og um helgar fyrir
-              bæjarbúa, sem fá aðgang að svokölluðu hjartarými byggingarinnar og
-              íþróttasal. Verður þetta því bygging sem mun þjóna öllum
-              bæjarbúum, bæði ungum og öldnum
-            </p>
-            <img src="/img/article-immer-image-1.jpg" alt="" />
-            <div className="image-caption">
-              Karl Andreassen, framkvæmdastjóri Ístaks, Charlotte Ludvigsen,
-              borgarstjóri sveitarfélagsins Sermersooq, sem Nuuk tilheyrir, og
-              Hermann Sigurðsson yfirverkfræðingur Ístaks á verkstað.
+            <div className="wow fadeInUp">
+              <p>
+                Í gær var undirritaður samningur á milli ÍSTAKS og NCD í Nuuk um
+                byggingu nýs skóla í Nuuk á Grænlandi.
+              </p>
+              <p>
+                Við erum sérstaklega stolt og ánægð með að hafa landað þessu
+                verkefni en við val á verktaka var tekið tillit til verðs,
+                útfærslu og rekstrarkostnaðar. Samningurinn er upp á 615 MDKK og
+                er því einn af stærstu samningum sem að Ístak hefur tekið að
+                sér. Einnig er þetta stærsti samningur sem að bæjarfélagið Nuuk
+                hefur sett í verk.
+              </p>
+              <p>
+                Byggingin rís við aðalgötuna í Nuuk, við hlið Hótels Hans Egede,
+                en skammt frá eru einnig aðalverslunarmiðstöð bæjarins og
+                skrifstofur landsstjórnar Grænlands.
+              </p>
+              <p>
+                Þetta verður stærsta skólabygging landsins, samtals sextán
+                þúsund fermetrar, og mun bæði þjóna sem leik- og grunnskóli en
+                jafnframt sem íþrótta- og menningarmiðstöð á kvöldin og um
+                helgar fyrir bæjarbúa, sem fá aðgang að svokölluðu hjartarými
+                byggingarinnar og íþróttasal. Verður þetta því bygging sem mun
+                þjóna öllum bæjarbúum, bæði ungum og öldnum
+              </p>
+              <img src="/img/article-immer-image-1.jpg" alt="" />
+              <div className="image-caption">
+                Karl Andreassen, framkvæmdastjóri Ístaks, Charlotte Ludvigsen,
+                borgarstjóri sveitarfélagsins Sermersooq, sem Nuuk tilheyrir, og
+                Hermann Sigurðsson yfirverkfræðingur Ístaks á verkstað.
+              </div>
+              <img src="/img/article-immer-image-2.jpg" alt="" />
+              <div className="image-caption">
+                Rými verður fyrir 1.200 nemendur í grunnskólanum. Utan skólatíma
+                nýtast húsakynnin sem menningarmiðstöð bæjarbúa
+              </div>
             </div>
-            <img src="/img/article-immer-image-2.jpg" alt="" />
-            <div className="image-caption">
-              Rými verður fyrir 1.200 nemendur í grunnskólanum. Utan skólatíma
-              nýtast húsakynnin sem menningarmiðstöð bæjarbúa
-            </div>
-            <div className="more-articles">
+            <div className="more-articles wow fadeInUp">
               <h2>Viltu sjá fleirri greinar?</h2>
               <Link href="/" passHref>
                 <a className="link d-flex justify-content-center align-items-center">
@@ -182,7 +184,7 @@ const Article = (props) => {
               </Link>
             </div>
             {/* .more-articles */}
-            <div className="social-sharing">
+            <div className="social-sharing wow fadeInUp">
               <h2>Deildu á samfélagsmiðlum</h2>
               <div className="icons d-flex align-items-center justify-content-center">
                 <svg

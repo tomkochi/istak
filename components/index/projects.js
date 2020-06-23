@@ -2,7 +2,7 @@ const Projects = ({ para, projects }) => {
   return (
     <>
       <div className="projects-component">
-        <p className="f-gtam-bold wow flipInX">{para}</p>
+        <p className="f-gtam-bold wow fadeInUp">{para}</p>
         <div className="projects d-flex justify-content-center flex-wrap">
           {projects.map((p, i) => {
             return (
@@ -11,7 +11,9 @@ const Projects = ({ para, projects }) => {
                 data-wow-delay={`${i}s`}
                 key={i}
               >
-                <img src={p.image} alt="" />
+                <div className="image">
+                  <img src={p.image} alt="" />
+                </div>
                 <div className="overlay">
                   <div className="year f-gtam-regular">{p.year}</div>
                   <div className="name f-gtam-bold">{p.name}</div>
@@ -67,6 +69,8 @@ const Projects = ({ para, projects }) => {
               height: 600px;
               margin-bottom: 60px;
               cursor: pointer;
+              transition: all 0.5s;
+              overflow: hidden;
               &:not(:first-of-type) {
                 margin-left: 90px;
               }
@@ -107,10 +111,14 @@ const Projects = ({ para, projects }) => {
                   opacity: 0;
                 }
               }
-              img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
+              .image {
+                transition: all 0.5s;
+                overflow: none;
+                img {
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                }
               }
               .overlay {
                 position: absolute;
@@ -122,11 +130,13 @@ const Projects = ({ para, projects }) => {
                   font-size: 18px;
                   color: white;
                   opacity: 0.6;
+                  text-shadow: 0px 14px 19px rgba(0, 0, 0, 0.25);
                 }
                 .name {
                   font-size: 24px;
                   line-height: 120%;
                   color: white;
+                  text-shadow: 0px 14px 19px rgba(0, 0, 0, 0.25);
                 }
               }
             }

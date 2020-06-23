@@ -10,9 +10,12 @@ const NewsCard = ({ image, title, link }) => {
           </div>
           {/* .image */}
           <div className="text">
-            <h2 className="f-gtam-bold">{title}</h2>
+            <h2 className="f-gtam-bold wow faeInUp">{title}</h2>
             <Link href={link} passHref>
-              <a className="link d-flex align-items-center">
+              <a
+                className="link d-flex align-items-center wow fadeInUp"
+                data-wow-delay="0.5s"
+              >
                 <div className="icon d-flex align-items-center justify-content-center">
                   <svg
                     width="13"
@@ -50,15 +53,24 @@ const NewsCard = ({ image, title, link }) => {
                 stroke: white;
               }
             }
+            .image {
+              transform: scale(1.05);
+              img {
+                transform: scale(1.1);
+              }
+            }
           }
           .wrapper {
             .image {
               width: 50%;
               max-width: 650px;
+              overflow: hidden;
+              transition: all 0.5s;
               img {
                 width: 100%;
                 height: 440px;
                 object-fit: cover;
+                transition: all 0.5s;
               }
             }
             .text {

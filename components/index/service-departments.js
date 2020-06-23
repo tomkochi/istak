@@ -44,6 +44,20 @@ const ServiceDepartments = ({ departments, image }) => {
           position: relative;
           padding: 90px 0;
           margin: 90px 0;
+          .image {
+            transition: all 0.5s;
+            img {
+              transition: all 0.5s;
+            }
+          }
+          &:hover {
+            .image {
+              transform: scale(1.05);
+              img {
+                transform: scale(1.1);
+              }
+            }
+          }
           &:before {
             content: "";
             position: absolute;
@@ -57,6 +71,7 @@ const ServiceDepartments = ({ departments, image }) => {
           .image {
             width: 50%;
             height: 600px;
+            overflow: hidden;
             img {
               width: 100%;
               height: 100%;

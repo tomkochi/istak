@@ -4,7 +4,7 @@ const Hero = (props) => {
   return (
     <>
       <div className="hero container">
-        <div className="nav-back">
+        <div className="nav-back wow fadeInUp" data-wow-delay="1s">
           <Link href="/" passHref>
             <a href="#" className="d-flex align-items-center">
               <div className="icon d-flex align-items-center justify-content-center">
@@ -27,10 +27,10 @@ const Hero = (props) => {
           </Link>
         </div>
         {/* .nav-back */}
-        <h1 className="f-gtam-bold">
+        <h1 className="f-gtam-bold wow fadeInUp">
           Hjá Ístaki starfa að jafnaði um 350 manns við margvísleg störf
         </h1>
-        <div className="search d-flex">
+        <div className="search d-flex wow fadeInUp" data-wow-delay="1.5s">
           <div className="icon d-flex align-items-center justify-content-center">
             <svg
               width="15"
@@ -79,6 +79,7 @@ const Hero = (props) => {
             line-height: 120%;
             max-width: 750px;
             margin-bottom: 60px;
+            color: $brand;
           }
           .search {
             margin-bottom: 117px;
@@ -98,6 +99,7 @@ const Hero = (props) => {
               padding: 0;
               outline: none;
               box-shadow: none !important;
+              color: $brand;
               &::placeholder {
                 /* Chrome, Firefox, Opera, Safari 10.1+ */
                 color: #5d749a;

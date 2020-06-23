@@ -4,7 +4,14 @@ import { useEffect } from "react";
 const Hero = () => {
   return (
     <>
-      <div className="hero">
+      <div
+        className="hero"
+        style={{
+          background: 'url("/img/home-hero-image.jpg")',
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+        }}
+      >
         <div className="header">
           <Header />
         </div>
@@ -180,9 +187,8 @@ const Hero = () => {
         $brand: #204f9c;
 
         .hero {
-          width: 100%;
+          width: 100vw;
           height: 100vh;
-          background: $brand;
           overflow: hidden;
           position: relative;
           &:after {

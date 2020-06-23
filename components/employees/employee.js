@@ -2,8 +2,8 @@ const Employee = ({ photo, name, designation, email, phone }) => {
   return (
     <>
       <div className="employee">
-        <img src={photo} alt="" />
-        <div className="employee-details">
+        <img src={photo} className="wow fadeInUp" alt="" />
+        <div className="employee-details wow fadeIn">
           <div className="name f-gtam-bold">{name}</div>
           <div className="designation f-gtam-regular">{designation}</div>
           <div className="contact">
