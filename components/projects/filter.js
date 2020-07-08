@@ -1,25 +1,25 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from 'react'
 
 const Filter = (props) => {
-  const options = ["Raða eftir", "Nýtt fyrst", "Gamalt fyrst"];
-  const [selection, setSelection] = useState(options[0]);
-  const [showDropdown, setShowDropdown] = useState(false);
-  const dropdownRef = useRef();
+  const options = ['Raða eftir', 'Nýtt fyrst', 'Gamalt fyrst']
+  const [selection, setSelection] = useState(options[0])
+  const [showDropdown, setShowDropdown] = useState(false)
+  const dropdownRef = useRef()
 
   const handleOutsideClick = (e) => {
-    if (dropdownRef.current.contains(e.target)) return;
-    setShowDropdown(false);
-  };
+    if (dropdownRef.current.contains(e.target)) return
+    setShowDropdown(false)
+  }
 
   useEffect(() => {
     if (showDropdown) {
-      document.addEventListener("click", handleOutsideClick, false);
-      console.log("Added");
+      document.addEventListener('click', handleOutsideClick, false)
+      console.log('Added')
     } else {
-      document.removeEventListener("click", handleOutsideClick, false);
-      console.log("Removed");
+      document.removeEventListener('click', handleOutsideClick, false)
+      console.log('Removed')
     }
-  }, [showDropdown]);
+  }, [showDropdown])
 
   return (
     <>
@@ -34,7 +34,7 @@ const Filter = (props) => {
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <circle cx="6" cy="6" r="5" stroke="#204F9C" stroke-width="2" />
+                <circle cx="6" cy="6" r="5" stroke="#204F9C" strokeWidth="2" />
                 <path d="M10 10L13.5 13.5" stroke="#204F9C" strokeWidth="2" />
               </svg>
             </div>
@@ -49,11 +49,11 @@ const Filter = (props) => {
           <div className="right f-gtam-medium">
             <div className="sort" ref={dropdownRef}>
               <div
-                className="d-flex align-items-center"
+                className="d-none d-lg-flex align-items-center"
                 onClick={() => setShowDropdown(!showDropdown)}
               >
                 <h4 className="f-gtam-medium">{selection}</h4>
-                <div className={`icon ${showDropdown ? "showing" : ""}`}>
+                <div className={`icon ${showDropdown ? 'showing' : ''}`}>
                   <svg
                     width="42"
                     height="42"
@@ -77,7 +77,7 @@ const Filter = (props) => {
               </div>
               <ul
                 className={`sort-dropdown list-unstyled ${
-                  showDropdown ? "show" : ""
+                  showDropdown ? 'show' : ''
                 }`}
               >
                 {options.map((o, i) => {
@@ -87,14 +87,14 @@ const Filter = (props) => {
                       key={i}
                       onClick={() => {
                         if (selection !== o) {
-                          setSelection(o);
-                          setShowDropdown(false);
+                          setSelection(o)
+                          setShowDropdown(false)
                         }
                       }}
                     >
                       {o}
                     </li>
-                  );
+                  )
                 })}
               </ul>
             </div>
@@ -111,6 +111,15 @@ const Filter = (props) => {
 
         .filter {
           margin-bottom: 80px;
+          @media (max-width: 991px) {
+            margin-bottom: 66px;
+          }
+          .container {
+            @media (max-width: 767px) {
+              width: 100vw;
+              padding: 0 20px;
+            }
+          }
           .left {
             .icon {
               width: 42px;
@@ -190,7 +199,7 @@ const Filter = (props) => {
         }
       `}</style>
     </>
-  );
-};
+  )
+}
 
-export default Filter;
+export default Filter

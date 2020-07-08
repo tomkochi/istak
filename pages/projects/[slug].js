@@ -1,26 +1,26 @@
-import Layout from "../../components/Layout";
-import BottomPick from "../../components/bottom-pick";
-import { useRouter } from "next/router";
-import { useState, useEffect } from "react";
-import Link from "next/link";
+import Layout from '../../components/Layout'
+import BottomPick from '../../components/bottom-pick'
+import { useRouter } from 'next/router'
+import { useState, useEffect } from 'react'
+import Link from 'next/link'
 
 const Project = (props) => {
-  const router = useRouter();
-  const { slug } = router.query;
-  const [slides, setSlides] = useState(0);
-  const [slide, setSlide] = useState(1);
+  const router = useRouter()
+  const { slug } = router.query
+  const [slides, setSlides] = useState(0)
+  const [slide, setSlide] = useState(1)
 
   const decCurrent = () => {
-    setSlide(slide === 1 ? slides : slide - 1);
-  };
+    setSlide(slide === 1 ? slides : slide - 1)
+  }
   const incCurrent = () => {
-    setSlide(slide === slides ? 1 : slide + 1);
-  };
+    setSlide(slide === slides ? 1 : slide + 1)
+  }
 
   useEffect(() => {
-    const s = document.getElementsByClassName("carousel-item").length;
-    setSlides(s);
-  }, []);
+    const s = document.getElementsByClassName('carousel-item').length
+    setSlides(s)
+  }, [])
 
   return (
     <Layout>
@@ -74,7 +74,7 @@ const Project = (props) => {
                   <h3>01.11.14 – 01.12.15</h3>
                 </div>
                 {/* .text */}
-                <div className="text">
+                <div className="d-none d-md-block text">
                   <h4>Hlutverk</h4>
                   <h3>Aðalverktaki</h3>
                 </div>
@@ -207,7 +207,7 @@ const Project = (props) => {
         </section>
         {/* section.main */}
 
-        <section className="photos wow fadeInUp">
+        <section className="d-none d-lg-flex photos wow fadeInUp">
           <div className="container">
             <div className="slider">
               <div
@@ -284,7 +284,7 @@ const Project = (props) => {
           {/* .container */}
         </section>
         {/* section.photos */}
-        <section className="bottom-para">
+        <section className="d-none d-lg-flex bottom-para">
           <div className="container">
             <p className="f-gtam-thin">
               Karl Andreassen, framkvæmdastjóri Ístaks, Charlotte Ludvigsen,
@@ -306,10 +306,29 @@ const Project = (props) => {
         $brand: #204f9c;
         $black: #202020;
 
+        .container {
+          @media (max-width: 767px) {
+            width: 100vw;
+            padding: 0 20px;
+          }
+        }
+
         section.hero {
           margin-top: 150px;
+          @media (max-width: 991px) {
+            margin-top: 90px;
+            width: 100vw;
+            padding: 0 30px;
+          }
+          @media (max-width: 991px) {
+            margin-top: 70px;
+            padding: 0 20px;
+          }
           .nav-back {
             margin-bottom: 40px;
+            @media (max-width: 991px) {
+              margin-bottom: 20px;
+            }
             .icon {
               width: 42px;
               height: 42px;
@@ -329,14 +348,31 @@ const Project = (props) => {
             color: $brand;
             max-width: 460px;
             margin-bottom: 100px;
+            @media (max-width: 991px) {
+              font-size: 48px;
+              margin-bottom: 60px;
+            }
+            @media (max-width: 767px) {
+              font-size: 36px;
+              margin-bottom: 40px;
+            }
           }
         }
         section.image {
           margin-bottom: 76px;
+          @media (max-width: 767px) {
+            margin-bottom: 50px;
+          }
           img {
             width: 100%;
             height: 900px;
             object-fit: cover;
+            @media (max-width: 991px) {
+              height: 483px;
+            }
+            @media (max-width: 767px) {
+              height: 362px;
+            }
           }
         }
         section.main {
@@ -348,14 +384,20 @@ const Project = (props) => {
                 margin-bottom: 60px;
                 .text {
                   margin-right: 60px;
+                  @media (max-width: 767px) {
+                    margin-right: 0;
+                    &:first-of-type {
+                      margin-right: 60px;
+                    }
+                  }
                   h4 {
-                    font-family: "GT America Regular";
+                    font-family: 'GT America Regular';
                     font-size: 18px;
                     color: $brand;
                     margin-bottom: 12px;
                   }
                   h3 {
-                    font-family: "GT America Bold";
+                    font-family: 'GT America Bold';
                     font-size: 20px;
                     color: $black;
                   }
@@ -363,16 +405,19 @@ const Project = (props) => {
               }
             }
             h2 {
-              font-family: "GT America Bold";
+              font-family: 'GT America Bold';
               font-size: 24px;
               line-height: 100%;
               color: $brand;
               margin-bottom: 40px;
+              @media (max-width: 767px) {
+                margin-bottom: 30px;
+              }
             }
             .matter {
               margin-bottom: 80px;
               p {
-                font-family: "GT America Regular";
+                font-family: 'GT America Regular';
                 font-size: 18px;
                 color: $black;
                 line-height: 160%;
@@ -384,14 +429,18 @@ const Project = (props) => {
               .figure {
                 width: calc(100% / 3);
                 margin-bottom: 50px;
+                @media (max-width: 767px) {
+                  width: 50%;
+                  margin-bottom: 30px;
+                }
                 h4 {
-                  font-family: "GT America Regular";
+                  font-family: 'GT America Regular';
                   font-size: 18px;
                   color: $brand;
                   margin-bottom: 12px;
                 }
                 h3 {
-                  font-family: "GT America Bold";
+                  font-family: 'GT America Bold';
                   font-size: 20px;
                   color: $black;
                 }
@@ -402,14 +451,18 @@ const Project = (props) => {
               .consultant {
                 width: 50%;
                 margin-bottom: 50px;
+                @media (max-width: 767px) {
+                  width: 100%;
+                  margin-bottom: 30px;
+                }
                 h4 {
-                  font-family: "GT America Regular";
+                  font-family: 'GT America Regular';
                   font-size: 18px;
                   color: $brand;
                   margin-bottom: 12px;
                 }
                 h3 {
-                  font-family: "GT America Bold";
+                  font-family: 'GT America Bold';
                   font-size: 20px;
                   color: $black;
                 }
@@ -441,7 +494,7 @@ const Project = (props) => {
         }
       `}</style>
     </Layout>
-  );
-};
+  )
+}
 
-export default Project;
+export default Project

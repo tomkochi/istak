@@ -1,63 +1,119 @@
-import Header from "../home-header";
-import { useEffect } from "react";
+import Header from '../../components/home-header'
 
-const Hero = () => {
+import Link from 'next/link'
+import { useState, useEffect } from 'react'
+
+const Hero = (props) => {
+  const slides = [
+    {
+      image: '/img/home-hero-image.jpg',
+      heading: 'Brautriðjandi á Íslandi í 50 ár',
+      para:
+        'Við erum orðin 50 ára! Við fögnum því með nýjum og glæsilegum vef. Kynntu þér stærstu áfanga okkar síðustu áratuga.',
+      link: { text: 'Sjáðu söguna', to: '/projects' },
+      name: 'Búrfell – Valdi, Þorvaldur K, Helgi Laxdal',
+      year: '1971',
+    },
+    {
+      image:
+        'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80',
+      heading: 'Brautriðjandi á Íslandi í 50 ár',
+      para:
+        'Við erum orðin 50 ára! Við fögnum því með nýjum og glæsilegum vef. Kynntu þér stærstu áfanga okkar síðustu áratuga.',
+      link: { text: 'Sjáðu söguna', to: '/projects' },
+      name: 'Búrfell – Valdi, Þorvaldur K',
+      year: '1990',
+    },
+  ]
+
+  const [slide, setSlide] = useState(1)
+  const count = slides.length
+  const [loaded, setLoaded] = useState(false)
+
+  const previousSlide = () => {
+    setSlide(slide === 1 ? count : slide - 1)
+    clearInterval(autoSlideTimer)
+  }
+
+  const nextSlide = () => {
+    setSlide(slide === count ? 1 : slide + 1)
+    clearInterval(autoSlideTimer)
+  }
+
+  let autoSlideTimer = setInterval(nextSlide, 8000)
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoaded(true)
+    }, 1000)
+  }, [])
+
   return (
     <>
-      <div
-        className="hero"
-        style={{
-          background: 'url("/img/home-hero-image.jpg")',
-          backgroundPosition: "center",
-          backgroundSize: "cover",
-        }}
-      >
+      <div className="carousel">
         <div className="header">
           <Header />
         </div>
-        <div className="carousel slide" data-pause="false">
-          <div className="carousel-inner">
-            <div className="carousel-item active">
-              <img src="/img/home-hero-image.jpg" alt="" />
-              <div className="container">
-                <div className="carousel-caption d-flex justify-content-between">
-                  <div className="blue-box">
-                    <h2 className="f-gtam-bold">
-                      Brautriðjandi á Íslandi í 50 ár
-                    </h2>
-                    <p className="f-gtam-thin">
-                      Við erum orðin 50 ára! Við fögnum því með nýjum og
-                      glæsilegum vef. Kynntu þér stærstu áfanga okkar síðustu
-                      áratuga.
-                    </p>
-                    <div className="link  d-flex align-items-center">
-                      <div className="icon  d-flex align-items-center justify-content-center">
-                        <svg
-                          width="13"
-                          height="12"
-                          viewBox="0 0 13 12"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M0 6H11M11 6L5.92308 1M11 6L5.92308 11"
-                            stroke="white"
-                            strokeWidth="1.75"
-                          />
-                        </svg>
+        <div className="slides">
+          {slides.map((s, i) => {
+            return (
+              <div className="slide" key={i}>
+                <div className={`image ${slide === i + 1 ? 'active' : ''}`}>
+                  <img src={s.image} alt="" />
+                </div>
+                <div
+                  className={`overlay d-flex align-items-center ${
+                    loaded ? 'loaded' : ''
+                  }`}
+                >
+                  <div className="container d-flex justify-content-between">
+                    <div
+                      className={`blue-box ${slide === i + 1 ? 'active' : ''}`}
+                    >
+                      <h2 className={`${slide === i + 1 ? 'active' : ''}`}>
+                        {s.heading}
+                      </h2>
+                      <p className={`${slide === i + 1 ? 'active' : ''}`}>
+                        {s.para}
+                      </p>
+                      <div
+                        className={`link ${slide === i + 1 ? 'active' : ''}`}
+                      >
+                        <Link href={s.link.to} passHref>
+                          <a className="d-flex align-items-center">
+                            <div className="icon d-flex align-items-center justify-content-center">
+                              <svg
+                                width="13"
+                                height="12"
+                                viewBox="0 0 13 12"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M0 6H11M11 6L5.92308 1M11 6L5.92308 11"
+                                  stroke="white"
+                                  strokeWidth="1.75"
+                                />
+                              </svg>
+                            </div>
+                            {s.link.text}
+                          </a>
+                        </Link>
                       </div>
-                      <h3 className="f-gtam-regular">Sjáðu söguna</h3>
                     </div>
-                  </div>
-                  {/* .blue-box */}
-                  <div className="links text-right align-self-end">
-                    <div className="name f-gtam-medium">
-                      Búrfell – Valdi, Þorvaldur K, Helgi Laxdal
-                    </div>
-                    <div className="year f-gtam-medium">1971</div>
-                    <div className="controls">
-                      <a href=".carousel" role="button" data-slide="prev">
-                        <div className="icon d-flex align-items-center justify-content-center">
+                    {/* .blue-box */}
+                    <div className="navigation d-none d-lg-block align-self-end">
+                      <h3 className={`name ${slide === i + 1 ? 'active' : ''}`}>
+                        {s.name}
+                      </h3>
+                      <h3 className={`year ${slide === i + 1 ? 'active' : ''}`}>
+                        {s.year}
+                      </h3>
+                      <div className="controls d-flex justify-content-end">
+                        <div
+                          className="icon d-flex align-items-center justify-content-center"
+                          onClick={(e) => previousSlide()}
+                        >
                           <svg
                             width="10"
                             height="10"
@@ -72,221 +128,268 @@ const Hero = () => {
                             />
                           </svg>
                         </div>
-                      </a>
-                      <a href=".carousel" role="button" data-slide="next">
-                        <div className="icon d-flex align-items-center justify-content-center">
-                          <svg
-                            width="10"
-                            height="10"
-                            viewBox="0 0 10 10"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M8.06154 5L4 1M8.06154 5L4 9M8.06154 5H0"
-                              stroke="white"
-                              strokeWidth="1.5"
-                            />
-                          </svg>
-                        </div>
-                      </a>
-                    </div>
-                  </div>
-                  {/* .links */}
-                </div>
-                {/* .carousel-caption */}
-              </div>
-              {/* .container */}
-            </div>
-            <div className="carousel-item">
-              <img src="/img/home-hero-image.jpg" alt="" />
-              <div className="container">
-                <div className="carousel-caption d-flex justify-content-between">
-                  <div className="blue-box">
-                    <h2 className="f-gtam-bold">
-                      Brautriðjandi á Íslandi í 50 ár
-                    </h2>
-                    <p className="f-gtam-thin">
-                      Við erum orðin 50 ára! Við fögnum því með nýjum og
-                      glæsilegum vef. Kynntu þér stærstu áfanga okkar síðustu
-                      áratuga.
-                    </p>
-                    <div className="link  d-flex align-items-center">
-                      <div className="icon  d-flex align-items-center justify-content-center">
-                        <svg
-                          width="13"
-                          height="12"
-                          viewBox="0 0 13 12"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
+                        <div
+                          className="icon d-flex align-items-center justify-content-center"
+                          onClick={(e) => nextSlide()}
                         >
-                          <path
-                            d="M0 6H11M11 6L5.92308 1M11 6L5.92308 11"
-                            stroke="white"
-                            strokeWidth="1.75"
-                          />
-                        </svg>
+                          <svg
+                            width="13"
+                            height="12"
+                            viewBox="0 0 13 12"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M0 6H11M11 6L5.92308 1M11 6L5.92308 11"
+                              stroke="white"
+                              strokeWidth="1.75"
+                            />
+                          </svg>
+                        </div>
                       </div>
-                      <h3 className="f-gtam-regular">Sjáðu söguna</h3>
+                      {/* .icons */}
                     </div>
+                    {/* .navigation */}
                   </div>
-                  {/* .blue-box */}
-                  <div className="links text-right align-self-end">
-                    <div className="name f-gtam-medium">
-                      Búrfell – Valdi, Þorvaldur K, Helgi Laxdal
-                    </div>
-                    <div className="year f-gtam-medium">1971</div>
-                    <div className="controls">
-                      <a href=".carousel" role="button" data-slide="prev">
-                        <div className="icon d-flex align-items-center justify-content-center">
-                          <svg
-                            width="10"
-                            height="10"
-                            viewBox="0 0 10 10"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M1.93846 5L6 1M1.93846 5L6 9M1.93846 5H10"
-                              stroke="white"
-                              strokeWidth="1.5"
-                            />
-                          </svg>
-                        </div>
-                      </a>
-                      <a href=".carousel" role="button" data-slide="next">
-                        <div className="icon d-flex align-items-center justify-content-center">
-                          <svg
-                            width="10"
-                            height="10"
-                            viewBox="0 0 10 10"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M8.06154 5L4 1M8.06154 5L4 9M8.06154 5H0"
-                              stroke="white"
-                              strokeWidth="1.5"
-                            />
-                          </svg>
-                        </div>
-                      </a>
-                    </div>
-                  </div>
-                  {/* .links */}
+                  {/* .container */}
                 </div>
-                {/* .carousel-caption */}
+                {/* .overlay */}
               </div>
-              {/* .container */}
-            </div>
-          </div>
+            )
+          })}
         </div>
+        {/* .slides */}
       </div>
-      {/* .hero */}
+      {/* .carousel */}
       <style jsx>{`
         $brand: #204f9c;
 
-        .hero {
+        .carousel,
+        .carousel .slide,
+        .carousel .slide .image,
+        .carousel .slide .image img {
           width: 100vw;
           height: 100vh;
-          overflow: hidden;
+          @media (max-width: 991px) {
+            height: 615px;
+          }
+        }
+        .carousel {
+          @media (max-width: 767px) {
+            height: 640px;
+          }
+          .slide {
+            @media (max-width: 767px) {
+              height: 326px;
+            }
+            .image {
+              @media (max-width: 767px) {
+                height: 326px;
+              }
+              img {
+                @media (max-width: 767px) {
+                  height: 326px;
+                }
+              }
+            }
+          }
+        }
+        .carousel {
           position: relative;
-          &:after {
-            content: "";
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            background: linear-gradient(
-                90.1deg,
-                rgba(32, 79, 156, 0.3) 0.16%,
-                rgba(32, 79, 156, 0) 99.82%
-              ),
-              linear-gradient(
-                90.38deg,
-                rgba(32, 79, 156, 0.7) 0.16%,
-                rgba(32, 79, 156, 0.3) 31.3%,
-                rgba(22, 98, 178, 0.2) 62.45%,
-                rgba(32, 79, 156, 0.4) 83.21%,
-                rgba(32, 79, 156, 0.5) 99.82%
-              ),
-              linear-gradient(
-                rgba(32, 79, 156, 0.8) 0%,
-                rgba(22, 98, 178, 0) 20%
-              );
-            z-index: 200;
+          background: $brand;
+          @media (max-width: 767px) {
+            height: 640px;
           }
           .header {
             position: absolute;
             left: 0;
             top: 0;
             right: 0;
-            z-index: 5000;
+            z-index: 2000;
           }
-          .carousel-item {
-            background: blue;
-            height: 100vh;
+          .slides {
             position: relative;
-            img {
-              width: 100%;
-              height: 100vh;
-              object-fit: cover;
-            }
-            .carousel-caption {
-              text-align: left;
-              bottom: 20%;
-              transition: all 0.3s;
-              z-index: 300;
-              .blue-box {
-                background: $brand;
-                max-width: 465px;
-                padding: 50px;
-                box-shadow: 0px 34px 94px rgba(0, 0, 0, 0.3);
-                h2 {
-                  font-size: 48px;
-                  line-height: 120%;
-                  margin-bottom: 22px;
+            .slide {
+              position: absolute;
+              left: 0;
+              top: 0;
+              @media (max-width: 767px) {
+                height: 326px;
+              }
+              &:after {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                opacity: 0.8;
+                background: linear-gradient(
+                    90.1deg,
+                    rgba(32, 79, 156, 0.3) 0.16%,
+                    rgba(32, 79, 156, 0) 99.82%
+                  ),
+                  linear-gradient(
+                    90.38deg,
+                    rgba(32, 79, 156, 0.7) 0.16%,
+                    rgba(32, 79, 156, 0.3) 31.3%,
+                    rgba(22, 98, 178, 0.2) 62.45%,
+                    rgba(32, 79, 156, 0.4) 83.21%,
+                    rgba(32, 79, 156, 0.5) 99.82%
+                  ),
+                  linear-gradient(
+                    rgba(32, 79, 156, 0.8) 0%,
+                    rgba(22, 98, 178, 0) 20%
+                  );
+              }
+              .image {
+                opacity: 0;
+                transition: all 3s;
+                @media (max-width: 767px) {
+                  height: 326px;
                 }
-                p {
-                  font-size: 17px;
-                  line-height: 150%;
-                  margin-bottom: 30px;
+                &.active {
+                  opacity: 1;
                 }
-                .link {
-                  .icon {
-                    width: 42px;
-                    height: 42px;
-                    border: 1px solid rgba(255, 255, 255, 0.2);
-                    border-radius: 50%;
-                    margin-right: 15px;
-                  }
-                  h3 {
-                    font-size: 18px;
-                    line-height: 120%;
+                img {
+                  object-fit: cover;
+                  @media (max-width: 767px) {
+                    height: 326px;
                   }
                 }
               }
-              .links {
-                .name {
-                  font-size: 18px;
-                  margin-bottom: 7px;
+              .overlay {
+                position: absolute;
+                left: 0;
+                right: 0;
+                bottom: 25%;
+                z-index: 1000;
+                opacity: 0;
+                transition: all 1s;
+                @media (max-width: 991px) {
+                  bottom: 10%;
                 }
-                .year {
-                  font-size: 18px;
-                  opacity: 0.5;
-                  margin-bottom: 20px;
+                @media (max-width: 767px) {
+                  position: static;
                 }
-                .controls {
-                  a {
-                    display: inline-block;
-                    margin-left: 8px;
+                &.loaded {
+                  opacity: 1;
+                }
+                .container {
+                  @media (max-width: 767px) {
+                    width: 100vw;
+                  }
+                }
+                .blue-box {
+                  background: $brand;
+                  max-width: 465px;
+                  padding: 50px;
+                  box-shadow: 0px 34px 94px rgba(0, 0, 0, 0.3);
+                  opacity: 0;
+                  transition: all 1s;
+                  @media (max-width: 991px) {
+                    max-width: 415px;
+                  }
+                  @media (max-width: 767px) {
+                    padding: 30px 20px;
+                    height: 314px;
+                    overflow: hidden;
+                    box-shadow: none;
+                  }
+                  &.active {
+                    opacity: 1;
+                    //transform: translateX(0);
+                  }
+                  h2 {
+                    font-size: 48px;
+                    line-height: 120%;
+                    margin-bottom: 22px;
+                    color: white;
+                    opacity: 0;
+                    transform: translateY(-60px);
+                    transition: all 1s;
+                    transition-delay: 1s;
+                    @media (max-width: 991px) {
+                      font-size: 32px;
+                    }
+                    &.active {
+                      opacity: 1;
+                      transform: translateY(0);
+                    }
+                  }
+                  p {
+                    font-size: 17px;
+                    line-height: 150%;
+                    margin-bottom: 30px;
+                    color: white;
+                    opacity: 0;
+                    transform: translateY(-60px);
+                    transition: all 1s;
+                    transition-delay: 1.5s;
+                    @media (max-width: 991px) {
+                      font-size: 16px;
+                    }
+                    &.active {
+                      opacity: 1;
+                      transform: translateY(0);
+                    }
+                  }
+                  .link {
+                    opacity: 0;
+                    transform: translateY(-60px);
+                    transition: all 1s;
+                    transition-delay: 2s;
+                    &.active {
+                      transform: translateY(0);
+                      opacity: 1;
+                    }
+                    a {
+                      font-size: 18px;
+                      line-height: 120%;
+                      color: white;
+                      .icon {
+                        width: 42px;
+                        height: 42px;
+                        border: 1px solid rgba(255, 255, 255, 0.2);
+                        border-radius: 50%;
+                        margin-right: 15px;
+                      }
+                    }
+                  }
+                }
+                .navigation {
+                  .name {
+                    font-size: 18px;
+                    color: white;
+                    text-align: right;
+                    margin-bottom: 7px;
+                    opacity: 0;
+                    transition: all 0.5s;
+                    &.active {
+                      opacity: 1;
+                    }
+                  }
+                  .year {
+                    font-size: 18px;
+                    color: white;
+                    text-align: right;
+                    opacity: 0.5;
+                    margin-bottom: 20px;
+                    opacity: 0;
+                    transition: all 0.5s;
+                    &.active {
+                      opacity: 1;
+                    }
+                  }
+                  .controls {
                     .icon {
                       width: 34px;
                       height: 34px;
+                      margin-left: 8px;
                       border: 1px solid rgba(255, 255, 255, 0.2);
                       border-radius: 50%;
                       transition: all 0.3s;
+                      cursor: pointer;
                       &:hover {
                         border-color: white;
                       }
@@ -296,64 +399,10 @@ const Hero = () => {
               }
             }
           }
-
-          /* animation starts here */
-          .carousel-item {
-            .carousel-caption {
-              .blue-box {
-                opacity: 0;
-                transform: translateX(-100%);
-                transition: all 2s;
-                h2 {
-                  opacity: 0;
-                  transform: translateY(100%);
-                  transition: all 1s;
-                  transition-delay: 2s;
-                }
-                p {
-                  opacity: 0;
-                  transform: translateY(100%);
-                  transition: all 1s;
-                  transition-delay: 3s;
-                }
-                .link {
-                  opacity: 0;
-                  transition: all 2s;
-                  transition-delay: 4s;
-                }
-              }
-              .links {
-                opacity: 0;
-                transform: translateX(100%);
-                transition: all 2s;
-              }
-            }
-            &.active .carousel-caption {
-              .blue-box {
-                opacity: 1;
-                transform: translateX(0);
-                h2 {
-                  opacity: 1;
-                  transform: translateY(0);
-                }
-                p {
-                  opacity: 1;
-                  transform: translateY(0);
-                }
-                .link {
-                  opacity: 1;
-                }
-              }
-              .links {
-                opacity: 1;
-                transform: translateX(0);
-              }
-            }
-          }
         }
       `}</style>
     </>
-  );
-};
+  )
+}
 
-export default Hero;
+export default Hero

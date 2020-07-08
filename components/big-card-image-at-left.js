@@ -3,9 +3,16 @@ const BigCard = ({ image, heading, para, link }) => {
     <>
       <div className="big-card">
         <div className="container d-flex">
-          <div className="dummy w-50"></div>
-          <div className="d-flex">
-            <div className="text d-flex">
+          <div className="dummy w-50 d-none d-md-flex"></div>
+          <div className="d-md-flex">
+            <div className="image order-2">
+              <div className="wrapper">
+                <img src={image} alt="" />
+              </div>
+              {/* .wrapper */}
+            </div>
+            {/* .image */}
+            <div className="text order-1">
               <div className="wrapper d-flex flex-column justify-content-center">
                 <div className="content">
                   <h2 className="f-gtam-bold wow fadeInUp" data-wow-delay="1s">
@@ -43,13 +50,6 @@ const BigCard = ({ image, heading, para, link }) => {
               {/* .wrapper */}
             </div>
             {/* .text */}
-            <div className="image">
-              <div className="wrapper">
-                <img src={image} alt="" />
-              </div>
-              {/* .wrapper */}
-            </div>
-            {/* .image */}
           </div>
           {/* .d-flex */}
         </div>
@@ -63,10 +63,17 @@ const BigCard = ({ image, heading, para, link }) => {
 
         .big-card {
           position: relative;
-          padding: 90px 0;
+          padding: 80px 0;
           margin: 90px 0;
+          @media (max-width: 991px) {
+            padding: 60px 0;
+          }
+          @media (max-width: 767px) {
+            padding: 0;
+            margin: 60px 0;
+          }
           &:before {
-            content: "";
+            content: '';
             position: absolute;
             top: 0;
             right: 0;
@@ -74,6 +81,12 @@ const BigCard = ({ image, heading, para, link }) => {
             height: 100%;
             background: #fbfbfb;
             z-index: -1;
+            @media (max-width: 991px) {
+              width: calc(50% + 300px);
+            }
+            @media (max-width: 767px) {
+              display: none;
+            }
           }
           &:hover {
             .image {
@@ -83,6 +96,11 @@ const BigCard = ({ image, heading, para, link }) => {
               }
             }
           }
+          .container {
+            @media (max-width: 991px) {
+              width: 100vw;
+            }
+          }
           .image {
             width: 50vw;
             height: 600px;
@@ -90,29 +108,68 @@ const BigCard = ({ image, heading, para, link }) => {
             left: 0;
             overflow: hidden;
             transition: all 0.5s;
+            @media (max-width: 991px) {
+              height: 388px;
+            }
+            @media (max-width: 767px) {
+              position: static;
+              width: 100vw;
+              height: 220px;
+            }
             img {
               width: 50vw;
               height: 600px;
               object-fit: cover;
               transition: all 0.5s;
+              @media (max-width: 991px) {
+                height: 388px;
+              }
+              @media (max-width: 767px) {
+                width: 100vw;
+                height: 220px;
+              }
             }
           }
           .text {
             padding-left: 160px;
+            @media (max-width: 991px) {
+              padding-left: 80px;
+            }
+            @media (max-width: 767px) {
+              padding-left: 0;
+            }
             .wrapper {
               max-width: 290px;
               height: 600px;
+              @media (max-width: 991px) {
+                height: 388px;
+              }
+              @media (max-width: 767px) {
+                padding: 20px;
+                padding-bottom: 0;
+                max-width: 100%;
+                height: auto;
+              }
               h2 {
                 font-size: 48px;
                 color: $brand;
                 line-height: 120%;
                 margin-bottom: 20px;
+                @media (max-width: 991px) {
+                  font-size: 32px;
+                }
+                @media (max-width: 767px) {
+                  font-size: 24px;
+                }
               }
               p {
                 font-size: 17px;
                 color: $text;
                 line-height: 150%;
                 margin-bottom: 30px;
+                @media (max-width: 991px) {
+                  font-size: 16px;
+                }
               }
               h3 {
                 font-size: 18px;
@@ -131,7 +188,7 @@ const BigCard = ({ image, heading, para, link }) => {
         }
       `}</style>
     </>
-  );
-};
+  )
+}
 
-export default BigCard;
+export default BigCard

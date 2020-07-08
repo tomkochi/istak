@@ -1,10 +1,10 @@
-import Link from "next/link";
+import Link from 'next/link'
 
 const NewsCard = ({ image, title, link }) => {
   return (
     <>
       <div className="article-card container">
-        <div className="wrapper d-flex align-items-center">
+        <div className="wrapper d-md-flex align-items-center">
           <div className="image">
             <img src={image} alt="" />
           </div>
@@ -44,8 +44,17 @@ const NewsCard = ({ image, title, link }) => {
       <style jsx>{`
         $brand: #204f9c;
 
+        .container {
+          @media (max-width: 991px) {
+            width: 100vw;
+            padding-right: 40px;
+          }
+        }
         .article-card {
           margin-bottom: 80px;
+          @media (max-width: 767px) {
+            margin-bottom: 40px;
+          }
           &:hover {
             .icon {
               background: $brand;
@@ -62,24 +71,50 @@ const NewsCard = ({ image, title, link }) => {
           }
           .wrapper {
             .image {
-              width: 50%;
-              max-width: 650px;
+              width: 650px;
               overflow: hidden;
               transition: all 0.5s;
+              @media (max-width: 991px) {
+                width: 387px;
+                max-width: 387px;
+              }
+              @media (max-width: 767px) {
+                width: 100vw;
+                margin-bottom: 30px;
+              }
               img {
-                width: 100%;
+                width: 650px;
                 height: 440px;
                 object-fit: cover;
                 transition: all 0.5s;
+                @media (max-width: 991px) {
+                  width: 387px;
+                  max-width: 387px;
+                }
+                @media (max-width: 767px) {
+                  width: 100vw;
+                  height: 241px;
+                }
               }
             }
             .text {
               margin-left: 60px;
-              max-width: 360px;
+              width: 360px;
+              @media (max-width: 767px) {
+                margin-left: 0;
+                width: 100vw;
+                padding: 0 20px;
+              }
               h2 {
                 font-size: 36px;
                 color: $brand;
                 margin-bottom: 30px;
+                @media (max-width: 991px) {
+                  font-size: 48px;
+                }
+                @media (max-width: 767px) {
+                  font-size: 36px;
+                }
               }
               .link {
                 .icon {
@@ -104,7 +139,7 @@ const NewsCard = ({ image, title, link }) => {
         }
       `}</style>
     </>
-  );
-};
+  )
+}
 
-export default NewsCard;
+export default NewsCard

@@ -1,6 +1,6 @@
-import Layout from "../../components/Layout";
-import Hero from "../../components/news/hero";
-import NewsCard from "../../components/news/news-card";
+import Layout from '../../components/Layout'
+import Hero from '../../components/news/hero'
+import NewsCard from '../../components/news/news-card'
 
 const Index = (props) => {
   return (
@@ -20,7 +20,7 @@ const Index = (props) => {
       </div>
       {/* .articles */}
     </Layout>
-  );
-};
+  )
+}
 
-export default Index;
+export default Index

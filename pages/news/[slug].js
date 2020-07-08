@@ -1,5 +1,5 @@
-import Layout from "../../components/Layout";
-import Link from "next/link";
+import Layout from '../../components/Layout'
+import Link from 'next/link'
 
 const Article = (props) => {
   return (
@@ -30,7 +30,7 @@ const Article = (props) => {
           </div>
           {/* .nav-back */}
           <div className="article-card wow fadeInUp" data-wow-delay="0.5s">
-            <div className="wrapper d-flex align-items-center">
+            <div className="wrapper d-lg-flex align-items-center">
               <div className="image">
                 <img src="/img/article-image-1.jpg" alt="" />
               </div>
@@ -262,8 +262,25 @@ const Article = (props) => {
         $brand: #204f9c;
         $black: #202020;
 
+        .container {
+          @media (max-width: 991px) {
+            width: 100vw;
+            padding: 0 30px;
+          }
+          @media (max-width: 767px) {
+            width: calc(100vw - 40px);
+            margin-left: 20px;
+            padding: 0;
+          }
+        }
         .hero {
           margin-top: 150px;
+          @media (max-width: 991px) {
+            margin-top: 60px;
+          }
+          @media (max-width: 767px) {
+            margin-top: 50px;
+          }
           .nav-back {
             margin-bottom: 40px;
             .icon {
@@ -279,37 +296,54 @@ const Article = (props) => {
               color: $brand;
             }
           }
-          h1 {
-            font-size: 64px;
-            line-height: 120%;
-            color: $brand;
-            max-width: 460px;
-            margin-bottom: 100px;
-          }
           .article-card {
             margin-bottom: 40px;
             .wrapper {
               .image {
                 width: 50%;
                 max-width: 650px;
+                @media (max-width: 991px) {
+                  width: calc(100vw - 60px);
+                  max-width: auto;
+                  margin-bottom: 40px;
+                }
+                @media (max-width: 767px) {
+                  width: 100vw;
+                  margin-left: -20px;
+                }
                 img {
                   width: 100%;
                   height: 440px;
                   object-fit: cover;
+                  @media (max-width: 991px) {
+                    width: calc(100vw - 60px);
+                  }
+                  @media (max-width: 767px) {
+                    width: 100vw;
+                    height: 214px;
+                  }
                 }
               }
               .text {
                 margin-left: 60px;
                 max-width: 360px;
+                @media (max-width: 991px) {
+                  width: 100%;
+                  max-width: 530px;
+                  margin: 0;
+                }
                 h6 {
                   font-size: 18px;
                   color: $black;
                   margin-bottom: 25px;
                 }
                 h2 {
-                  font-size: 36px;
+                  font-size: 48px;
                   color: $brand;
                   margin-bottom: 30px;
+                  @media (max-width: 767px) {
+                    font-size: 36px;
+                  }
                 }
               }
             }
@@ -319,6 +353,9 @@ const Article = (props) => {
           border-bottom: 1px solid #f0f0f0;
           margin-bottom: 80px;
           padding-bottom: 40px;
+          @media (max-width: 991px) {
+            margin-bottom: 30px;
+          }
           h4 {
             font-size: 16px;
             color: black;
@@ -333,21 +370,31 @@ const Article = (props) => {
         }
         .contents {
           margin-bottom: 180px;
+          @media (max-width: 991px) {
+            margin-bottom: 130px;
+          }
           .container {
             max-width: 960px;
+            @media (max-width: 991px) {
+              max-width: 100%;
+            }
             p {
               padding: 0 50px;
-              font-family: "GT America Thin";
+              font-family: 'GT America Thin';
               font-size: 20px;
               margin-bottom: 2em;
               color: $black;
+              @media (max-width: 991px) {
+                padding: 0;
+                font-size: 18px;
+              }
             }
             img {
               width: 100%;
               margin: 40px 0;
             }
             .image-caption {
-              font-family: "GT America Regular";
+              font-family: 'GT America Regular';
               font-size: 16px;
               line-height: 150%;
               color: $black;
@@ -359,8 +406,14 @@ const Article = (props) => {
           }
           .more-articles {
             margin: 180px 0 60px 0;
+            @media (max-width: 991px) {
+              margin: 130px 0 60px 0;
+            }
+            @media (max-width: 767px) {
+              margin: 80px 0 40px 0;
+            }
             h2 {
-              font-family: "GT America Bold";
+              font-family: 'GT America Bold';
               font-size: 24px;
               color: $black;
               text-align: center;
@@ -384,7 +437,7 @@ const Article = (props) => {
           .social-sharing {
             text-align: center;
             h2 {
-              font-family: "GT America Bold";
+              font-family: 'GT America Bold';
               font-size: 24px;
               color: $black;
               text-align: center;
@@ -397,7 +450,7 @@ const Article = (props) => {
         }
       `}</style>
     </Layout>
-  );
-};
+  )
+}
 
-export default Article;
+export default Article

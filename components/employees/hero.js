@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from 'next/link'
 
 const Hero = (props) => {
   return (
@@ -57,10 +57,31 @@ const Hero = (props) => {
       <style jsx>{`
         $brand: #204f9c;
 
+        .container {
+          @media (max-width: 991px) {
+            width: 100vw;
+            padding: 0 30px;
+          }
+          @media (max-width: 767px) {
+            width: calc(100vw - 40px);
+            margin-left: 20px;
+            padding: 0;
+          }
+        }
+
         .hero {
           margin-top: 150px;
+          @media (max-width: 991px) {
+            margin-top: 90px;
+          }
+          @media (max-width: 767px) {
+            margin-top: 60px;
+          }
           .nav-back {
             margin-bottom: 40px;
+            @media (max-width: 767px) {
+              margin-bottom: 30px;
+            }
             .icon {
               width: 42px;
               height: 42px;
@@ -80,11 +101,26 @@ const Hero = (props) => {
             max-width: 750px;
             margin-bottom: 60px;
             color: $brand;
+            @media (max-width: 991px) {
+              font-size: 48px;
+              max-width: 545px;
+              margin-bottom: 40px;
+            }
+            @media (max-width: 767px) {
+              font-size: 36px;
+              margin-bottom: 30px;
+            }
           }
           .search {
-            margin-bottom: 117px;
+            margin-bottom: 177px;
             width: 100%;
             max-width: 400px;
+            @media (max-width: 991px) {
+              margin-bottom: 116px;
+            }
+            @media (max-width: 767px) {
+              margin-bottom: 60px;
+            }
             .icon {
               width: 42px;
               height: 42px;
@@ -117,7 +153,7 @@ const Hero = (props) => {
         }
       `}</style>
     </>
-  );
-};
+  )
+}
 
-export default Hero;
+export default Hero

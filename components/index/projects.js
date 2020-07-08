@@ -3,23 +3,22 @@ const Projects = ({ para, projects }) => {
     <>
       <div className="projects-component">
         <p className="f-gtam-bold wow fadeInUp">{para}</p>
-        <div className="projects d-flex justify-content-center flex-wrap">
+
+        <div className="projects">
           {projects.map((p, i) => {
             return (
-              <div
-                className="project wow fadeInUp"
-                data-wow-delay={`${i}s`}
-                key={i}
-              >
-                <div className="image">
-                  <img src={p.image} alt="" />
-                </div>
-                <div className="overlay">
-                  <div className="year f-gtam-regular">{p.year}</div>
-                  <div className="name f-gtam-bold">{p.name}</div>
+              <div className="wrapper" key={i}>
+                <div className="project wow fadeInUp" data-wow-delay={`${i}s`}>
+                  <div className="image">
+                    <img src={p.image} alt="" />
+                  </div>
+                  <div className="overlay">
+                    <div className="year f-gtam-regular">{p.year}</div>
+                    <div className="name f-gtam-bold">{p.name}</div>
+                  </div>
                 </div>
               </div>
-            );
+            )
           })}
         </div>
         {/* .projects */}
@@ -51,9 +50,16 @@ const Projects = ({ para, projects }) => {
       </div>
       <style jsx>{`
         $brand: #204f9c;
+        $text: #000000;
 
         .projects-component {
           margin: 140px 0 90px 0;
+          @media (max-width: 991px) {
+            margin: 100px 0;
+          }
+          @media (max-width: 767px) {
+            margin: 60px 0;
+          }
           p {
             font-size: 36px;
             line-height: 130%;
@@ -61,22 +67,42 @@ const Projects = ({ para, projects }) => {
             text-align: center;
             max-width: 860px;
             margin: 0 auto 120px auto;
+            @media (max-width: 991px) {
+              font-size: 24px;
+              max-width: 526px;
+            }
+            @media (max-width: 767px) {
+              font-size: 22px;
+              padding: 0 20px;
+              margin: 0 auto 60px auto;
+            }
           }
           .projects {
+            overflow-x: auto;
+            display: flex;
+            justify-content: center;
+            padding-bottom: 30px;
+            @media (max-width: 1410px) {
+              justify-content: initial;
+            }
+            @media (max-width: 767px) {
+              margin: 0 10px;
+            }
             .project {
               position: relative;
               width: 400px;
               height: 600px;
-              margin-bottom: 60px;
               cursor: pointer;
               transition: all 0.5s;
-              overflow: hidden;
-              &:not(:first-of-type) {
-                margin-left: 90px;
+              margin: 0 35px;
+              @media (max-width: 767px) {
+                width: 270px;
+                height: auto;
+                margin: 0 10px;
               }
               &:before,
               &:after {
-                content: "";
+                content: '';
                 position: absolute;
                 top: 0;
                 right: 0;
@@ -84,6 +110,10 @@ const Projects = ({ para, projects }) => {
                 left: 0;
                 opacity: 0.4;
                 transition: all 0.3s;
+                @media (max-width: 767px) {
+                  bottom: auto;
+                  height: 353px;
+                }
               }
               &:before {
                 background: linear-gradient(
@@ -113,11 +143,14 @@ const Projects = ({ para, projects }) => {
               }
               .image {
                 transition: all 0.5s;
-                overflow: none;
                 img {
-                  width: 100%;
-                  height: 100%;
+                  width: 400px;
+                  height: 600px;
                   object-fit: cover;
+                  @media (max-width: 767px) {
+                    width: 270px;
+                    height: 353px;
+                  }
                 }
               }
               .overlay {
@@ -126,23 +159,38 @@ const Projects = ({ para, projects }) => {
                 right: 40px;
                 bottom: 50px;
                 z-index: 600;
+                @media (max-width: 767px) {
+                  position: static;
+                  margin-top: 30px;
+                }
                 .year {
                   font-size: 18px;
                   color: white;
                   opacity: 0.6;
                   text-shadow: 0px 14px 19px rgba(0, 0, 0, 0.25);
+                  @media (max-width: 767px) {
+                    font-size: 14px;
+                    color: $text;
+                    text-shadow: none;
+                  }
                 }
                 .name {
                   font-size: 24px;
                   line-height: 120%;
                   color: white;
                   text-shadow: 0px 14px 19px rgba(0, 0, 0, 0.25);
+                  @media (max-width: 767px) {
+                    font-size: 20px;
+                    color: $brand;
+                    text-shadow: none;
+                  }
                 }
               }
             }
           }
           .view-all-projects {
             margin: 0 auto;
+            margin-top: 30px;
             .icon {
               width: 42px;
               height: 42px;
@@ -158,7 +206,7 @@ const Projects = ({ para, projects }) => {
         }
       `}</style>
     </>
-  );
-};
+  )
+}
 
-export default Projects;
+export default Projects

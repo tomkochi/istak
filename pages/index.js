@@ -1,11 +1,11 @@
-import Layout from "../components/Layout";
-import Hero from "../components/index/hero";
-import BlueParaOnWhite from "../components/index/blue-para-on-white";
-import BigCardImageAtRight from "../components/big-card-image-at-right";
-import BigCardImageAtLeftt from "../components/big-card-image-at-left";
-import ServiceDepartments from "../components/index/service-departments";
-import Projects from "../components/index/projects";
-import BottomPick from "../components/bottom-pick";
+import Layout from '../components/Layout'
+import Hero from '../components/index/hero'
+import BlueParaOnWhite from '../components/index/blue-para-on-white'
+import BigCardImageAtRight from '../components/big-card-image-at-right'
+import BigCardImageAtLeftt from '../components/big-card-image-at-left'
+import ServiceDepartments from '../components/index/service-departments'
+import Projects from '../components/index/projects'
+import BottomPick from '../components/bottom-pick'
 
 const Index = (props) => {
   return (
@@ -28,32 +28,60 @@ const Index = (props) => {
         id="servide-dept"
         image="/img/services.jpg"
         departments={[
-          "Innkaupadeild",
-          "Vélaverkstæði",
-          "Rafmagnsverkstæði",
-          "Vélsmiðja",
-          "Steypuskáli",
-          "Viðhaldsdeild",
-          "VDC/BIM",
+          {
+            name: 'Innkaupadeild',
+            description:
+              'Consectetur adipiscing elit. Aliquam sed ultricies nunc. Etiam venenatis eros vel ante sagittis, non luctus magna feugiat.',
+          },
+          {
+            name: 'Vélaverkstæði',
+            description:
+              'Ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sed ultricies nunc. Etiam venenatis eros vel ante sagittis, non luctus magna feugiat.',
+          },
+          {
+            name: 'Rafmagnsverkstæði',
+            description:
+              'Dolor sit amet, consectetur adipiscing elit. Aliquam sed ultricies nunc. Etiam venenatis eros vel ante sagittis, non luctus magna feugiat.',
+          },
+          {
+            name: 'Vélsmiðja',
+            description:
+              'Amet, consectetur adipiscing elit. Aliquam sed ultricies nunc. Etiam venenatis eros vel ante sagittis, non luctus magna feugiat.',
+          },
+          {
+            name: 'Steypuskáli',
+            description:
+              'Sit amet, consectetur adipiscing elit. Aliquam sed ultricies nunc. Etiam venenatis eros vel ante sagittis, non luctus magna feugiat.',
+          },
+          {
+            name: 'Viðhaldsdeild',
+            description:
+              'Pum dolor sit amet, consectetur adipiscing elit. Aliquam sed ultricies nunc. Etiam venenatis eros vel ante sagittis, non luctus magna feugiat.',
+          },
+          {
+            name: 'VDC/BIM',
+            description:
+              'Orem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sed ultricies nunc. Etiam venenatis eros vel ante sagittis, non luctus magna feugiat.',
+          },
         ]}
       />
       <Projects
         para="Við önnumst verkefni eins og byggingar, virkjanir, álversframkvæmdir, hafnarframkvæmdir auk vega- og brúargerðar."
         projects={[
           {
-            image: "/img/project-thumb-1.jpg",
-            year: "1980",
-            name: "Flugstöð Leifs Eiríkssonar",
+            image: '/img/project-thumb-1.jpg',
+            year: '1980',
+            name: 'Flugstöð Leifs Eiríkssonar',
           },
           {
-            image: "/img/project-thumb-2.jpg",
-            year: "2014",
-            name: "Háskólinn í Reykjavík",
+            image: '/img/project-thumb-2.jpg',
+            year: '2014',
+            name: 'Háskólinn í Reykjavík',
           },
           {
-            image: "/img/project-thumb-3.jpg",
-            year: "2020",
-            name: "Smáralind",
+            image: '/img/project-thumb-3.jpg',
+            year: '2020',
+            name: 'Smáralind',
           },
         ]}
       />
@@ -64,7 +92,7 @@ const Index = (props) => {
         video="my-video-url"
       />
     </Layout>
-  );
-};
+  )
+}
 
-export default Index;
+export default Index

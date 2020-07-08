@@ -9,16 +9,28 @@ const Project = ({ image, year, name, index }) => {
         </div>
       </div>
       <style jsx>{`
+        $text: #202020;
+        $brand: #204f9c;
+
         .project {
           width: 50%;
           height: 600px;
           position: relative;
+          @media (max-width: 991px) {
+            height: 500px;
+          }
+          @media (max-width: 767px) {
+            width: calc(50% - 15px);
+            margin-left: 10px;
+            margin-bottom: 32px;
+            height: auto;
+          }
           &:hover:before {
             opacity: 0;
           }
           &:before {
             transition: all 0.3s;
-            content: "";
+            content: '';
             position: absolute;
             left: 0;
             top: 0;
@@ -42,11 +54,21 @@ const Project = ({ image, year, name, index }) => {
                 rgba(22, 98, 178, 0) 20%
               );
             z-index: 2000;
+            @media (max-width: 767px) {
+              bottom: auto;
+              height: 190px;
+            }
           }
           img {
             width: 100%;
             height: 600px;
             object-fit: cover;
+            @media (max-width: 991px) {
+              height: 500px;
+            }
+            @media (max-width: 767px) {
+              height: 190px;
+            }
           }
           .overlay {
             position: absolute;
@@ -54,6 +76,13 @@ const Project = ({ image, year, name, index }) => {
             bottom: 60px;
             width: auto;
             z-index: 3000;
+            @media (max-width: 991px) {
+              left: 40px;
+              bottom: 50px;
+            }
+            @media (max-width: 767px) {
+              position: static;
+            }
             .year {
               font-size: 18px;
               color: white;
@@ -61,18 +90,29 @@ const Project = ({ image, year, name, index }) => {
               line-height: 120%;
               text-shadow: 0px 14px 19px rgba(0, 0, 0, 0.25);
               margin-bottom: 14px;
+              @media (max-width: 767px) {
+                font-size: 14px;
+                text-shadow: none;
+                color: $text;
+                margin-top: 14px;
+              }
             }
             .name {
               font-size: 24px;
               line-height: 120%;
               color: white;
               text-shadow: 0px 14px 19px rgba(0, 0, 0, 0.25);
+              @media (max-width: 767px) {
+                font-size: 16px;
+                text-shadow: none;
+                color: $brand;
+              }
             }
           }
         }
       `}</style>
     </>
-  );
-};
+  )
+}
 
-export default Project;
+export default Project

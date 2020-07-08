@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from 'next/link'
 
 const Hero = (props) => {
   return (
@@ -36,8 +36,20 @@ const Hero = (props) => {
 
         .hero {
           margin-top: 150px;
+          @media (max-width: 991px) {
+            width: 100vw;
+            margin-top: 120px;
+            padding: 0 30px;
+          }
+          @media (max-width: 767px) {
+            margin-top: 80px;
+            padding: 0 20px;
+          }
           .nav-back {
             margin-bottom: 40px;
+            @media (max-width: 767px) {
+              margin-bottom: 20px;
+            }
             .icon {
               width: 42px;
               height: 42px;
@@ -57,11 +69,18 @@ const Hero = (props) => {
             color: $brand;
             max-width: 460px;
             margin-bottom: 100px;
+            @media (max-width: 991px) {
+              font-size: 48px;
+            }
+            @media (max-width: 767px) {
+              font-size: 36px;
+              margin-bottom: 60px;
+            }
           }
         }
       `}</style>
     </>
-  );
-};
+  )
+}
 
-export default Hero;
+export default Hero
