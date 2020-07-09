@@ -26,7 +26,7 @@ const Project = (props) => {
     <Layout>
       <div className="project">
         <section className="hero container">
-          <div className="nav-back wow fadeIn" data-wow-delay="1s">
+          <div className="nav-back wow fadeIn" data-wow-delay="500ms">
             <Link href="/projects" passHref>
               <a href="#" className="d-flex align-items-center">
                 <div className="icon d-flex align-items-center justify-content-center">
@@ -49,9 +49,7 @@ const Project = (props) => {
             </Link>
           </div>
           {/* .nav-back */}
-          <h1 className="f-gtam-bold wow fadeInUp">
-            Flugstöð Leyfs Eiríkssonar
-          </h1>
+          <h1 className="f-gtam-bold wow fadeIn">Flugstöð Leyfs Eiríkssonar</h1>
         </section>
         {/* .hero */}
 

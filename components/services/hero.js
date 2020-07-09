@@ -4,7 +4,7 @@ const Hero = (props) => {
   return (
     <>
       <div className="hero container">
-        <div className="nav-back wow fadeIn" data-wow-delay="1s">
+        <div className="nav-back wow fadeIn" data-wow-delay="500ms">
           <Link href="/" passHref>
             <a href="#" className="d-flex align-items-center">
               <div className="icon d-flex align-items-center justify-content-center">
@@ -27,7 +27,9 @@ const Hero = (props) => {
           </Link>
         </div>
         {/* .nav-back */}
-        <h1 className="f-gtam-bold wow fadeInUp">BIM upplýsingatækni</h1>
+        <h1 className="f-gtam-bold wow fadeIn" data-wow-duration="300ms">
+          BIM upplýsingatækni
+        </h1>
       </div>
       {/* .hero */}
       <style jsx>{`

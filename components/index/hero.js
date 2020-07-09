@@ -70,17 +70,25 @@ const Hero = (props) => {
                     <div
                       className={`blue-box ${slide === i + 1 ? 'active' : ''}`}
                     >
-                      <h2 className={`${slide === i + 1 ? 'active' : ''}`}>
+                      <h2
+                        className={`f-gtam-bold ${
+                          slide === i + 1 ? 'active' : ''
+                        }`}
+                      >
                         {s.heading}
                       </h2>
-                      <p className={`${slide === i + 1 ? 'active' : ''}`}>
+                      <p
+                        className={`f-gtam-thin ${
+                          slide === i + 1 ? 'active' : ''
+                        }`}
+                      >
                         {s.para}
                       </p>
                       <div
                         className={`link ${slide === i + 1 ? 'active' : ''}`}
                       >
                         <Link href={s.link.to} passHref>
-                          <a className="d-flex align-items-center">
+                          <a className="f-gtam-regular d-flex align-items-center">
                             <div className="icon d-flex align-items-center justify-content-center">
                               <svg
                                 width="13"
@@ -103,10 +111,18 @@ const Hero = (props) => {
                     </div>
                     {/* .blue-box */}
                     <div className="navigation d-none d-lg-block align-self-end">
-                      <h3 className={`name ${slide === i + 1 ? 'active' : ''}`}>
+                      <h3
+                        className={`f-gtam-regular name ${
+                          slide === i + 1 ? 'active' : ''
+                        }`}
+                      >
                         {s.name}
                       </h3>
-                      <h3 className={`year ${slide === i + 1 ? 'active' : ''}`}>
+                      <h3
+                        className={`f-gtam-regular year ${
+                          slide === i + 1 ? 'active' : ''
+                        }`}
+                      >
                         {s.year}
                       </h3>
                       <div className="controls d-flex justify-content-end">
@@ -244,7 +260,7 @@ const Hero = (props) => {
               }
               .image {
                 opacity: 0;
-                transition: all 3s;
+                transition: all 1.5s;
                 @media (max-width: 767px) {
                   height: 326px;
                 }
@@ -378,7 +394,7 @@ const Hero = (props) => {
                     opacity: 0;
                     transition: all 0.5s;
                     &.active {
-                      opacity: 1;
+                      opacity: 0.5;
                     }
                   }
                   .controls {

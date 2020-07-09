@@ -3,26 +3,35 @@ const BottomPick = ({ image, title, para, video }) => {
     <>
       <div
         className="bottom-pick d-md-flex align-items-center wow fadeIn"
-        data-wow-duration="3s"
+        data-wow-duration="1s"
       >
         <img src={image} alt="" />
         <div className="container">
           <div
             className="content wow fadeIn"
-            data-wow-duration="3s"
+            data-wow-duration="1s"
             style={{ width: video ? '437px' : '404px' }}
           >
-            <h2 className="f-gtam-bold wow fadeInUp" data-wow-delay="1s">
+            <h2
+              className="f-gtam-bold wow fadeInUp"
+              data-wow-delay="300ms"
+              data-wow-duration="300ms"
+            >
               {title}
             </h2>
             {para && (
-              <p className="f-gtam-thin wow fadeInUp" data-wow-delay="2s">
+              <p
+                className="f-gtam-thin wow fadeInUp"
+                data-wow-delay="500ms"
+                data-wow-duration="300ms"
+              >
                 {para}
               </p>
             )}
             <div
               className="d-flex align-items-center wow fadeInUp"
-              data-wow-delay="3s"
+              data-wow-delay="750ms"
+              data-wow-duration="300ms"
             >
               <div className="icon d-flex align-items-center justify-content-center">
                 {video && (

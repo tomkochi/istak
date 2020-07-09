@@ -6,7 +6,7 @@ const Article = (props) => {
     <Layout>
       <div className="article">
         <div className="hero container">
-          <div className="nav-back wow fadeInUp">
+          <div className="nav-back wow fadeIn">
             <Link href="/articles" passHref>
               <a href="#" className="d-flex align-items-center">
                 <div className="icon d-flex align-items-center justify-content-center">
@@ -29,7 +29,7 @@ const Article = (props) => {
             </Link>
           </div>
           {/* .nav-back */}
-          <div className="article-card wow fadeInUp" data-wow-delay="0.5s">
+          <div className="article-card wow fadeInUp">
             <div className="wrapper d-lg-flex align-items-center">
               <div className="image">
                 <img src="/img/article-image-1.jpg" alt="" />

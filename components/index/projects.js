@@ -2,13 +2,18 @@ const Projects = ({ para, projects }) => {
   return (
     <>
       <div className="projects-component">
-        <p className="f-gtam-bold wow fadeInUp">{para}</p>
+        <p className="f-gtam-bold wow fadeInUp" data-wow-duration="300ms">
+          {para}
+        </p>
 
         <div className="projects">
           {projects.map((p, i) => {
             return (
               <div className="wrapper" key={i}>
-                <div className="project wow fadeInUp" data-wow-delay={`${i}s`}>
+                <div
+                  className="project wow fadeInUp"
+                  data-wow-delay={`${i / 4}s`}
+                >
                   <div className="image">
                     <img src={p.image} alt="" />
                   </div>
@@ -24,7 +29,7 @@ const Projects = ({ para, projects }) => {
         {/* .projects */}
         <div
           className="view-all-projects wow fadeIn d-flex align-items-center justify-content-center"
-          data-wow-delay="1s"
+          data-wow-delay="500ms"
         >
           <div className="icon d-flex align-items-center justify-content-center">
             <svg

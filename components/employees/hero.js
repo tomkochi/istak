@@ -4,7 +4,11 @@ const Hero = (props) => {
   return (
     <>
       <div className="hero container">
-        <div className="nav-back wow fadeInUp" data-wow-delay="1s">
+        <div
+          className="nav-back wow fadeInUp"
+          data-wow-delay="500ms"
+          data-wow-duration="300ms"
+        >
           <Link href="/" passHref>
             <a href="#" className="d-flex align-items-center">
               <div className="icon d-flex align-items-center justify-content-center">
@@ -27,10 +31,14 @@ const Hero = (props) => {
           </Link>
         </div>
         {/* .nav-back */}
-        <h1 className="f-gtam-bold wow fadeInUp">
+        <h1 className="f-gtam-bold wow fadeInUp" data-wow-duration="300ms">
           Hjá Ístaki starfa að jafnaði um 350 manns við margvísleg störf
         </h1>
-        <div className="search d-flex wow fadeInUp" data-wow-delay="1.5s">
+        <div
+          className="search d-flex wow fadeInUp"
+          data-wow-delay="1s"
+          data-wow-duration="300ms"
+        >
           <div className="icon d-flex align-items-center justify-content-center">
             <svg
               width="15"

@@ -3,7 +3,12 @@ const Employee = ({ photo, name, designation, email, phone }) => {
     <>
       <div className="employee">
         <div className="image">
-          <img src={photo} className="wow fadeInUp" alt="" />
+          <img
+            src={photo}
+            className="wow fadeInUp"
+            alt=""
+            data-wow-duration="300ms"
+          />
         </div>
         <div className="employee-details wow fadeIn">
           <div className="name f-gtam-bold">{name}</div>
@@ -33,10 +38,10 @@ const Employee = ({ photo, name, designation, email, phone }) => {
           .image {
             width: 100%;
             height: 253px;
+            margin-bottom: 26px;
             @media (max-width: 991px) {
               width: calc(100vw / 3 - 35px);
               height: 173px;
-              margin-bottom: 26px;
             }
             @media (max-width: 767px) {
               width: 100%;

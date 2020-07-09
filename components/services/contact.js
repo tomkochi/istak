@@ -6,7 +6,7 @@ const Contact = (props) => {
           <div className="image wow fadeIn">
             <div
               className="overlay f-gtam-bold wow fadeInLeft"
-              data-wow-delay="1s"
+              data-wow-delay="250ms"
             >
               Tengiliður
             </div>
@@ -14,7 +14,7 @@ const Contact = (props) => {
             <img src="/img/contact-photo.jpg" alt="" />
           </div>
           {/* .image */}
-          <div className="text wow fadeInUp" data-wow-delay="2s">
+          <div className="text wow fadeInUp" data-wow-delay="500ms">
             <div className="name f-gtam-bold">
               Ingibjörg Birna Kjartansdóttir
             </div>

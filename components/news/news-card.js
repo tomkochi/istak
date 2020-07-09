@@ -14,7 +14,7 @@ const NewsCard = ({ image, title, link }) => {
             <Link href={link} passHref>
               <a
                 className="link d-flex align-items-center wow fadeInUp"
-                data-wow-delay="0.5s"
+                data-wow-delay="250ms"
               >
                 <div className="icon d-flex align-items-center justify-content-center">
                   <svg

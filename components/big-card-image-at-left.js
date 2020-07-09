@@ -15,16 +15,24 @@ const BigCard = ({ image, heading, para, link }) => {
             <div className="text order-1">
               <div className="wrapper d-flex flex-column justify-content-center">
                 <div className="content">
-                  <h2 className="f-gtam-bold wow fadeInUp" data-wow-delay="1s">
+                  <h2
+                    className="f-gtam-bold wow fadeInUp"
+                    data-wow-duration="300ms"
+                  >
                     {heading}
                   </h2>
-                  <p className="f-gtam-thin wow fadeInUp" data-wow-delay="1.5s">
+                  <p
+                    className="f-gtam-thin wow fadeInUp"
+                    data-wow-delay="500ms"
+                    data-wow-duration="300ms"
+                  >
                     {para}
                   </p>
                   {link && (
                     <h3
                       className="f-gtam-medium d-flex align-items-center wow fadeIn"
-                      data-wow-delay="2s"
+                      data-wow-delay="750ms"
+                      data-wow-duration="300ms"
                     >
                       <div className="icon d-flex align-items-center justify-content-center">
                         <svg

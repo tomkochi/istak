@@ -263,13 +263,13 @@ const Header = (props) => {
                   left: 55px;
                   top: 30px;
                   width: 340px;
-                  transform: scaleY(0);
+                  transform: scale(0);
                   overflow: hidden;
-                  transition: all 0.2s;
+                  transition: all 0.3s;
                   transform-origin: 0 0;
                   box-shadow: 0px 17px 50px rgba(0, 0, 0, 0.05);
                   &.show {
-                    transform: scaleY(1);
+                    transform: scale(1);
                   }
                   .nav-dropdown-item {
                     a {

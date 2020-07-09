@@ -1,7 +1,11 @@
 const BlueParaOnWhite = ({ para }) => {
   return (
     <>
-      <div className="blue-para wow fadeInUp" data-wow-duration="2s">
+      <div
+        className="blue-para wow fadeInUp"
+        data-wow-duration="2s"
+        data-wow-duration="300ms"
+      >
         <p className="f-gtam-bold">{para}</p>
       </div>
       <style jsx>{`
