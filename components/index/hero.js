@@ -7,20 +7,12 @@ const Hero = (props) => {
   const slides = [
     {
       image: '/img/home-hero-image.jpg',
-      heading: 'Brautriðjandi á Íslandi í 50 ár',
-      para:
-        'Við erum orðin 50 ára! Við fögnum því með nýjum og glæsilegum vef. Kynntu þér stærstu áfanga okkar síðustu áratuga.',
-      link: { text: 'Sjáðu söguna', to: '/projects' },
       name: 'Búrfell – Valdi, Þorvaldur K, Helgi Laxdal',
       year: '1971',
     },
     {
       image:
         'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80',
-      heading: 'Brautriðjandi á Íslandi í 50 ár',
-      para:
-        'Við erum orðin 50 ára! Við fögnum því með nýjum og glæsilegum vef. Kynntu þér stærstu áfanga okkar síðustu áratuga.',
-      link: { text: 'Sjáðu söguna', to: '/projects' },
       name: 'Búrfell – Valdi, Þorvaldur K',
       year: '1990',
     },
@@ -67,27 +59,17 @@ const Hero = (props) => {
                   }`}
                 >
                   <div className="container d-flex justify-content-between">
-                    <div
-                      className={`blue-box ${slide === i + 1 ? 'active' : ''}`}
-                    >
-                      <h2
-                        className={`f-gtam-bold ${
-                          slide === i + 1 ? 'active' : ''
-                        }`}
-                      >
-                        {s.heading}
+                    <div className="blue-box active">
+                      <h2 className="f-gtam-bold active">
+                        Brautriðjandi á Íslandi í 50 ár
                       </h2>
-                      <p
-                        className={`f-gtam-thin ${
-                          slide === i + 1 ? 'active' : ''
-                        }`}
-                      >
-                        {s.para}
+                      <p className="f-gtam-thin active">
+                        Við erum orðin 50 ára! Við fögnum því með nýjum og
+                        glæsilegum vef. Kynntu þér stærstu áfanga okkar síðustu
+                        áratuga.{' '}
                       </p>
-                      <div
-                        className={`link ${slide === i + 1 ? 'active' : ''}`}
-                      >
-                        <Link href={s.link.to} passHref>
+                      <div className="link active">
+                        <Link href="/" passHref>
                           <a className="f-gtam-regular d-flex align-items-center">
                             <div className="icon d-flex align-items-center justify-content-center">
                               <svg
@@ -104,7 +86,7 @@ const Hero = (props) => {
                                 />
                               </svg>
                             </div>
-                            {s.link.text}
+                            Sjáðu söguna
                           </a>
                         </Link>
                       </div>

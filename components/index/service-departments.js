@@ -76,7 +76,7 @@ const ServiceDepartments = ({ departments, image }) => {
                     <path
                       d="M0 6H11M11 6L5.92308 1M11 6L5.92308 11"
                       stroke="#204F9C"
-                      stroke-width="1.75"
+                      strokeWidth="1.75"
                     />
                   </svg>
                 </div>
@@ -199,6 +199,7 @@ const ServiceDepartments = ({ departments, image }) => {
             margin-top: 30px;
             .wrapper {
               overflow-x: auto;
+              overflow-y: hidden;
               max-width: 360px;
               li {
                 padding-right: 25px;
