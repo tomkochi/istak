@@ -1,27 +1,30 @@
-import Layout from '../../components/Layout'
-import BottomPick from '../../components/bottom-pick'
-import { useRouter } from 'next/router'
-import { useState, useEffect } from 'react'
-import Link from 'next/link'
+import Layout from "../../components/Layout";
+import BottomPick from "../../components/bottom-pick";
+import { useRouter } from "next/router";
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import Host from "../../components/host";
 
-const Project = (props) => {
-  const router = useRouter()
-  const { slug } = router.query
-  const [slides, setSlides] = useState(0)
-  const [slide, setSlide] = useState(1)
+const Project = ({ data }) => {
+  const router = useRouter();
+  const { slug } = router.query;
+  const [slides, setSlides] = useState(0);
+  const [slide, setSlide] = useState(1);
 
   const decCurrent = () => {
-    setSlide(slide === 1 ? slides : slide - 1)
-  }
+    setSlide(slide === 1 ? slides : slide - 1);
+  };
   const incCurrent = () => {
-    setSlide(slide === slides ? 1 : slide + 1)
-  }
+    setSlide(slide === slides ? 1 : slide + 1);
+  };
 
   useEffect(() => {
-    const s = document.getElementsByClassName('carousel-item').length
-    setSlides(s)
-  }, [])
+    const s = document.getElementsByClassName("carousel-item").length;
+    setSlides(s);
+  }, []);
 
+  //
+  const d = data[0];
   return (
     <Layout>
       <div className="project">
@@ -49,12 +52,12 @@ const Project = (props) => {
             </Link>
           </div>
           {/* .nav-back */}
-          <h1 className="f-gtam-bold wow fadeIn">Flugstöð Leyfs Eiríkssonar</h1>
+          <h1 className="f-gtam-bold wow fadeIn">{d.title}</h1>
         </section>
         {/* .hero */}
 
         <section className="image wow fadeInUp">
-          <img src="/img/services.jpg" alt="" />
+          <img src={`${Host}${d.image.url}`} alt="" />
         </section>
         {/* .image */}
 
@@ -64,7 +67,7 @@ const Project = (props) => {
               <div className="head d-flex">
                 <div className="text">
                   <h4>Verkkaupi</h4>
-                  <h3>Isavia</h3>
+                  <h3>{d.client}</h3>
                 </div>
                 {/* .text */}
                 <div className="text">
@@ -84,28 +87,7 @@ const Project = (props) => {
 
             <div className="matter">
               <h2 className="wow fadeInUp">Verklýsing</h2>
-              <p className="wow fadeInUp">
-                Verkið – Flugstöð Leifs Eiríkssonar – Norðurbygging – er áfangi
-                í u.þ.b. 4300 fermetra stækkun norðurbyggingar Flugstöðvar Leifs
-                Eiríkssonar og snýr annars vegar að viðbyggingu til suðvesturs
-                fyrir starfsmannahlið, vörumótttöku og stækkun farangursflokkara
-                brottfarar farþega og hinsvegar að viðbyggingu til suðausturs
-                sem hýsir komufæribönd. Breyta þarf aðkomu brottfararumferðar að
-                inngangi flugstöðvarinnar og rífa vegg sem skilur að núverandi
-                þjónustuinngang og brottfararumferð.
-              </p>
-              <p className="wow fadeInUp">
-                Húsið verður stálgrindarhús klætt með yleiningum
-                (samlokueiningar). Innveggir verða byggðir úr blikkstoðum,
-                eldvarnarspónaplötum og efni sem þolir mikinn ágang. Kerfisloft
-                er í vopnaleitarrými, kaffistofum, salernum og skrifstofum.
-                Byggingin mun verða fullloftræst, með góðri hljóðeinangrun og
-                frágengin með slitsterkum efnum.
-              </p>
-              <p className="wow fadeInUp">
-                Viðbygging til suðausturs verður á einni hæð með staðsteyptum
-                undirstöðum, núverandi flughlað verður nýtt sem botnplata.
-              </p>
+              <p className="wow fadeInUp">{d.description}</p>
             </div>
             {/* .matter */}
 
@@ -389,13 +371,13 @@ const Project = (props) => {
                     }
                   }
                   h4 {
-                    font-family: 'GT America Regular';
+                    font-family: "GT America Regular";
                     font-size: 18px;
                     color: $brand;
                     margin-bottom: 12px;
                   }
                   h3 {
-                    font-family: 'GT America Bold';
+                    font-family: "GT America Bold";
                     font-size: 20px;
                     color: $black;
                   }
@@ -403,7 +385,7 @@ const Project = (props) => {
               }
             }
             h2 {
-              font-family: 'GT America Bold';
+              font-family: "GT America Bold";
               font-size: 24px;
               line-height: 100%;
               color: $brand;
@@ -415,7 +397,7 @@ const Project = (props) => {
             .matter {
               margin-bottom: 80px;
               p {
-                font-family: 'GT America Regular';
+                font-family: "GT America Regular";
                 font-size: 18px;
                 color: $black;
                 line-height: 160%;
@@ -432,13 +414,13 @@ const Project = (props) => {
                   margin-bottom: 30px;
                 }
                 h4 {
-                  font-family: 'GT America Regular';
+                  font-family: "GT America Regular";
                   font-size: 18px;
                   color: $brand;
                   margin-bottom: 12px;
                 }
                 h3 {
-                  font-family: 'GT America Bold';
+                  font-family: "GT America Bold";
                   font-size: 20px;
                   color: $black;
                 }
@@ -454,13 +436,13 @@ const Project = (props) => {
                   margin-bottom: 30px;
                 }
                 h4 {
-                  font-family: 'GT America Regular';
+                  font-family: "GT America Regular";
                   font-size: 18px;
                   color: $brand;
                   margin-bottom: 12px;
                 }
                 h3 {
-                  font-family: 'GT America Bold';
+                  font-family: "GT America Bold";
                   font-size: 20px;
                   color: $black;
                 }
@@ -492,7 +474,18 @@ const Project = (props) => {
         }
       `}</style>
     </Layout>
-  )
+  );
+};
+
+//data fetching
+export async function getServerSideProps(context) {
+  // Fetch data from external API
+  const res = await fetch(`${Host}/projects?slug=${context.params.slug}`);
+  const data = await res.json();
+  console.log(context.params);
+
+  // Pass data to the page via props
+  return { props: { data } };
 }
 
-export default Project
+export default Project;

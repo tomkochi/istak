@@ -1,7 +1,10 @@
-import Layout from '../../components/Layout'
-import Link from 'next/link'
+import Layout from "../../components/Layout";
+import Link from "next/link";
 
-const Article = (props) => {
+//
+import Host from "../../components/host";
+const Article = ({ data }) => {
+  const d = data[0];
   return (
     <Layout>
       <div className="article">
@@ -37,7 +40,7 @@ const Article = (props) => {
               {/* .image */}
               <div className="text">
                 <h6 className="f-gtam-regular">04.03.20</h6>
-                <h2 className="f-gtam-bold">Ístak byggir skóla í NUUK</h2>
+                <h2 className="f-gtam-bold">{d.title}</h2>
               </div>
               {/* .text */}
             </div>
@@ -380,7 +383,7 @@ const Article = (props) => {
             }
             p {
               padding: 0 50px;
-              font-family: 'GT America Thin';
+              font-family: "GT America Thin";
               font-size: 20px;
               margin-bottom: 2em;
               color: $black;
@@ -394,7 +397,7 @@ const Article = (props) => {
               margin: 40px 0;
             }
             .image-caption {
-              font-family: 'GT America Regular';
+              font-family: "GT America Regular";
               font-size: 16px;
               line-height: 150%;
               color: $black;
@@ -413,7 +416,7 @@ const Article = (props) => {
               margin: 80px 0 40px 0;
             }
             h2 {
-              font-family: 'GT America Bold';
+              font-family: "GT America Bold";
               font-size: 24px;
               color: $black;
               text-align: center;
@@ -437,7 +440,7 @@ const Article = (props) => {
           .social-sharing {
             text-align: center;
             h2 {
-              font-family: 'GT America Bold';
+              font-family: "GT America Bold";
               font-size: 24px;
               color: $black;
               text-align: center;
@@ -450,7 +453,18 @@ const Article = (props) => {
         }
       `}</style>
     </Layout>
-  )
+  );
+};
+
+//data fetching
+export async function getServerSideProps(context) {
+  // Fetch data from external API
+  const res = await fetch(`${Host}/articles?slug=${context.params.slug}`);
+  const data = await res.json();
+  console.log(context.params);
+
+  // Pass data to the page via props
+  return { props: { data } };
 }
 
-export default Article
+export default Article;
