@@ -1,13 +1,12 @@
 import Layout from "../../components/Layout";
 import BottomPick from "../../components/bottom-pick";
-import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Host from "../../components/host";
+import ReactMarkdown from "react-markdown";
+import moment from "moment";
 
 const Project = ({ data }) => {
-  const router = useRouter();
-  const { slug } = router.query;
   const [slides, setSlides] = useState(0);
   const [slide, setSlide] = useState(1);
 
@@ -17,6 +16,8 @@ const Project = ({ data }) => {
   const incCurrent = () => {
     setSlide(slide === slides ? 1 : slide + 1);
   };
+
+  const showDate = (source) => moment(source).format("MM.DD.YY");
 
   useEffect(() => {
     const s = document.getElementsByClassName("carousel-item").length;
@@ -57,7 +58,7 @@ const Project = ({ data }) => {
         {/* .hero */}
 
         <section className="image wow fadeInUp">
-          <img src={`${Host}${d.image.url}`} alt="" />
+          <img src={`${Host}${d.image.url}`} alt={`${Host}${d.image.name}`} />
         </section>
         {/* .image */}
 
@@ -72,12 +73,14 @@ const Project = ({ data }) => {
                 {/* .text */}
                 <div className="text">
                   <h4>Tímabil</h4>
-                  <h3>01.11.14 – 01.12.15</h3>
+                  <h3>
+                    {showDate(d.period.from)} - {showDate(d.period.to)}
+                  </h3>
                 </div>
                 {/* .text */}
                 <div className="d-none d-md-block text">
                   <h4>Hlutverk</h4>
-                  <h3>Aðalverktaki</h3>
+                  <h3>{d.role}</h3>
                 </div>
                 {/* .text */}
               </div>
@@ -87,97 +90,34 @@ const Project = ({ data }) => {
 
             <div className="matter">
               <h2 className="wow fadeInUp">Verklýsing</h2>
-              <p className="wow fadeInUp">{d.description}</p>
+              <ReactMarkdown source={d.description} />
             </div>
             {/* .matter */}
 
             <div className="key-figures wow fadeInUp">
               <h2>Helstu magntölur</h2>
-              <div className="figure">
-                <h4>Uppgröftur</h4>
-                <h3>
-                  13.300 km<sup>3</sup>
-                </h3>
-              </div>
-              {/* .figure */}
-              <div className="figure">
-                <h4>Fyllingar</h4>
-                <h3>
-                  10.000 km<sup>2</sup>
-                </h3>
-              </div>
-              {/* .figure */}
-              <div className="figure">
-                <h4>Mótafletir</h4>
-                <h3>
-                  2.510 m<sup>2</sup>
-                </h3>
-              </div>
-              {/* .figure */}
-              <div className="figure">
-                <h4>Gifsveggir</h4>
-                <h3>
-                  2.560 m<sup>2</sup>
-                </h3>
-              </div>
-              {/* .figure */}
-              <div className="figure">
-                <h4>Malbikað plan</h4>
-                <h3>
-                  3.900 m<sup>2</sup>
-                </h3>
-              </div>
-              {/* .figure */}
-              <div className="figure">
-                <h4>Steypa</h4>
-                <h3>
-                  1.300 km<sup>3</sup>
-                </h3>
-              </div>
-              {/* .figure */}
-              <div className="figure">
-                <h4>Stálvirki</h4>
-                <h3>308 tonn</h3>
-              </div>
-              {/* .figure */}
-              <div className="figure">
-                <h4>Járnabending</h4>
-                <h3>79 tonn</h3>
-              </div>
-              {/* .figure */}
-              <div className="figure">
-                <h4>Samlokueiningar</h4>
-                <h3>
-                  6.900 m<sup>2</sup>
-                </h3>
-              </div>
-              {/* .figure */}
+              {d.specifications.map((item) => {
+                return (
+                  <div className="figure">
+                    <h4>{item.key}</h4>
+                    <h3>{item.value}</h3>
+                  </div>
+                );
+              })}
             </div>
             {/* .key-figures */}
 
             <div className="consultants wow fadeInUp">
               <h2>Ráðgjafar</h2>
               <div className="consultant-details d-flex flex-wrap">
-                <div className="consultant">
-                  <h4>Arkitekt</h4>
-                  <h3>Steinar Sigurðsson</h3>
-                </div>
-                {/* .consultant */}
-                <div className="consultant">
-                  <h4>Arkitekt</h4>
-                  <h3>Andersen Sigurðsson</h3>
-                </div>
-                {/* .consultant */}
-                <div className="consultant">
-                  <h4>Lagnahönnun</h4>
-                  <h3>Verkís</h3>
-                </div>
-                {/* .consultant */}
-                <div className="consultant">
-                  <h4>Rafmagnshönnun</h4>
-                  <h3>Mannvit</h3>
-                </div>
-                {/* .consultant */}
+                {d.consultants.map((item) => {
+                  return (
+                    <div className="consultant">
+                      <h4>{item.key}</h4>
+                      <h3>{item.value}</h3>
+                    </div>
+                  );
+                })}
               </div>
               {/* .consultant-details */}
             </div>
@@ -196,20 +136,17 @@ const Project = ({ data }) => {
                 data-interval="false"
               >
                 <div className="carousel-inner">
-                  <div className="carousel-item active">
-                    <img
-                      src="/img/project-photo-1.jpg"
-                      className="d-block w-100"
-                      alt="..."
-                    />
-                  </div>
-                  <div className="carousel-item">
-                    <img
-                      src="/img/project-photo-1.jpg"
-                      className="d-block w-100"
-                      alt="..."
-                    />
-                  </div>
+                  {d.gallery.map((item) => {
+                    return (
+                      <div className="carousel-item active">
+                        <img
+                          src={`${Host}${item.image[0].url}`}
+                          className="d-block w-100"
+                          alt={`${Host}${item.image[0].alternativeText}`}
+                        />
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
             </div>

@@ -1,10 +1,12 @@
 import Layout from "../../components/Layout";
 import Link from "next/link";
-
+import ReactMarkdown from "react-markdown";
+import moment from "moment";
 //
 import Host from "../../components/host";
 const Article = ({ data }) => {
   const d = data[0];
+  const showDate = (source) => moment(source).format("MM.DD.YY");
   return (
     <Layout>
       <div className="article">
@@ -39,7 +41,7 @@ const Article = ({ data }) => {
               </div>
               {/* .image */}
               <div className="text">
-                <h6 className="f-gtam-regular">04.03.20</h6>
+                <h6 className="f-gtam-regular">{showDate(d.createdAt)}</h6>
                 <h2 className="f-gtam-bold">{d.title}</h2>
               </div>
               {/* .text */}
@@ -124,42 +126,20 @@ const Article = ({ data }) => {
         <div className="contents">
           <div className="container">
             <div className="wow fadeInUp">
-              <p>
-                Í gær var undirritaður samningur á milli ÍSTAKS og NCD í Nuuk um
-                byggingu nýs skóla í Nuuk á Grænlandi.
-              </p>
-              <p>
-                Við erum sérstaklega stolt og ánægð með að hafa landað þessu
-                verkefni en við val á verktaka var tekið tillit til verðs,
-                útfærslu og rekstrarkostnaðar. Samningurinn er upp á 615 MDKK og
-                er því einn af stærstu samningum sem að Ístak hefur tekið að
-                sér. Einnig er þetta stærsti samningur sem að bæjarfélagið Nuuk
-                hefur sett í verk.
-              </p>
-              <p>
-                Byggingin rís við aðalgötuna í Nuuk, við hlið Hótels Hans Egede,
-                en skammt frá eru einnig aðalverslunarmiðstöð bæjarins og
-                skrifstofur landsstjórnar Grænlands.
-              </p>
-              <p>
-                Þetta verður stærsta skólabygging landsins, samtals sextán
-                þúsund fermetrar, og mun bæði þjóna sem leik- og grunnskóli en
-                jafnframt sem íþrótta- og menningarmiðstöð á kvöldin og um
-                helgar fyrir bæjarbúa, sem fá aðgang að svokölluðu hjartarými
-                byggingarinnar og íþróttasal. Verður þetta því bygging sem mun
-                þjóna öllum bæjarbúum, bæði ungum og öldnum
-              </p>
-              <img src="/img/article-immer-image-1.jpg" alt="" />
-              <div className="image-caption">
-                Karl Andreassen, framkvæmdastjóri Ístaks, Charlotte Ludvigsen,
-                borgarstjóri sveitarfélagsins Sermersooq, sem Nuuk tilheyrir, og
-                Hermann Sigurðsson yfirverkfræðingur Ístaks á verkstað.
+              <div className="marked">
+                <ReactMarkdown source={d.content} />
               </div>
-              <img src="/img/article-immer-image-2.jpg" alt="" />
-              <div className="image-caption">
-                Rými verður fyrir 1.200 nemendur í grunnskólanum. Utan skólatíma
-                nýtast húsakynnin sem menningarmiðstöð bæjarbúa
-              </div>
+              {d.gallery.map((item) => {
+                return (
+                  <>
+                    <img
+                      src={`${Host}${item.image[0].url}`}
+                      alt={`${Host}${item.image[0].alternativeText}`}
+                    />
+                    <div className="image-caption">{item.description}</div>
+                  </>
+                );
+              })}
             </div>
             <div className="more-articles wow fadeInUp">
               <h2>Viltu sjá fleirri greinar?</h2>
@@ -276,6 +256,19 @@ const Article = ({ data }) => {
             padding: 0;
           }
         }
+
+        .marked {
+          padding: 0 50px;
+          font-family: "GT America Thin";
+          font-size: 20px;
+          margin-bottom: 2em !important;
+          color: $black;
+          @media (max-width: 991px) {
+            padding: 0;
+            font-size: 18px;
+          }
+        }
+
         .hero {
           margin-top: 150px;
           @media (max-width: 991px) {
