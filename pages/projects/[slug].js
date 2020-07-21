@@ -2,7 +2,6 @@ import Layout from "../../components/Layout";
 import BottomPick from "../../components/bottom-pick";
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Host from "../../components/host";
 import ReactMarkdown from "react-markdown";
 import moment from "moment";
 
@@ -417,7 +416,9 @@ const Project = ({ data }) => {
 //data fetching
 export async function getServerSideProps(context) {
   // Fetch data from external API
-  const res = await fetch(`${Host}/projects?slug=${context.params.slug}`);
+  const res = await fetch(
+    `${process.env.HOST}/projects?slug=${context.params.slug}`
+  );
   const data = await res.json();
   console.log(context.params);
 

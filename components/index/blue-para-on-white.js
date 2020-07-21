@@ -1,4 +1,4 @@
-const BlueParaOnWhite = ({ para }) => {
+const BlueParaOnWhite = ({ data }) => {
   return (
     <>
       <div
@@ -6,7 +6,7 @@ const BlueParaOnWhite = ({ para }) => {
         data-wow-duration="2s"
         data-wow-duration="300ms"
       >
-        <p className="f-gtam-bold">{para}</p>
+        <p className="f-gtam-bold">{data}</p>
       </div>
       <style jsx>{`
         $brand: #204f9c;
@@ -40,7 +40,7 @@ const BlueParaOnWhite = ({ para }) => {
         }
       `}</style>
     </>
-  )
-}
+  );
+};
 
-export default BlueParaOnWhite
+export default BlueParaOnWhite;

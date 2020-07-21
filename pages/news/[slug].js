@@ -3,7 +3,7 @@ import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import moment from "moment";
 //
-import Host from "../../components/host";
+
 const Article = ({ data }) => {
   const d = data[0];
   const showDate = (source) => moment(source).format("MM.DD.YY");
@@ -452,7 +452,9 @@ const Article = ({ data }) => {
 //data fetching
 export async function getServerSideProps(context) {
   // Fetch data from external API
-  const res = await fetch(`${Host}/articles?slug=${context.params.slug}`);
+  const res = await fetch(
+    `${process.env.HOST}/articles?slug=${context.params.slug}`
+  );
   const data = await res.json();
   console.log(context.params);
 
