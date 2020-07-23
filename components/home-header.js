@@ -231,6 +231,11 @@ const Header = (props) => {
               display: flex;
               .navigation-item {
                 position: relative;
+                &:after {
+                  content: ' ';
+                  display: block;
+                  clear: both;
+                }
                 > a {
                   position: relative;
                   font-family: 'GT America Medium';
@@ -270,8 +275,21 @@ const Header = (props) => {
                   box-shadow: 0px 17px 50px rgba(0, 0, 0, 0.05);
                   &.show {
                     transform: scale(1);
+                    .nav-dropdown-item {
+                      transform: translate(0, 0);
+                      opacity: 1;
+                      @for $i from 1 through 10 {
+                        &:nth-child(#{$i}) {
+                          transition-delay: #{100 + ($i * 50)}ms;
+                        }
+                      }
+                    }
                   }
                   .nav-dropdown-item {
+                    float: none;
+                    transition: 0.3s ease;
+                    transform: translate(-20px, -20px);
+                    opacity: 0;
                     a {
                       color: $brand;
                       padding: 10px 43px;
@@ -306,11 +324,11 @@ const Header = (props) => {
               transition: all 0.3s;
               overflow-y: auto;
               z-index: 20000;
-              &.show {
-                transform: scaleY(1);
-              }
               .top {
                 padding: 20px;
+                opacity: 0;
+                transition: 0.3s ease;
+                transition-delay: 300ms;
                 .left {
                   svg {
                     width: 80px;
@@ -319,8 +337,27 @@ const Header = (props) => {
                 .right {
                 }
               }
+              &.show {
+                transform: scaleY(1);
+                .top {
+                  opacity: 1;
+                }
+                .navigation-item {
+                  transform: translate(0, 0);
+                  opacity: 1;
+                  transform-origin: 0 0;
+                  @for $i from 1 through 10 {
+                    &:nth-child(#{$i}) {
+                      transition-delay: #{300 + ($i * 60)}ms;
+                    }
+                  }
+                }
+              }
               .navigation-item {
                 margin-top: 18px;
+                transition: 0.3s cubic-bezier(0.17, 1.5, 0.53, 1.37);
+                transform: translate(-10px, -20px);
+                opacity: 0;
                 a {
                   position: relative;
                   color: white;
