@@ -1,4 +1,6 @@
-const BottomPick = ({ image, title, para, video }) => {
+const BottomPick = ({ data }) => {
+  var video = `someulr`;
+  var image = `${process.env.HOST}${data.background.url}`;
   return (
     <>
       <div
@@ -10,22 +12,22 @@ const BottomPick = ({ image, title, para, video }) => {
           <div
             className="content wow fadeIn"
             data-wow-duration="1s"
-            style={{ width: video ? '437px' : '404px' }}
+            style={{ width: video ? "437px" : "404px" }}
           >
             <h2
               className="f-gtam-bold wow fadeInUp"
               data-wow-delay="300ms"
               data-wow-duration="300ms"
             >
-              {title}
+              {data.title}
             </h2>
-            {para && (
+            {data.description && (
               <p
                 className="f-gtam-thin wow fadeInUp"
                 data-wow-delay="500ms"
                 data-wow-duration="300ms"
               >
-                {para}
+                {data.description}
               </p>
             )}
             <div
@@ -62,7 +64,7 @@ const BottomPick = ({ image, title, para, video }) => {
                 )}
               </div>
               <h3 className="f-gtam-medium">
-                {video ? 'Spila myndband' : 'Sjá öll verkefni'}
+                {video ? "Spila myndband" : "Sjá öll verkefni"}
               </h3>
             </div>
             {/* .play-video */}
@@ -88,7 +90,7 @@ const BottomPick = ({ image, title, para, video }) => {
           }
           &:before,
           &:after {
-            content: '';
+            content: "";
             position: absolute;
             left: 0;
             right: 0;
@@ -197,7 +199,7 @@ const BottomPick = ({ image, title, para, video }) => {
         }
       `}</style>
     </>
-  )
-}
+  );
+};
 
-export default BottomPick
+export default BottomPick;

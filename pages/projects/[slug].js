@@ -57,7 +57,10 @@ const Project = ({ data }) => {
         {/* .hero */}
 
         <section className="image wow fadeInUp">
-          <img src={`${Host}${d.image.url}`} alt={`${Host}${d.image.name}`} />
+          <img
+            src={`${process.env.HOST}${d.image.url}`}
+            alt={`${process.env.HOST}${d.image.name}`}
+          />
         </section>
         {/* .image */}
 
@@ -139,9 +142,9 @@ const Project = ({ data }) => {
                     return (
                       <div className="carousel-item active">
                         <img
-                          src={`${Host}${item.image[0].url}`}
+                          src={`${process.env.HOST}${item.image[0].url}`}
                           className="d-block w-100"
-                          alt={`${Host}${item.image[0].alternativeText}`}
+                          alt={`${process.env.HOST}${item.image[0].alternativeText}`}
                         />
                       </div>
                     );

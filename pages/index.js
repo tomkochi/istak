@@ -10,12 +10,6 @@ const Index = ({ data }) => {
       {content.map((item) => (
         <Slice data={item} />
       ))}
-      <BottomPick
-        image="/img/bottom-pick.jpg"
-        title="Saga stofnun Ístaks"
-        para="Myndband um stofnendur og uppruna Ístaks árið 1970."
-        video="my-video-url"
-      />
     </Layout>
   );
 };

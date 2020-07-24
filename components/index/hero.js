@@ -48,16 +48,10 @@ const Hero = ({ data }) => {
                 >
                   <div className="container d-flex justify-content-between">
                     <div className="blue-box active">
-                      <h2 className="f-gtam-bold active">
-                        Brautriðjandi á Íslandi í 50 ár
-                      </h2>
-                      <p className="f-gtam-thin active">
-                        Við erum orðin 50 ára! Við fögnum því með nýjum og
-                        glæsilegum vef. Kynntu þér stærstu áfanga okkar síðustu
-                        áratuga.{" "}
-                      </p>
+                      <h2 className="f-gtam-bold active">{data.title}</h2>
+                      <p className="f-gtam-thin active">{data.description}</p>
                       <div className="link active">
-                        <Link href="/" passHref>
+                        <Link href={data.url} passHref>
                           <a className="f-gtam-regular d-flex align-items-center">
                             <div className="icon d-flex align-items-center justify-content-center">
                               <svg
@@ -74,7 +68,7 @@ const Hero = ({ data }) => {
                                 />
                               </svg>
                             </div>
-                            Sjáðu söguna
+                            {data.button_text}
                           </a>
                         </Link>
                       </div>

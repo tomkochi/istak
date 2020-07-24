@@ -133,8 +133,8 @@ const Article = ({ data }) => {
                 return (
                   <>
                     <img
-                      src={`${Host}${item.image[0].url}`}
-                      alt={`${Host}${item.image[0].alternativeText}`}
+                      src={`${process.env.HOST}${item.image[0].url}`}
+                      alt={`${process.env.HOST}${item.image[0].alternativeText}`}
                     />
                     <div className="image-caption">{item.description}</div>
                   </>
