@@ -1,22 +1,60 @@
-import Link from 'next/link'
-import { useState } from 'react'
+import Link from "next/link";
+import { useState } from "react";
 
-const ServiceDepartments = ({ departments, image }) => {
-  const [dept, setDept] = useState(0)
+var dummy = [
+  {
+    name: "Innkaupadeild",
+    description:
+      "Consectetur adipiscing elit. Aliquam sed ultricies nunc. Etiam venenatis eros vel ante sagittis, non luctus magna feugiat.",
+  },
+  {
+    name: "Vélaverkstæði",
+    description:
+      "Ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sed ultricies nunc. Etiam venenatis eros vel ante sagittis, non luctus magna feugiat.",
+  },
+  {
+    name: "Rafmagnsverkstæði",
+    description:
+      "Dolor sit amet, consectetur adipiscing elit. Aliquam sed ultricies nunc. Etiam venenatis eros vel ante sagittis, non luctus magna feugiat.",
+  },
+  {
+    name: "Vélsmiðja",
+    description:
+      "Amet, consectetur adipiscing elit. Aliquam sed ultricies nunc. Etiam venenatis eros vel ante sagittis, non luctus magna feugiat.",
+  },
+  {
+    name: "Steypuskáli",
+    description:
+      "Sit amet, consectetur adipiscing elit. Aliquam sed ultricies nunc. Etiam venenatis eros vel ante sagittis, non luctus magna feugiat.",
+  },
+  {
+    name: "Viðhaldsdeild",
+    description:
+      "Pum dolor sit amet, consectetur adipiscing elit. Aliquam sed ultricies nunc. Etiam venenatis eros vel ante sagittis, non luctus magna feugiat.",
+  },
+  {
+    name: "VDC/BIM",
+    description:
+      "Orem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sed ultricies nunc. Etiam venenatis eros vel ante sagittis, non luctus magna feugiat.",
+  },
+];
+
+const ServiceDepartments = ({ data }) => {
+  const [dept, setDept] = useState(0);
 
   return (
     <>
       <div className="service-dept">
         <div className="d-block d-md-flex align-items-center">
           <div className="image wow fadeInUp">
-            <img src={image} alt="" />
+            <img src={`${process.env.HOST}${data.cover.url}`} alt="" />
           </div>
           {/* .image */}
           <div className="text-md d-none d-md-block wow fadeInRight">
             <div className="wrapper">
               <h3 className="f-gtam-medium wow fadeInUp">Þjónustudeildir</h3>
               <ul className="list-unstyled">
-                {departments.map((d, i) => {
+                {dummy.map((d, i) => {
                   return (
                     <li
                       className="f-gtam-bold wow fadeIn"
@@ -29,7 +67,7 @@ const ServiceDepartments = ({ departments, image }) => {
                         </Link>
                       </h2>
                     </li>
-                  )
+                  );
                 })}
               </ul>
             </div>
@@ -39,7 +77,7 @@ const ServiceDepartments = ({ departments, image }) => {
           <div className="text-sm d-md-none">
             <div className="wrapper">
               <ul className="list-unstyled d-flex">
-                {departments.map((d, i) => {
+                {dummy.map((d, i) => {
                   return (
                     <li
                       className="f-gtam-medium"
@@ -49,7 +87,7 @@ const ServiceDepartments = ({ departments, image }) => {
                       <h2>
                         <Link href="#" passHref>
                           <a
-                            className={i === dept ? 'active' : ''}
+                            className={i === dept ? "active" : ""}
                             onClick={(e) => setDept(i)}
                           >
                             {d.name}
@@ -57,13 +95,13 @@ const ServiceDepartments = ({ departments, image }) => {
                         </Link>
                       </h2>
                     </li>
-                  )
+                  );
                 })}
               </ul>
             </div>
             {/* .wrapper */}
             <div className="matter">
-              <p className="f-gtam-thin">{departments[dept].description}</p>
+              <p className="f-gtam-thin">{dummy[dept].description}</p>
               <div className="link-to d-flex align-items-center">
                 <div className="icon d-flex align-items-center justify-content-center">
                   <svg
@@ -118,7 +156,7 @@ const ServiceDepartments = ({ departments, image }) => {
             }
           }
           &:before {
-            content: '';
+            content: "";
             position: absolute;
             top: 0;
             width: calc(50% + 155px);
@@ -210,7 +248,7 @@ const ServiceDepartments = ({ departments, image }) => {
                     transition: all 0.2s;
                     position: relative;
                     &:after {
-                      content: '';
+                      content: "";
                       position: absolute;
                       left: 0;
                       bottom: -16px;
@@ -257,7 +295,7 @@ const ServiceDepartments = ({ departments, image }) => {
         }
       `}</style>
     </>
-  )
-}
+  );
+};
 
-export default ServiceDepartments
+export default ServiceDepartments;

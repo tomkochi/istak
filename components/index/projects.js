@@ -1,4 +1,21 @@
-const Projects = ({ para, projects }) => {
+const Projects = ({ para }) => {
+  const projects = [
+    {
+      image: "/img/project-thumb-1.jpg",
+      year: "1980",
+      name: "Flugstöð Leifs Eiríkssonar",
+    },
+    {
+      image: "/img/project-thumb-2.jpg",
+      year: "2014",
+      name: "Háskólinn í Reykjavík",
+    },
+    {
+      image: "/img/project-thumb-3.jpg",
+      year: "2020",
+      name: "Smáralind",
+    },
+  ];
   return (
     <>
       <div className="projects-component">
@@ -23,7 +40,7 @@ const Projects = ({ para, projects }) => {
                   </div>
                 </div>
               </div>
-            )
+            );
           })}
         </div>
         {/* .projects */}
@@ -107,7 +124,7 @@ const Projects = ({ para, projects }) => {
               }
               &:before,
               &:after {
-                content: '';
+                content: "";
                 position: absolute;
                 top: 0;
                 right: 0;
@@ -211,7 +228,7 @@ const Projects = ({ para, projects }) => {
         }
       `}</style>
     </>
-  )
-}
+  );
+};
 
-export default Projects
+export default Projects;

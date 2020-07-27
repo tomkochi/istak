@@ -1,4 +1,4 @@
-const BigCard = ({ image, heading, para, link }) => {
+const BigCardLeft = ({ data }) => {
   return (
     <>
       <div className="big-card">
@@ -7,7 +7,7 @@ const BigCard = ({ image, heading, para, link }) => {
           <div className="d-md-flex">
             <div className="image order-2">
               <div className="wrapper">
-                <img src={image} alt="" />
+                <img src={`${process.env.HOST}${data.image.url}`} alt="" />
               </div>
               {/* .wrapper */}
             </div>
@@ -19,16 +19,16 @@ const BigCard = ({ image, heading, para, link }) => {
                     className="f-gtam-bold wow fadeInUp"
                     data-wow-duration="300ms"
                   >
-                    {heading}
+                    {data.title}
                   </h2>
                   <p
                     className="f-gtam-thin wow fadeInUp"
                     data-wow-delay="500ms"
                     data-wow-duration="300ms"
                   >
-                    {para}
+                    {data.description}
                   </p>
-                  {link && (
+                  {data.button_text && (
                     <h3
                       className="f-gtam-medium d-flex align-items-center wow fadeIn"
                       data-wow-delay="750ms"
@@ -49,7 +49,7 @@ const BigCard = ({ image, heading, para, link }) => {
                           />
                         </svg>
                       </div>
-                      {link}
+                      {data.button_text}
                     </h3>
                   )}
                 </div>
@@ -81,7 +81,7 @@ const BigCard = ({ image, heading, para, link }) => {
             margin: 60px 0;
           }
           &:before {
-            content: '';
+            content: "";
             position: absolute;
             top: 0;
             right: 0;
@@ -196,7 +196,7 @@ const BigCard = ({ image, heading, para, link }) => {
         }
       `}</style>
     </>
-  )
-}
+  );
+};
 
-export default BigCard
+export default BigCardLeft;

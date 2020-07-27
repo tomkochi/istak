@@ -1,4 +1,4 @@
-const Contact = (props) => {
+const Contact = ({ data }) => {
   return (
     <>
       <div className="contact-card">
@@ -11,19 +11,15 @@ const Contact = (props) => {
               Tengiliður
             </div>
             {/* .overlay */}
-            <img src="/img/contact-photo.jpg" alt="" />
+            <img src={`${process.env.HOST}${data.picture.url}`} alt="" />
           </div>
           {/* .image */}
           <div className="text wow fadeInUp" data-wow-delay="500ms">
-            <div className="name f-gtam-bold">
-              Ingibjörg Birna Kjartansdóttir
-            </div>
-            <div className="designation f-gtam-medium">
-              BIM / VDc Þróunarstjóri
-            </div>
+            <div className="name f-gtam-bold">{data.name}</div>
+            <div className="designation f-gtam-medium">{data.designation}</div>
             <div className="contact">
-              <div className="email f-gtam-thin">ingibjorg@istak.is</div>
-              <div className="phone f-gtam-thin">581 2345</div>
+              <div className="email f-gtam-thin">{data.email}</div>
+              <div className="phone f-gtam-thin">{data.phone}</div>
             </div>
             {/* .contact */}
           </div>
@@ -57,7 +53,7 @@ const Contact = (props) => {
               padding: 0 20px;
             }
             &:before {
-              content: '';
+              content: "";
               position: absolute;
               left: 25%;
               right: 0;
@@ -147,7 +143,7 @@ const Contact = (props) => {
         }
       `}</style>
     </>
-  )
-}
+  );
+};
 
-export default Contact
+export default Contact;

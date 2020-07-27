@@ -1,44 +1,32 @@
-import Header from '../../components/home-header'
+import Header from "../../components/home-header";
 
-import Link from 'next/link'
-import { useState, useEffect } from 'react'
+import Link from "next/link";
+import { useState, useEffect } from "react";
 
-const Hero = (props) => {
-  const slides = [
-    {
-      image: '/img/home-hero-image.jpg',
-      name: 'Búrfell – Valdi, Þorvaldur K, Helgi Laxdal',
-      year: '1971',
-    },
-    {
-      image:
-        'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80',
-      name: 'Búrfell – Valdi, Þorvaldur K',
-      year: '1990',
-    },
-  ]
+const Hero = ({ data }) => {
+  const slides = data.hero_slider;
 
-  const [slide, setSlide] = useState(1)
-  const count = slides.length
-  const [loaded, setLoaded] = useState(false)
+  const [slide, setSlide] = useState(1);
+  const count = slides.length;
+  const [loaded, setLoaded] = useState(false);
 
   const previousSlide = () => {
-    setSlide(slide === 1 ? count : slide - 1)
-    clearInterval(autoSlideTimer)
-  }
+    setSlide(slide === 1 ? count : slide - 1);
+    clearInterval(autoSlideTimer);
+  };
 
   const nextSlide = () => {
-    setSlide(slide === count ? 1 : slide + 1)
-    clearInterval(autoSlideTimer)
-  }
+    setSlide(slide === count ? 1 : slide + 1);
+    clearInterval(autoSlideTimer);
+  };
 
-  let autoSlideTimer = setInterval(nextSlide, 8000)
+  let autoSlideTimer = setInterval(nextSlide, 8000);
 
   useEffect(() => {
     setTimeout(() => {
-      setLoaded(true)
-    }, 1000)
-  }, [])
+      setLoaded(true);
+    }, 1000);
+  }, []);
 
   return (
     <>
@@ -50,26 +38,20 @@ const Hero = (props) => {
           {slides.map((s, i) => {
             return (
               <div className="slide" key={i}>
-                <div className={`image ${slide === i + 1 ? 'active' : ''}`}>
-                  <img src={s.image} alt="" />
+                <div className={`image ${slide === i + 1 ? "active" : ""}`}>
+                  <img src={`${process.env.HOST}${s.image.url}`} alt="" />
                 </div>
                 <div
                   className={`overlay d-flex align-items-center ${
-                    loaded ? 'loaded' : ''
+                    loaded ? "loaded" : ""
                   }`}
                 >
                   <div className="container d-flex justify-content-between">
                     <div className="blue-box active">
-                      <h2 className="f-gtam-bold active">
-                        Brautriðjandi á Íslandi í 50 ár
-                      </h2>
-                      <p className="f-gtam-thin active">
-                        Við erum orðin 50 ára! Við fögnum því með nýjum og
-                        glæsilegum vef. Kynntu þér stærstu áfanga okkar síðustu
-                        áratuga.{' '}
-                      </p>
+                      <h2 className="f-gtam-bold active">{data.title}</h2>
+                      <p className="f-gtam-thin active">{data.description}</p>
                       <div className="link active">
-                        <Link href="/" passHref>
+                        <Link href={data.url} passHref>
                           <a className="f-gtam-regular d-flex align-items-center">
                             <div className="icon d-flex align-items-center justify-content-center">
                               <svg
@@ -86,7 +68,7 @@ const Hero = (props) => {
                                 />
                               </svg>
                             </div>
-                            Sjáðu söguna
+                            {data.button_text}
                           </a>
                         </Link>
                       </div>
@@ -95,14 +77,14 @@ const Hero = (props) => {
                     <div className="navigation d-none d-lg-block align-self-end">
                       <h3
                         className={`f-gtam-regular name ${
-                          slide === i + 1 ? 'active' : ''
+                          slide === i + 1 ? "active" : ""
                         }`}
                       >
                         {s.name}
                       </h3>
                       <h3
                         className={`f-gtam-regular year ${
-                          slide === i + 1 ? 'active' : ''
+                          slide === i + 1 ? "active" : ""
                         }`}
                       >
                         {s.year}
@@ -153,7 +135,7 @@ const Hero = (props) => {
                 </div>
                 {/* .overlay */}
               </div>
-            )
+            );
           })}
         </div>
         {/* .slides */}
@@ -215,7 +197,7 @@ const Hero = (props) => {
                 height: 326px;
               }
               &:after {
-                content: '';
+                content: "";
                 position: absolute;
                 left: 0;
                 top: 0;
@@ -400,7 +382,7 @@ const Hero = (props) => {
         }
       `}</style>
     </>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;
