@@ -1,12 +1,12 @@
-import Layout from "../../components/Layout";
-import Link from "next/link";
-import ReactMarkdown from "react-markdown";
-import moment from "moment";
+import Layout from '../../components/Layout'
+import Link from 'next/link'
+import ReactMarkdown from 'react-markdown'
+import moment from 'moment'
 //
 
 const Article = ({ data }) => {
-  const d = data[0];
-  const showDate = (source) => moment(source).format("MM.DD.YY");
+  const d = data[0]
+  const showDate = (source) => moment(source).format('MM.DD.YY')
   return (
     <Layout>
       <div className="article">
@@ -138,7 +138,7 @@ const Article = ({ data }) => {
                     />
                     <div className="image-caption">{item.description}</div>
                   </>
-                );
+                )
               })}
             </div>
             <div className="more-articles wow fadeInUp">
@@ -259,7 +259,7 @@ const Article = ({ data }) => {
 
         .marked {
           padding: 0 50px;
-          font-family: "GT America Thin";
+          font-family: 'GT America Thin';
           font-size: 20px;
           margin-bottom: 2em !important;
           color: $black;
@@ -376,7 +376,7 @@ const Article = ({ data }) => {
             }
             p {
               padding: 0 50px;
-              font-family: "GT America Thin";
+              font-family: 'GT America Thin';
               font-size: 20px;
               margin-bottom: 2em;
               color: $black;
@@ -390,7 +390,7 @@ const Article = ({ data }) => {
               margin: 40px 0;
             }
             .image-caption {
-              font-family: "GT America Regular";
+              font-family: 'GT America Regular';
               font-size: 16px;
               line-height: 150%;
               color: $black;
@@ -409,7 +409,7 @@ const Article = ({ data }) => {
               margin: 80px 0 40px 0;
             }
             h2 {
-              font-family: "GT America Bold";
+              font-family: 'GT America Bold';
               font-size: 24px;
               color: $black;
               text-align: center;
@@ -433,7 +433,7 @@ const Article = ({ data }) => {
           .social-sharing {
             text-align: center;
             h2 {
-              font-family: "GT America Bold";
+              font-family: 'GT America Bold';
               font-size: 24px;
               color: $black;
               text-align: center;
@@ -446,20 +446,20 @@ const Article = ({ data }) => {
         }
       `}</style>
     </Layout>
-  );
-};
+  )
+}
 
 //data fetching
 export async function getServerSideProps(context) {
   // Fetch data from external API
   const res = await fetch(
-    `${process.env.HOST}/articles?slug=${context.params.slug}`
-  );
-  const data = await res.json();
-  console.log(context.params);
+    `${process.env.HOST}/articles?slug=${context.params.slug}`,
+  )
+  const data = await res.json()
+  console.log(context.params)
 
   // Pass data to the page via props
-  return { props: { data } };
+  return { props: { data } }
 }
 
-export default Article;
+export default Article

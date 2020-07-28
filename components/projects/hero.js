@@ -1,7 +1,7 @@
 const Hero = (props) => {
   return (
     <>
-      <div className="hero wow fadeIn" data-wow-duration="2s">
+      <div className="hero wow fadeIn">
         <div className="container">
           <h1 className="f-gtam-bold">
             Við önnumst verkefni af öllum stærðum og gerðum

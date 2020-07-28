@@ -1,30 +1,30 @@
-import Layout from "../../components/Layout";
-import BottomPick from "../../components/bottom-pick";
-import { useState, useEffect } from "react";
-import Link from "next/link";
-import ReactMarkdown from "react-markdown";
-import moment from "moment";
+import Layout from '../../components/Layout'
+import BottomPick from '../../components/bottom-pick-with-link'
+import { useState, useEffect } from 'react'
+import Link from 'next/link'
+import ReactMarkdown from 'react-markdown'
+import moment from 'moment'
 
 const Project = ({ data }) => {
-  const [slides, setSlides] = useState(0);
-  const [slide, setSlide] = useState(1);
+  const [slides, setSlides] = useState(0)
+  const [slide, setSlide] = useState(1)
 
   const decCurrent = () => {
-    setSlide(slide === 1 ? slides : slide - 1);
-  };
+    setSlide(slide === 1 ? slides : slide - 1)
+  }
   const incCurrent = () => {
-    setSlide(slide === slides ? 1 : slide + 1);
-  };
+    setSlide(slide === slides ? 1 : slide + 1)
+  }
 
-  const showDate = (source) => moment(source).format("MM.DD.YY");
+  const showDate = (source) => moment(source).format('MM.DD.YY')
 
   useEffect(() => {
-    const s = document.getElementsByClassName("carousel-item").length;
-    setSlides(s);
-  }, []);
+    const s = document.getElementsByClassName('carousel-item').length
+    setSlides(s)
+  }, [])
 
   //
-  const d = data[0];
+  const d = data[0]
   return (
     <Layout>
       <div className="project">
@@ -98,13 +98,13 @@ const Project = ({ data }) => {
 
             <div className="key-figures wow fadeInUp">
               <h2>Helstu magntölur</h2>
-              {d.specifications.map((item) => {
+              {d.specifications.map((item, i) => {
                 return (
-                  <div className="figure">
+                  <div className="figure" key={i}>
                     <h4>{item.key}</h4>
                     <h3>{item.value}</h3>
                   </div>
-                );
+                )
               })}
             </div>
             {/* .key-figures */}
@@ -118,7 +118,7 @@ const Project = ({ data }) => {
                       <h4>{item.key}</h4>
                       <h3>{item.value}</h3>
                     </div>
-                  );
+                  )
                 })}
               </div>
               {/* .consultant-details */}
@@ -138,16 +138,19 @@ const Project = ({ data }) => {
                 data-interval="false"
               >
                 <div className="carousel-inner">
-                  {d.gallery.map((item) => {
+                  {d.gallery.map((item, i) => {
                     return (
-                      <div className="carousel-item active">
+                      <div
+                        className={`carousel-item ${i === 0 ? 'active' : ''}`}
+                        key={i}
+                      >
                         <img
                           src={`${process.env.HOST}${item.image[0].url}`}
                           className="d-block w-100"
                           alt={`${process.env.HOST}${item.image[0].alternativeText}`}
                         />
                       </div>
-                    );
+                    )
                   })}
                 </div>
               </div>
@@ -205,18 +208,18 @@ const Project = ({ data }) => {
         {/* section.photos */}
         <section className="d-none d-lg-flex bottom-para">
           <div className="container">
-            <p className="f-gtam-thin">
-              Karl Andreassen, framkvæmdastjóri Ístaks, Charlotte Ludvigsen,
-              borgarstjóri sveitarfélagsins Sermersooq, sem Nuuk tilheyrir, og
-              Hermann Sigurðsson yfirverkfræðingur Ístaks á verkstað.
-            </p>
+            <p className="f-gtam-thin">{d.gallery[slide - 1].description}</p>
           </div>
           {/* .container */}
         </section>
         {/* .bottom-para */}
         <BottomPick
-          image="/img/bottom-pick.jpg"
-          title="Viltu sjá fleiri verkefni?"
+          data={{
+            background: {
+              url: '/uploads/project_thumb_5_0bb7f17e84.jpeg',
+            },
+            title: 'Nýja verkefnið okkar',
+          }}
         />
       </div>
       {/* .project */}
@@ -310,13 +313,13 @@ const Project = ({ data }) => {
                     }
                   }
                   h4 {
-                    font-family: "GT America Regular";
+                    font-family: 'GT America Regular';
                     font-size: 18px;
                     color: $brand;
                     margin-bottom: 12px;
                   }
                   h3 {
-                    font-family: "GT America Bold";
+                    font-family: 'GT America Bold';
                     font-size: 20px;
                     color: $black;
                   }
@@ -324,7 +327,7 @@ const Project = ({ data }) => {
               }
             }
             h2 {
-              font-family: "GT America Bold";
+              font-family: 'GT America Bold';
               font-size: 24px;
               line-height: 100%;
               color: $brand;
@@ -336,7 +339,7 @@ const Project = ({ data }) => {
             .matter {
               margin-bottom: 80px;
               p {
-                font-family: "GT America Regular";
+                font-family: 'GT America Regular';
                 font-size: 18px;
                 color: $black;
                 line-height: 160%;
@@ -353,13 +356,13 @@ const Project = ({ data }) => {
                   margin-bottom: 30px;
                 }
                 h4 {
-                  font-family: "GT America Regular";
+                  font-family: 'GT America Regular';
                   font-size: 18px;
                   color: $brand;
                   margin-bottom: 12px;
                 }
                 h3 {
-                  font-family: "GT America Bold";
+                  font-family: 'GT America Bold';
                   font-size: 20px;
                   color: $black;
                 }
@@ -375,13 +378,13 @@ const Project = ({ data }) => {
                   margin-bottom: 30px;
                 }
                 h4 {
-                  font-family: "GT America Regular";
+                  font-family: 'GT America Regular';
                   font-size: 18px;
                   color: $brand;
                   margin-bottom: 12px;
                 }
                 h3 {
-                  font-family: "GT America Bold";
+                  font-family: 'GT America Bold';
                   font-size: 20px;
                   color: $black;
                 }
@@ -391,6 +394,14 @@ const Project = ({ data }) => {
         }
         .slider {
           margin-bottom: 50px;
+          height: 730px;
+          .slide,
+          carousel-inner,
+          .carousel-item,
+          img {
+            height: 730px;
+            object-fit: cover;
+          }
         }
         .slide-nav {
           text-align: center;
@@ -413,20 +424,20 @@ const Project = ({ data }) => {
         }
       `}</style>
     </Layout>
-  );
-};
+  )
+}
 
 //data fetching
 export async function getServerSideProps(context) {
   // Fetch data from external API
   const res = await fetch(
-    `${process.env.HOST}/projects?slug=${context.params.slug}`
-  );
-  const data = await res.json();
-  console.log(context.params);
+    `${process.env.HOST}/projects?slug=${context.params.slug}`,
+  )
+  const data = await res.json()
+  console.log(context.params)
 
   // Pass data to the page via props
-  return { props: { data } };
+  return { props: { data } }
 }
 
-export default Project;
+export default Project

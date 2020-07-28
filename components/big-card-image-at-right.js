@@ -26,7 +26,7 @@ const BigCardRight = ({ data }) => {
                   >
                     {data.description}
                   </p>
-                  {data.button_text && (
+                  {data.button_text !== 'none' && (
                     <h3
                       className="f-gtam-medium d-flex align-items-center wow fadeIn"
                       data-wow-delay="750ms"
@@ -78,7 +78,7 @@ const BigCardRight = ({ data }) => {
             margin: 60px 0;
           }
           &:before {
-            content: "";
+            content: '';
             position: absolute;
             top: 0;
             left: 0;
@@ -191,7 +191,7 @@ const BigCardRight = ({ data }) => {
         }
       `}</style>
     </>
-  );
-};
+  )
+}
 
-export default BigCardRight;
+export default BigCardRight

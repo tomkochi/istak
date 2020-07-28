@@ -1,46 +1,46 @@
-import Link from "next/link";
-import { useState } from "react";
+import Link from 'next/link'
+import { useState } from 'react'
 
 var dummy = [
   {
-    name: "Innkaupadeild",
+    name: 'Innkaupadeild',
     description:
-      "Consectetur adipiscing elit. Aliquam sed ultricies nunc. Etiam venenatis eros vel ante sagittis, non luctus magna feugiat.",
+      'Consectetur adipiscing elit. Aliquam sed ultricies nunc. Etiam venenatis eros vel ante sagittis, non luctus magna feugiat.',
   },
   {
-    name: "Vélaverkstæði",
+    name: 'Vélaverkstæði',
     description:
-      "Ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sed ultricies nunc. Etiam venenatis eros vel ante sagittis, non luctus magna feugiat.",
+      'Ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sed ultricies nunc. Etiam venenatis eros vel ante sagittis, non luctus magna feugiat.',
   },
   {
-    name: "Rafmagnsverkstæði",
+    name: 'Rafmagnsverkstæði',
     description:
-      "Dolor sit amet, consectetur adipiscing elit. Aliquam sed ultricies nunc. Etiam venenatis eros vel ante sagittis, non luctus magna feugiat.",
+      'Dolor sit amet, consectetur adipiscing elit. Aliquam sed ultricies nunc. Etiam venenatis eros vel ante sagittis, non luctus magna feugiat.',
   },
   {
-    name: "Vélsmiðja",
+    name: 'Vélsmiðja',
     description:
-      "Amet, consectetur adipiscing elit. Aliquam sed ultricies nunc. Etiam venenatis eros vel ante sagittis, non luctus magna feugiat.",
+      'Amet, consectetur adipiscing elit. Aliquam sed ultricies nunc. Etiam venenatis eros vel ante sagittis, non luctus magna feugiat.',
   },
   {
-    name: "Steypuskáli",
+    name: 'Steypuskáli',
     description:
-      "Sit amet, consectetur adipiscing elit. Aliquam sed ultricies nunc. Etiam venenatis eros vel ante sagittis, non luctus magna feugiat.",
+      'Sit amet, consectetur adipiscing elit. Aliquam sed ultricies nunc. Etiam venenatis eros vel ante sagittis, non luctus magna feugiat.',
   },
   {
-    name: "Viðhaldsdeild",
+    name: 'Viðhaldsdeild',
     description:
-      "Pum dolor sit amet, consectetur adipiscing elit. Aliquam sed ultricies nunc. Etiam venenatis eros vel ante sagittis, non luctus magna feugiat.",
+      'Pum dolor sit amet, consectetur adipiscing elit. Aliquam sed ultricies nunc. Etiam venenatis eros vel ante sagittis, non luctus magna feugiat.',
   },
   {
-    name: "VDC/BIM",
+    name: 'VDC/BIM',
     description:
-      "Orem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sed ultricies nunc. Etiam venenatis eros vel ante sagittis, non luctus magna feugiat.",
+      'Orem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sed ultricies nunc. Etiam venenatis eros vel ante sagittis, non luctus magna feugiat.',
   },
-];
+]
 
 const ServiceDepartments = ({ data }) => {
-  const [dept, setDept] = useState(0);
+  const [dept, setDept] = useState(0)
 
   return (
     <>
@@ -59,7 +59,7 @@ const ServiceDepartments = ({ data }) => {
                     <li
                       className="f-gtam-bold wow fadeIn"
                       key={i}
-                      data-wow-duration={`${i}s`}
+                      data-wow-duration={`${i * 0.75}s`}
                     >
                       <h2>
                         <Link href="#" passHref>
@@ -67,7 +67,7 @@ const ServiceDepartments = ({ data }) => {
                         </Link>
                       </h2>
                     </li>
-                  );
+                  )
                 })}
               </ul>
             </div>
@@ -87,7 +87,7 @@ const ServiceDepartments = ({ data }) => {
                       <h2>
                         <Link href="#" passHref>
                           <a
-                            className={i === dept ? "active" : ""}
+                            className={i === dept ? 'active' : ''}
                             onClick={(e) => setDept(i)}
                           >
                             {d.name}
@@ -95,7 +95,7 @@ const ServiceDepartments = ({ data }) => {
                         </Link>
                       </h2>
                     </li>
-                  );
+                  )
                 })}
               </ul>
             </div>
@@ -156,7 +156,7 @@ const ServiceDepartments = ({ data }) => {
             }
           }
           &:before {
-            content: "";
+            content: '';
             position: absolute;
             top: 0;
             width: calc(50% + 155px);
@@ -213,19 +213,23 @@ const ServiceDepartments = ({ data }) => {
                   margin-bottom: 20px;
                 }
               }
-              h2 {
-                font-size: 36px;
-                line-height: 120%;
-                margin-bottom: 23px;
-                @media (max-width: 991px) {
-                  font-size: 20px;
-                  margin-bottom: 18px;
-                }
-                a {
-                  color: $brand;
-                  transition: all 0.2s;
-                  &:hover {
-                    opacity: 0.6;
+              ul {
+                li {
+                  h2 {
+                    font-size: 36px;
+                    line-height: 120%;
+                    margin-bottom: 23px;
+                    @media (max-width: 991px) {
+                      font-size: 20px;
+                      margin-bottom: 18px;
+                    }
+                    a {
+                      color: $brand;
+                      transition: all 0.2s;
+                      &:hover {
+                        opacity: 0.6;
+                      }
+                    }
                   }
                 }
               }
@@ -248,7 +252,7 @@ const ServiceDepartments = ({ data }) => {
                     transition: all 0.2s;
                     position: relative;
                     &:after {
-                      content: "";
+                      content: '';
                       position: absolute;
                       left: 0;
                       bottom: -16px;
@@ -295,7 +299,7 @@ const ServiceDepartments = ({ data }) => {
         }
       `}</style>
     </>
-  );
-};
+  )
+}
 
-export default ServiceDepartments;
+export default ServiceDepartments
