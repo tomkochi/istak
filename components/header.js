@@ -89,8 +89,8 @@ const Header = (props) => {
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <rect width="32" height="2" fill="#204F9C" />
-                <rect y="10" width="32" height="2" fill="#204F9C" />
+                <rect width="32" height="2" fill="#204f9c" />
+                <rect y="10" width="32" height="2" fill="#204f9c" />
               </svg>
             </div>
           </button>
@@ -115,7 +115,12 @@ const Header = (props) => {
               {/* .left */}
               <div className="right">
                 <button className="sandwich d-flex d-lg-none align-items-center justify-content-center">
-                  <div onClick={(e) => setSmMenu(false)}>
+                  <div
+                    onClick={(e) => {
+                      setSmMenu(false)
+                      setServiceDeptDropdown(false)
+                    }}
+                  >
                     <svg
                       width="25"
                       height="26"
@@ -231,6 +236,11 @@ const Header = (props) => {
               display: flex;
               .navigation-item {
                 position: relative;
+                &:after {
+                  content: ' ';
+                  display: block;
+                  clear: both;
+                }
                 > a {
                   position: relative;
                   font-family: 'GT America Medium';
@@ -270,8 +280,21 @@ const Header = (props) => {
                   box-shadow: 0px 17px 50px rgba(0, 0, 0, 0.05);
                   &.show {
                     transform: scale(1);
+                    .nav-dropdown-item {
+                      transform: translate(0, 0);
+                      opacity: 1;
+                      @for $i from 1 through 10 {
+                        &:nth-child(#{$i}) {
+                          transition-delay: #{100 + ($i * 50)}ms;
+                        }
+                      }
+                    }
                   }
                   .nav-dropdown-item {
+                    float: none;
+                    transition: 0.3s ease;
+                    transform: translate(-20px, -20px);
+                    opacity: 0;
                     a {
                       color: $brand;
                       padding: 10px 43px;
@@ -303,14 +326,14 @@ const Header = (props) => {
               background: $brand;
               transform: scaleY(0);
               transform-origin: 0 0;
-              transition: all 0.3s;
+              transition: all 0.5s;
               overflow-y: auto;
               z-index: 20000;
-              &.show {
-                transform: scaleY(1);
-              }
               .top {
                 padding: 20px;
+                opacity: 0;
+                transition: 0.3s ease;
+                transition-delay: 300ms;
                 .left {
                   svg {
                     width: 80px;
@@ -319,8 +342,27 @@ const Header = (props) => {
                 .right {
                 }
               }
+              &.show {
+                transform: scaleY(1);
+                .top {
+                  opacity: 1;
+                }
+                .navigation-item {
+                  transform: translate(0, 0);
+                  opacity: 1;
+                  transform-origin: 0 0;
+                  @for $i from 1 through 10 {
+                    &:nth-child(#{$i}) {
+                      transition-delay: #{60 + ($i * 60)}ms;
+                    }
+                  }
+                }
+              }
               .navigation-item {
                 margin-top: 18px;
+                transition: 0.3s ease;
+                transform: translate(-20px, -20px);
+                opacity: 0;
                 a {
                   position: relative;
                   color: white;

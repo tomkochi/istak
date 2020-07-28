@@ -1,32 +1,32 @@
-import Header from "../../components/home-header";
+import Header from '../../components/home-header'
 
-import Link from "next/link";
-import { useState, useEffect } from "react";
+import Link from 'next/link'
+import { useState, useEffect } from 'react'
 
 const Hero = ({ data }) => {
-  const slides = data.hero_slider;
+  const slides = data.hero_slider
 
-  const [slide, setSlide] = useState(1);
-  const count = slides.length;
-  const [loaded, setLoaded] = useState(false);
+  const [slide, setSlide] = useState(1)
+  const count = slides.length
+  const [loaded, setLoaded] = useState(false)
 
   const previousSlide = () => {
-    setSlide(slide === 1 ? count : slide - 1);
-    clearInterval(autoSlideTimer);
-  };
+    setSlide(slide === 1 ? count : slide - 1)
+    clearInterval(autoSlideTimer)
+  }
 
   const nextSlide = () => {
-    setSlide(slide === count ? 1 : slide + 1);
-    clearInterval(autoSlideTimer);
-  };
+    setSlide(slide === count ? 1 : slide + 1)
+    clearInterval(autoSlideTimer)
+  }
 
-  let autoSlideTimer = setInterval(nextSlide, 8000);
+  let autoSlideTimer = setInterval(nextSlide, 8000)
 
   useEffect(() => {
     setTimeout(() => {
-      setLoaded(true);
-    }, 1000);
-  }, []);
+      setLoaded(true)
+    }, 1000)
+  }, [])
 
   return (
     <>
@@ -38,12 +38,12 @@ const Hero = ({ data }) => {
           {slides.map((s, i) => {
             return (
               <div className="slide" key={i}>
-                <div className={`image ${slide === i + 1 ? "active" : ""}`}>
+                <div className={`image ${slide === i + 1 ? 'active' : ''}`}>
                   <img src={`${process.env.HOST}${s.image.url}`} alt="" />
                 </div>
                 <div
                   className={`overlay d-flex align-items-center ${
-                    loaded ? "loaded" : ""
+                    loaded ? 'loaded' : ''
                   }`}
                 >
                   <div className="container d-flex justify-content-between">
@@ -77,14 +77,14 @@ const Hero = ({ data }) => {
                     <div className="navigation d-none d-lg-block align-self-end">
                       <h3
                         className={`f-gtam-regular name ${
-                          slide === i + 1 ? "active" : ""
+                          slide === i + 1 ? 'active' : ''
                         }`}
                       >
                         {s.name}
                       </h3>
                       <h3
                         className={`f-gtam-regular year ${
-                          slide === i + 1 ? "active" : ""
+                          slide === i + 1 ? 'active' : ''
                         }`}
                       >
                         {s.year}
@@ -135,7 +135,7 @@ const Hero = ({ data }) => {
                 </div>
                 {/* .overlay */}
               </div>
-            );
+            )
           })}
         </div>
         {/* .slides */}
@@ -197,7 +197,7 @@ const Hero = ({ data }) => {
                 height: 326px;
               }
               &:after {
-                content: "";
+                content: '';
                 position: absolute;
                 left: 0;
                 top: 0;
@@ -382,7 +382,7 @@ const Hero = ({ data }) => {
         }
       `}</style>
     </>
-  );
-};
+  )
+}
 
-export default Hero;
+export default Hero
