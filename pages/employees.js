@@ -1,25 +1,26 @@
-import Hero from '../components/employees/hero'
-import Employee from '../components/employees/employee'
-import Layout from '../components/Layout'
-import fetch from 'isomorphic-unfetch'
+import Hero from "../components/employees/hero";
+import Employee from "../components/employees/employee";
+import Layout from "../components/Layout";
+import fetch from "isomorphic-unfetch";
 
 const Employees = ({ data }) => {
   return (
     <Layout>
       <div className="employees">
-        <Hero />
+        <Hero data={data} />
         <div className="container">
           <div className="employee-cards d-flex flex-wrap justify-content-between">
-            {data.map((e, i) => {
+            {data.member.map((e) => {
               return (
                 <Employee
-                  photo={e.picture.large}
-                  name={`${e.name.title}. ${e.name.first} ${e.name.last}`}
-                  designation="BIM / VDc Þróunarstjóri"
+                  key={e._id}
+                  photo={`${process.env.HOST}${e.picture.url}`}
+                  name={e.name}
+                  designation={e.designation}
                   email={e.email}
                   phone={e.phone}
                 />
-              )
+              );
             })}
           </div>
           {/* .employee-cards */}
@@ -34,13 +35,16 @@ const Employees = ({ data }) => {
         }
       `}</style>
     </Layout>
-  )
+  );
+};
+
+//data fetching
+export async function getServerSideProps() {
+  // Fetch data from external API
+  const res = await fetch(`${process.env.HOST}/team`);
+  const data = await res.json();
+  // Pass data to the page via props
+  return { props: { data } };
 }
 
-Employees.getInitialProps = async (ctx) => {
-  const res = await fetch(`https://randomuser.me/api/?results=33`)
-  const json = await res.json()
-  return { data: json.results }
-}
-
-export default Employees
+export default Employees;

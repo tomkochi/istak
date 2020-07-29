@@ -1,6 +1,6 @@
-import Link from 'next/link'
+import Link from "next/link";
 
-const Hero = (props) => {
+const Hero = ({ data }) => {
   return (
     <>
       <div className="hero container">
@@ -32,7 +32,7 @@ const Hero = (props) => {
         </div>
         {/* .nav-back */}
         <h1 className="f-gtam-bold wow fadeInUp" data-wow-duration="300ms">
-          Hjá Ístaki starfa að jafnaði um 350 manns við margvísleg störf
+          {data.Heading}
         </h1>
         <div
           className="search d-flex wow fadeInUp"
@@ -161,7 +161,7 @@ const Hero = (props) => {
         }
       `}</style>
     </>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;
