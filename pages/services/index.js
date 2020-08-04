@@ -1,13 +1,27 @@
 import Hero from '../../components/services/hero'
 import Layout from '../../components/Layout'
-import BottomPick from '../../components/bottom-pick'
+import CardImageRight from '../../components/services/service-card-image-at-right'
+import CardImageLeft from '../../components/services/service-card-image-at-left'
 
-const ServiceIndex = (props) => {
-  console.log(props)
+const ServicesIndex = (props) => {
   return (
     <>
       <Layout>
         <Hero />
+        {props.data.map((s, i) => {
+          return i % 2 ? (
+            <CardImageRight key={s.id} data={s} />
+          ) : (
+            <CardImageLeft key={s.id} data={s} />
+          )
+        })}
+        {props.data.map((s, i) => {
+          return !i % 2 ? (
+            <CardImageRight key={s.id} data={s} />
+          ) : (
+            <CardImageLeft key={s.id} data={s} />
+          )
+        })}
       </Layout>
     </>
   )
@@ -15,10 +29,10 @@ const ServiceIndex = (props) => {
 
 export async function getServerSideProps() {
   // Fetch data from external API
-  const res = await fetch(`${process.env.HOST}/servces`)
+  const res = await fetch(`${process.env.HOST}/services`)
   const data = await res.json()
   // Pass data to the page via props
   return { props: { data } }
 }
 
-export default ServiceIndex
+export default ServicesIndex

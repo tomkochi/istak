@@ -1,38 +1,48 @@
-import Header from '../../components/home-header'
+import Header from '../../components/header'
 
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
 
+const delay = 8
+
 const Hero = ({ data }) => {
   const slides = data.hero_slider
+  const count = slides.length
 
   const [slide, setSlide] = useState(1)
-  const count = slides.length
   const [loaded, setLoaded] = useState(false)
+  const [counter, setCounter] = useState(0)
 
   const previousSlide = () => {
     setSlide(slide === 1 ? count : slide - 1)
-    clearInterval(autoSlideTimer)
+    setCounter(0)
   }
 
   const nextSlide = () => {
     setSlide(slide === count ? 1 : slide + 1)
-    clearInterval(autoSlideTimer)
+    setCounter(0)
   }
 
-  let autoSlideTimer = setInterval(nextSlide, 8000)
-
   useEffect(() => {
+    const interval = setInterval(() => {
+      setCounter((c) => c + 0.1)
+    }, 100)
     setTimeout(() => {
       setLoaded(true)
     }, 1000)
   }, [])
 
+  useEffect(() => {
+    if (counter >= delay) {
+      nextSlide()
+    }
+  }, [counter])
+
   return (
     <>
       <div className="carousel">
         <div className="header">
-          <Header />
+          <Header reverse />
         </div>
         <div className="slides">
           {slides.map((s, i) => {

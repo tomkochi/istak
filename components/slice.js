@@ -4,7 +4,7 @@ import BigCardRight from '../components/big-card-image-at-right'
 import BigCardLeft from '../components/big-card-image-at-left'
 import ServiceDepartments from '../components/index/service-departments'
 import Projects from '../components/index/projects'
-import Contact from '../components/services/contact'
+import Contact from '../components/services/slug/contact'
 import BottomPickVideo from '../components/bottom-pick-with-video'
 
 export default function Slice({ data }) {

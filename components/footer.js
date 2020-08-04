@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 const Footer = (props) => {
   return (
     <>
@@ -17,19 +19,29 @@ const Footer = (props) => {
                 <h4>Valmynd</h4>
                 <ul className="list-unstyled">
                   <li>
-                    <a href="#">Um Ístak</a>
+                    <Link href="/" passHref>
+                      <a>Um Ístak</a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#">Þjónustur</a>
+                    <Link href="/" passHref>
+                      <a>Þjónustur</a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#">Störf</a>
+                    <Link href="/" passHref>
+                      <a>Störf</a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#">Verkefni</a>
+                    <Link href="/projects" passHref>
+                      <a>Verkefni</a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#">Fréttir</a>
+                    <Link href="/news" passHref>
+                      <a>Fréttir</a>
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -57,7 +69,7 @@ const Footer = (props) => {
           <div className="container d-flex">
             <div className="bottom w-100 d-flex align-items-center justify-content-between">
               <div className="social d-flex">
-                <div className="icon">
+                <a href="https://www.facebook.com" className="icon facebook">
                   <svg
                     width="40"
                     height="40"
@@ -75,8 +87,8 @@ const Footer = (props) => {
                       fill="white"
                     />
                   </svg>
-                </div>
-                <div className="icon">
+                </a>
+                <a href="https://www.loinkedin.com" className="icon linkedin">
                   <svg
                     width="40"
                     height="40"
@@ -98,7 +110,7 @@ const Footer = (props) => {
                       strokeOpacity="0.12"
                     />
                   </svg>
-                </div>
+                </a>
               </div>
               <div className="copyright f-tgam-regular">
                 &copy; Ístak ehf. 2020
@@ -117,19 +129,29 @@ const Footer = (props) => {
               <h4>Valmynd</h4>
               <ul className="list-unstyled">
                 <li>
-                  <a href="#">Um Ístak</a>
+                  <Link href="/" passHref>
+                    <a href="#">Um Ístak</a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#">Þjónustur</a>
+                  <Link href="/" passHref>
+                    <a href="#">Þjónustur</a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#">Störf</a>
+                  <Link href="/" passHref>
+                    <a href="#">Störf</a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#">Verkefni</a>
+                  <Link href="/projects" passHref>
+                    <a href="#">Verkefni</a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#">Fréttir</a>
+                  <Link href="/news" passHref>
+                    <a href="#">Fréttir</a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -159,7 +181,7 @@ const Footer = (props) => {
               </a>
             </div>
             <div className="social d-flex">
-              <div className="icon">
+              <a href="http://www.facebook.com" className="icon">
                 <svg
                   width="40"
                   height="40"
@@ -177,8 +199,8 @@ const Footer = (props) => {
                     fill="white"
                   />
                 </svg>
-              </div>
-              <div className="icon">
+              </a>
+              <a href="http://www.linkedin.com" className="icon">
                 <svg
                   width="40"
                   height="40"
@@ -200,7 +222,7 @@ const Footer = (props) => {
                     strokeOpacity="0.12"
                   />
                 </svg>
-              </div>
+              </a>
             </div>
           </div>
           {/* .bottom */}
@@ -291,8 +313,14 @@ const Footer = (props) => {
             .bottom {
               margin-top: 67px;
               .social {
-                svg {
+                a {
                   margin-right: 12px;
+                  svg {
+                    transition: 0.3s;
+                  }
+                  &:hover svg {
+                    transform: scale(1.3);
+                  }
                 }
               }
               .copyright {

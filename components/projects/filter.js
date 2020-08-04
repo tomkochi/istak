@@ -26,6 +26,11 @@ const Filter = (props) => {
       <div className="filter wow fadeIn" data-wow-duration="2s">
         <div className="container d-flex justify-content-between align-items-center">
           <div className="left d-flex">
+            <input
+              type="text"
+              className="f-gtam-medium"
+              placeholder="Leita að verkefni"
+            />
             <div className="icon d-flex align-items-center justify-content-center">
               <svg
                 width="15"
@@ -39,11 +44,6 @@ const Filter = (props) => {
               </svg>
             </div>
             {/* .icon */}
-            <input
-              type="text"
-              className="f-gtam-medium"
-              placeholder="Leita að verkefni"
-            />
           </div>
           {/* .left */}
           <div className="right f-gtam-medium">
@@ -121,18 +121,13 @@ const Filter = (props) => {
             }
           }
           .left {
-            .icon {
-              width: 42px;
-              height: 42px;
-              border: 1px solid rgba(32, 79, 156, 0.2);
-              border-radius: 50%;
-              margin-right: 15px;
-            }
+            position: relative;
             input {
               border: none;
               font-size: 18px;
               line-height: 120%;
               padding: 0;
+              margin-left: 57px;
               outline: none;
               box-shadow: none !important;
               &::placeholder {
@@ -146,6 +141,25 @@ const Filter = (props) => {
               &::-ms-input-placeholder {
                 /* Microsoft Edge */
                 color: #5d749a;
+              }
+              &:focus + .icon {
+                background: $brand;
+                svg * {
+                  stroke: #ffffff;
+                }
+              }
+            }
+            .icon {
+              position: absolute;
+              top: -8px;
+              width: 42px;
+              height: 42px;
+              border: 1px solid rgba(32, 79, 156, 0.2);
+              border-radius: 50%;
+              transition: 0.3s;
+              svg path,
+              svg circle {
+                transition: 0.3s;
               }
             }
           }
