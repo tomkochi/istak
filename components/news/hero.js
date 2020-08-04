@@ -6,6 +6,11 @@ const Hero = (props) => {
           Lestu nýjustu greinar og uppfærslur
         </h1>
         <div className="search d-flex wow fadeIn" data-wow-delay="500ms">
+          <input
+            type="text"
+            className="f-gtam-medium"
+            placeholder="Leita að grein"
+          />
           <div className="icon d-flex align-items-center justify-content-center">
             <svg
               width="15"
@@ -19,11 +24,6 @@ const Hero = (props) => {
             </svg>
           </div>
           {/* .icon */}
-          <input
-            type="text"
-            className="f-gtam-medium"
-            placeholder="Leita að grein"
-          />
         </div>
         {/* .search */}
       </div>
@@ -62,23 +62,18 @@ const Hero = (props) => {
           }
           .search {
             margin-bottom: 117px;
-            @media (max-width: 767px) {
-              margin-bottom: 80px;
-            }
             width: 100%;
             max-width: 400px;
-            .icon {
-              width: 42px;
-              height: 42px;
-              border: 1px solid rgba(32, 79, 156, 0.2);
-              border-radius: 50%;
-              margin-right: 15px;
+            position: relative;
+            @media (max-width: 767px) {
+              margin-bottom: 80px;
             }
             input {
               border: none;
               font-size: 18px;
               line-height: 120%;
               padding: 0;
+              margin-left: 57px;
               outline: none;
               box-shadow: none !important;
               &::placeholder {
@@ -92,6 +87,25 @@ const Hero = (props) => {
               &::-ms-input-placeholder {
                 /* Microsoft Edge */
                 color: #5d749a;
+              }
+              &:focus + .icon {
+                background: $brand;
+                svg * {
+                  stroke: #ffffff;
+                }
+              }
+            }
+            .icon {
+              position: absolute;
+              top: -8px;
+              width: 42px;
+              height: 42px;
+              border: 1px solid rgba(32, 79, 156, 0.2);
+              border-radius: 50%;
+              transition: 0.3s;
+              svg path,
+              svg circle {
+                transition: 0.3s;
               }
             }
           }

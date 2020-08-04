@@ -3,9 +3,28 @@ const Project = ({ image, year, name, index }) => {
     <>
       <div className="project wow fadeInUp">
         <img src={image} alt="" />
-        <div className="overlay">
-          <div className="year f-gtam-regular">{year}</div>
-          <div className="name f-gtam-bold">{name}</div>
+        <div className="overlay d-flex">
+          <div className="left">
+            <div className="year f-gtam-regular">{year}</div>
+            <div className="name f-gtam-bold">{name}</div>
+          </div>
+          <div className="right">
+            <div className="icon d-flex align-items-center justify-content-center">
+              <svg
+                width="13"
+                height="12"
+                viewBox="0 0 13 12"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 6H11M11 6L5.92308 1M11 6L5.92308 11"
+                  stroke="white"
+                  stroke-width="1.75"
+                />
+              </svg>
+            </div>
+          </div>
         </div>
       </div>
       <style jsx>{`
@@ -16,6 +35,8 @@ const Project = ({ image, year, name, index }) => {
           width: 50%;
           height: 600px;
           position: relative;
+          cursor: pointer;
+          overflow: hidden;
           @media (max-width: 991px) {
             height: 500px;
           }
@@ -25,8 +46,17 @@ const Project = ({ image, year, name, index }) => {
             margin-bottom: 32px;
             height: auto;
           }
-          &:hover:before {
-            opacity: 0;
+          &:hover {
+            &:before {
+              opacity: 0;
+            }
+            img {
+              transform: scale(1.02);
+            }
+            .overlay .right .icon {
+              transform: translateX(0);
+              opacity: 1;
+            }
           }
           &:before {
             transition: all 0.3s;
@@ -36,6 +66,7 @@ const Project = ({ image, year, name, index }) => {
             top: 0;
             right: 0;
             bottom: 0;
+            opacity: 1;
             background: linear-gradient(
                 90.1deg,
                 rgba(32, 79, 156, 0.3) 0.16%,
@@ -63,6 +94,7 @@ const Project = ({ image, year, name, index }) => {
             width: 100%;
             height: 600px;
             object-fit: cover;
+            transition: 0.2s;
             @media (max-width: 991px) {
               height: 500px;
             }
@@ -72,9 +104,10 @@ const Project = ({ image, year, name, index }) => {
           }
           .overlay {
             position: absolute;
-            left: 60px;
-            bottom: 60px;
-            width: auto;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            padding: 0 60px 60px;
             z-index: 3000;
             @media (max-width: 991px) {
               left: 40px;
@@ -83,29 +116,44 @@ const Project = ({ image, year, name, index }) => {
             @media (max-width: 767px) {
               position: static;
             }
-            .year {
-              font-size: 18px;
-              color: white;
-              opacity: 0.6;
-              line-height: 120%;
-              text-shadow: 0px 14px 19px rgba(0, 0, 0, 0.25);
-              margin-bottom: 14px;
-              @media (max-width: 767px) {
-                font-size: 14px;
-                text-shadow: none;
-                color: $text;
-                margin-top: 14px;
+            .left {
+              flex-grow: 1;
+              .year {
+                font-size: 18px;
+                color: white;
+                opacity: 0.6;
+                line-height: 120%;
+                text-shadow: 0px 14px 19px rgba(0, 0, 0, 0.25);
+                margin-bottom: 14px;
+                @media (max-width: 767px) {
+                  font-size: 14px;
+                  text-shadow: none;
+                  color: $text;
+                  margin-top: 14px;
+                }
+              }
+              .name {
+                font-size: 24px;
+                line-height: 120%;
+                color: white;
+                text-shadow: 0px 14px 19px rgba(0, 0, 0, 0.25);
+                @media (max-width: 767px) {
+                  font-size: 16px;
+                  text-shadow: none;
+                  color: $brand;
+                }
               }
             }
-            .name {
-              font-size: 24px;
-              line-height: 120%;
-              color: white;
-              text-shadow: 0px 14px 19px rgba(0, 0, 0, 0.25);
-              @media (max-width: 767px) {
-                font-size: 16px;
-                text-shadow: none;
-                color: $brand;
+            .right {
+              .icon {
+                width: 56px;
+                height: 56px;
+                background: $brand;
+                border-radius: 50%;
+                box-shadow: 0px 14px 24px rgba(0, 0, 0, 0.25);
+                transform: translateX(30px);
+                opacity: 0;
+                transition: 0.3s;
               }
             }
           }

@@ -62,6 +62,19 @@ const ServiceDepartments = ({ data }) => {
                       data-wow-duration={`${i * 0.75}s`}
                     >
                       <h2>
+                        <svg
+                          width="13"
+                          height="12"
+                          viewBox="0 0 13 12"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M0 6H11M11 6L5.92308 1M11 6L5.92308 11"
+                            stroke="#204F9C"
+                            stroke-width="1.75"
+                          />
+                        </svg>
                         <Link href="#" passHref>
                           <a>{d.name}</a>
                         </Link>
@@ -85,14 +98,12 @@ const ServiceDepartments = ({ data }) => {
                       data-wow-duration={`${i}s`}
                     >
                       <h2>
-                        <Link href="#" passHref>
-                          <a
-                            className={i === dept ? 'active' : ''}
-                            onClick={(e) => setDept(i)}
-                          >
-                            {d.name}
-                          </a>
-                        </Link>
+                        <a
+                          className={i === dept ? 'active' : ''}
+                          onClick={(e) => setDept(i)}
+                        >
+                          {d.name}
+                        </a>
                       </h2>
                     </li>
                   )
@@ -219,15 +230,30 @@ const ServiceDepartments = ({ data }) => {
                     font-size: 36px;
                     line-height: 120%;
                     margin-bottom: 23px;
+                    position: relative;
                     @media (max-width: 991px) {
                       font-size: 20px;
                       margin-bottom: 18px;
                     }
+                    svg {
+                      position: absolute;
+                      top: 18px;
+                      left: 30px;
+                      opacity: 0;
+                      transition: 0.3s;
+                      z-index: -1;
+                    }
                     a {
                       color: $brand;
-                      transition: all 0.2s;
-                      &:hover {
-                        opacity: 0.6;
+                      transition: 0.2s;
+                    }
+                    &:hover {
+                      svg {
+                        opacity: 1;
+                        left: 0;
+                      }
+                      a {
+                        padding-left: 30px;
                       }
                     }
                   }
