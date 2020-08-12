@@ -52,7 +52,6 @@ const Employee = ({ photo, name, designation, email, phone }) => {
               width: 287px;
               height: 253px;
               object-fit: cover;
-              border: 1px solid #c4c4c4;
               margin-bottom: 26px;
               @media (max-width: 991px) {
                 width: calc(100vw / 3 - 35px);

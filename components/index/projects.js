@@ -1,21 +1,23 @@
+import Link from 'next/link'
+
 const Projects = ({ para }) => {
   const projects = [
     {
-      image: "/img/project-thumb-1.jpg",
-      year: "1980",
-      name: "Flugstöð Leifs Eiríkssonar",
+      image: '/img/project-thumb-1.jpg',
+      year: '1980',
+      name: 'Flugstöð Leifs Eiríkssonar',
     },
     {
-      image: "/img/project-thumb-2.jpg",
-      year: "2014",
-      name: "Háskólinn í Reykjavík",
+      image: '/img/project-thumb-2.jpg',
+      year: '2014',
+      name: 'Háskólinn í Reykjavík',
     },
     {
-      image: "/img/project-thumb-3.jpg",
-      year: "2020",
-      name: "Smáralind",
+      image: '/img/project-thumb-3.jpg',
+      year: '2020',
+      name: 'Smáralind',
     },
-  ];
+  ]
   return (
     <>
       <div className="projects-component">
@@ -40,35 +42,37 @@ const Projects = ({ para }) => {
                   </div>
                 </div>
               </div>
-            );
+            )
           })}
         </div>
         {/* .projects */}
-        <div
-          className="view-all-projects wow fadeIn d-flex align-items-center justify-content-center"
-          data-wow-delay="500ms"
-        >
-          <div className="icon d-flex align-items-center justify-content-center">
-            <svg
-              width="14"
-              height="14"
-              viewBox="0 0 14 14"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <rect x="0.5" y="0.5" width="3" height="3" fill="#204F9C" />
-              <rect x="5.5" y="0.5" width="3" height="3" fill="#204F9C" />
-              <rect x="10.5" y="0.5" width="3" height="3" fill="#204F9C" />
-              <rect x="0.5" y="5.5" width="3" height="3" fill="#204F9C" />
-              <rect x="5.5" y="5.5" width="3" height="3" fill="#204F9C" />
-              <rect x="10.5" y="5.5" width="3" height="3" fill="#204F9C" />
-              <rect x="0.5" y="10.5" width="3" height="3" fill="#204F9C" />
-              <rect x="5.5" y="10.5" width="3" height="3" fill="#204F9C" />
-              <rect x="10.5" y="10.5" width="3" height="3" fill="#204F9C" />
-            </svg>
-          </div>
-          <h3 className="f-gtam-medium">Sjá öll verkefni</h3>
-        </div>
+        <Link href="/projects" passHref>
+          <a
+            className="view-all-projects wow fadeIn d-flex align-items-center justify-content-center"
+            data-wow-delay="500ms"
+          >
+            <div className="icon d-flex align-items-center justify-content-center">
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 14 14"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect x="0.5" y="0.5" width="3" height="3" fill="#204F9C" />
+                <rect x="5.5" y="0.5" width="3" height="3" fill="#204F9C" />
+                <rect x="10.5" y="0.5" width="3" height="3" fill="#204F9C" />
+                <rect x="0.5" y="5.5" width="3" height="3" fill="#204F9C" />
+                <rect x="5.5" y="5.5" width="3" height="3" fill="#204F9C" />
+                <rect x="10.5" y="5.5" width="3" height="3" fill="#204F9C" />
+                <rect x="0.5" y="10.5" width="3" height="3" fill="#204F9C" />
+                <rect x="5.5" y="10.5" width="3" height="3" fill="#204F9C" />
+                <rect x="10.5" y="10.5" width="3" height="3" fill="#204F9C" />
+              </svg>
+            </div>
+            <h3 className="f-gtam-medium">Sjá öll verkefni</h3>
+          </a>
+        </Link>
       </div>
       <style jsx>{`
         $brand: #204f9c;
@@ -124,7 +128,7 @@ const Projects = ({ para }) => {
               }
               &:before,
               &:after {
-                content: "";
+                content: '';
                 position: absolute;
                 top: 0;
                 right: 0;
@@ -219,16 +223,29 @@ const Projects = ({ para }) => {
               border: 1px solid rgba(32, 79, 156, 0.2);
               border-radius: 50%;
               margin-right: 15px;
+              transition: 0.2s ease-in-out;
+              svg rect {
+                transition: 0.2s ease-in-out;
+              }
             }
             h3 {
               font-size: 16px;
               color: $brand;
+              margin: 0;
+            }
+            &:hover {
+              .icon {
+                background: $brand;
+                svg rect {
+                  fill: #ffffff;
+                }
+              }
             }
           }
         }
       `}</style>
     </>
-  );
-};
+  )
+}
 
-export default Projects;
+export default Projects

@@ -1,32 +1,37 @@
-const Project = ({ image, year, name, index }) => {
+import Link from 'next/link'
+
+const Project = ({ image, year, name, index, slug }) => {
   return (
     <>
-      <div className="project wow fadeInUp">
-        <img src={image} alt="" />
-        <div className="overlay d-flex">
-          <div className="left">
-            <div className="year f-gtam-regular">{year}</div>
-            <div className="name f-gtam-bold">{name}</div>
-          </div>
-          <div className="right">
-            <div className="icon d-flex align-items-center justify-content-center">
-              <svg
-                width="13"
-                height="12"
-                viewBox="0 0 13 12"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0 6H11M11 6L5.92308 1M11 6L5.92308 11"
-                  stroke="white"
-                  stroke-width="1.75"
-                />
-              </svg>
+      <Link href={`/projects/${slug}`} passHref>
+        <a className="project wow fadeInUp">
+          <img src={image} alt="" />
+          <div className="overlay d-flex">
+            <div className="left">
+              <div className="year f-gtam-regular">{year}</div>
+              <div className="name f-gtam-bold">{name}</div>
+            </div>
+            <div className="right">
+              <div className="icon d-flex align-items-center justify-content-center">
+                <svg
+                  width="13"
+                  height="12"
+                  viewBox="0 0 13 12"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M0 6H11M11 6L5.92308 1M11 6L5.92308 11"
+                    stroke="white"
+                    stroke-width="1.75"
+                  />
+                </svg>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
+        </a>
+      </Link>
+
       <style jsx>{`
         $text: #202020;
         $brand: #204f9c;

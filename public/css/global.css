@@ -1,31 +1,31 @@
 @font-face {
-  font-family: "GT America Thin";
-  src: url("/fonts/GT-America-Light.otf");
+  font-family: 'GT America Thin';
+  src: url('/fonts/GT-America-Light.otf');
 }
 @font-face {
-  font-family: "GT America Regular";
-  src: url("/fonts/GT-America-Regular.otf");
+  font-family: 'GT America Regular';
+  src: url('/fonts/GT-America-Regular.otf');
 }
 @font-face {
-  font-family: "GT America Medium";
-  src: url("/fonts/GT-America-Medium.otf");
+  font-family: 'GT America Medium';
+  src: url('/fonts/GT-America-Medium.otf');
 }
 @font-face {
-  font-family: "GT America Bold";
-  src: url("/fonts/GT-America-Bold.otf");
+  font-family: 'GT America Bold';
+  src: url('/fonts/GT-America-Bold.otf');
 }
 
 .f-gtam-thin {
-  font-family: "GT America Thin";
+  font-family: 'GT America Thin';
 }
 .f-gtam-regular {
-  font-family: "GT America Regular";
+  font-family: 'GT America Regular';
 }
 .f-gtam-medium {
-  font-family: "GT America Medium";
+  font-family: 'GT America Medium';
 }
 .f-gtam-bold {
-  font-family: "GT America Bold";
+  font-family: 'GT America Bold';
 }
 
 html,

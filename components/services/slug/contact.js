@@ -53,7 +53,7 @@ const Contact = ({ data }) => {
               padding: 0 20px;
             }
             &:before {
-              content: "";
+              content: '';
               position: absolute;
               left: 25%;
               right: 0;
@@ -80,7 +80,6 @@ const Contact = ({ data }) => {
                 width: 250px;
                 height: 250px;
                 object-fit: cover;
-                border: 1px solid $black;
                 @media (max-width: 767px) {
                   width: 147px;
                   height: 147px;
@@ -143,7 +142,7 @@ const Contact = ({ data }) => {
         }
       `}</style>
     </>
-  );
-};
+  )
+}
 
-export default Contact;
+export default Contact

@@ -226,6 +226,7 @@ const BottomPick = ({ data, image, title, para, video }) => {
               h3 {
                 font-size: 18px;
                 line-height: 120%;
+                margin: 0;
                 @media (max-width: 767px) {
                   color: $brand;
                 }
