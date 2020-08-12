@@ -115,11 +115,11 @@ const Project = ({ image, year, name, index, slug }) => {
             padding: 0 60px 60px;
             z-index: 3000;
             @media (max-width: 991px) {
-              left: 40px;
-              bottom: 50px;
+              padding: 0 40px 50px;
             }
             @media (max-width: 767px) {
               position: static;
+              padding: 0;
             }
             .left {
               flex-grow: 1;
@@ -159,6 +159,9 @@ const Project = ({ image, year, name, index, slug }) => {
                 transform: translateX(30px);
                 opacity: 0;
                 transition: 0.3s;
+              }
+              @media (max-width: 991px) {
+                display: none;
               }
             }
           }
