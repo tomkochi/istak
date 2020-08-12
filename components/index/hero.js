@@ -9,9 +9,14 @@ const Hero = ({ data }) => {
   const slides = data.hero_slider
   const count = slides.length
 
+  // current slide
   const [slide, setSlide] = useState(1)
+  // I think this is no longer used
   const [loaded, setLoaded] = useState(false)
+  // counting seconds for auto-slide
   const [counter, setCounter] = useState(0)
+  // need to disable sliding for mobile and tablet
+  const [slidable, setSlidable] = useState(0)
 
   const previousSlide = () => {
     setSlide(slide === 1 ? count : slide - 1)
@@ -27,13 +32,40 @@ const Hero = ({ data }) => {
     const interval = setInterval(() => {
       setCounter((c) => c + 0.1)
     }, 100)
+
+    // guess not used
     setTimeout(() => {
       setLoaded(true)
     }, 1000)
+
+    // track window resize
+    function handleResize() {
+      const windowWidth = window.innerWidth
+
+      // prevent sliding for mobile and tablet
+      if (windowWidth < 992) {
+        setSlidable(0)
+        setSlide(1)
+      }
+      if (windowWidth >= 992) {
+        setCounter(0)
+        setSlidable(1)
+      }
+    }
+    window.addEventListener('resize', handleResize)
+
+    // set the slidable var initially
+    handleResize()
+
+    // clean up
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
   }, [])
 
   useEffect(() => {
-    if (counter >= delay) {
+    // show next slide if delay reached
+    if (counter >= delay && slidable) {
       nextSlide()
     }
   }, [counter])
@@ -73,7 +105,7 @@ const Hero = ({ data }) => {
                               >
                                 <path
                                   d="M0 6H11M11 6L5.92308 1M11 6L5.92308 11"
-                                  stroke="white"
+                                  stroke="#ffffff"
                                   strokeWidth="1.75"
                                 />
                               </svg>
@@ -343,6 +375,18 @@ const Hero = ({ data }) => {
                         border: 1px solid rgba(255, 255, 255, 0.2);
                         border-radius: 50%;
                         margin-right: 15px;
+                        transition: 0.2s ease-in-out;
+                        svg path {
+                          transition: 0.2s ease-in-out;
+                        }
+                      }
+                      &:hover {
+                        .icon {
+                          background: #ffffff;
+                          svg path {
+                            stroke: $brand;
+                          }
+                        }
                       }
                     }
                   }

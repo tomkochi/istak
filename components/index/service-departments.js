@@ -45,7 +45,7 @@ const ServiceDepartments = ({ data }) => {
   return (
     <>
       <div className="service-dept">
-        <div className="d-block d-md-flex align-items-center">
+        <div className="hov d-block d-md-flex align-items-center">
           <div className="image wow fadeInUp">
             <img src={`${process.env.HOST}${data.cover.url}`} alt="" />
           </div>
@@ -160,9 +160,9 @@ const ServiceDepartments = ({ data }) => {
           }
           &:hover {
             .image {
-              transform: scale(1.05);
+              transform: scale(1.02);
               img {
-                transform: scale(1.1);
+                transform: scale(1.03);
               }
             }
           }

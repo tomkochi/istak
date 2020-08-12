@@ -1,3 +1,6 @@
+import Link from 'next/link'
+import LinkTo from './link-to'
+
 const BigCardLeft = ({ data }) => {
   return (
     <>
@@ -29,28 +32,30 @@ const BigCardLeft = ({ data }) => {
                     {data.description}
                   </p>
                   {data.button_text !== 'none' && (
-                    <h3
-                      className="f-gtam-medium d-flex align-items-center wow fadeIn"
-                      data-wow-delay="750ms"
-                      data-wow-duration="300ms"
-                    >
-                      <div className="icon d-flex align-items-center justify-content-center">
-                        <svg
-                          width="13"
-                          height="12"
-                          viewBox="0 0 13 12"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M0 6H11M11 6L5.92308 1M11 6L5.92308 11"
-                            stroke="#204F9C"
-                            strokeWidth="1.75"
-                          />
-                        </svg>
-                      </div>
-                      {data.button_text}
-                    </h3>
+                    <LinkTo link={data.url}>
+                      <h3
+                        className="f-gtam-medium d-flex align-items-center wow fadeIn"
+                        data-wow-delay="750ms"
+                        data-wow-duration="300ms"
+                      >
+                        <div className="icon d-flex align-items-center justify-content-center">
+                          <svg
+                            width="13"
+                            height="12"
+                            viewBox="0 0 13 12"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M0 6H11M11 6L5.92308 1M11 6L5.92308 11"
+                              stroke="#204F9C"
+                              strokeWidth="1.75"
+                            />
+                          </svg>
+                        </div>
+                        {data.button_text}
+                      </h3>
+                    </LinkTo>
                   )}
                 </div>
                 {/* .content */}
@@ -98,9 +103,9 @@ const BigCardLeft = ({ data }) => {
           }
           &:hover {
             .image {
-              transform: scale(1.05);
+              transform: scale(1.02);
               img {
-                transform: scale(1.1);
+                transform: scale(1.03);
               }
             }
           }
@@ -189,6 +194,20 @@ const BigCardLeft = ({ data }) => {
                   border: 1px solid rgba(32, 79, 156, 0.2);
                   border-radius: 50%;
                   margin-right: 15px;
+                  transition: 0.2s ease-in-out;
+                  svg path {
+                    transition: 0.2s ease-in-out;
+                  }
+                }
+                &:hover {
+                  .icon {
+                    background: $brand;
+                    svg {
+                      path {
+                        stroke: #ffffff;
+                      }
+                    }
+                  }
                 }
               }
             }
