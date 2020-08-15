@@ -1,8 +1,8 @@
-import Hero from '../../components/projects/hero'
-import Filter from '../../components/projects/filter'
-import Project from '../../components/projects/project'
-import Layout from '../../components/Layout'
-import moment from 'moment'
+import Hero from "../../components/projects/hero";
+import Filter from "../../components/projects/filter";
+import Project from "../../components/projects/project";
+import Layout from "../../components/Layout";
+import moment from "moment";
 
 const Projects = ({ data }) => {
   return (
@@ -14,29 +14,29 @@ const Projects = ({ data }) => {
           {data.map((d) => {
             return (
               <Project
-                image={`${process.env.HOST}${d.image.formats.medium.url}`}
-                year={moment(d.period.from).format('YYYY')}
+                image={`${process.env.NEXT_PUBLIC_HOST}${d.image.formats.medium.url}`}
+                year={moment(d.period.from).format("YYYY")}
                 name={`${d.title}`}
                 slug={d.slug}
               />
-            )
+            );
           })}
         </div>
         {/* .project-list */}
       </div>
       {/* .projects */}
     </Layout>
-  )
-}
+  );
+};
 
 //data fetching
 export async function getServerSideProps(context) {
   // Fetch data from external API
-  const res = await fetch(`${process.env.HOST}/projects`)
-  const data = await res.json()
+  const res = await fetch(`${process.env.HOST}/projects`);
+  const data = await res.json();
 
   // Pass data to the page via props
-  return { props: { data, baseUrl: process.env.HOST } }
+  return { props: { data, baseUrl: process.env.HOST } };
 }
 
-export default Projects
+export default Projects;

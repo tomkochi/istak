@@ -1,23 +1,28 @@
-import Link from 'next/link'
+import Link from "next/link";
+import moment from "moment";
 
-const Projects = ({ para }) => {
+const Projects = ({ data }) => {
+  console.log(data);
   const projects = [
     {
-      image: '/img/project-thumb-1.jpg',
-      year: '1980',
-      name: 'Flugstöð Leifs Eiríkssonar',
+      image: "/img/project-thumb-1.jpg",
+      year: "1980",
+      name: "Flugstöð Leifs Eiríkssonar",
     },
     {
-      image: '/img/project-thumb-2.jpg',
-      year: '2014',
-      name: 'Háskólinn í Reykjavík',
+      image: "/img/project-thumb-2.jpg",
+      year: "2014",
+      name: "Háskólinn í Reykjavík",
     },
     {
-      image: '/img/project-thumb-3.jpg',
-      year: '2020',
-      name: 'Smáralind',
+      image: "/img/project-thumb-3.jpg",
+      year: "2020",
+      name: "Smáralind",
     },
-  ]
+  ];
+
+  var para =
+    "Við önnumst verkefni eins og byggingar, virkjanir, álversframkvæmdir, hafnarframkvæmdir auk vega- og brúargerðar.";
   return (
     <>
       <div className="projects-component">
@@ -26,7 +31,7 @@ const Projects = ({ para }) => {
         </p>
 
         <div className="projects">
-          {projects.map((p, i) => {
+          {data.projects.map((p, i) => {
             return (
               <div className="wrapper" key={i}>
                 <div
@@ -34,15 +39,20 @@ const Projects = ({ para }) => {
                   data-wow-delay={`${i / 4}s`}
                 >
                   <div className="image">
-                    <img src={p.image} alt="" />
+                    <img
+                      src={`${process.env.NEXT_PUBLIC_HOST}${p.image.url}`}
+                      alt="project image"
+                    />
                   </div>
                   <div className="overlay">
-                    <div className="year f-gtam-regular">{p.year}</div>
-                    <div className="name f-gtam-bold">{p.name}</div>
+                    <div className="year f-gtam-regular">
+                      {moment(p.period.from).format("YYYY")}
+                    </div>
+                    <div className="name f-gtam-bold">{p.title}</div>
                   </div>
                 </div>
               </div>
-            )
+            );
           })}
         </div>
         {/* .projects */}
@@ -128,7 +138,7 @@ const Projects = ({ para }) => {
               }
               &:before,
               &:after {
-                content: '';
+                content: "";
                 position: absolute;
                 top: 0;
                 right: 0;
@@ -245,7 +255,7 @@ const Projects = ({ para }) => {
         }
       `}</style>
     </>
-  )
-}
+  );
+};
 
-export default Projects
+export default Projects;

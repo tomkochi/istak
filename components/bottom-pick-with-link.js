@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import Link from "next/link";
 
 const BottomPick = ({ data, image, title, para, url }) => {
   return (
@@ -7,7 +7,10 @@ const BottomPick = ({ data, image, title, para, url }) => {
         className="bottom-pick d-md-flex align-items-center wow fadeIn"
         data-wow-duration="1s"
       >
-        <img src={`${process.env.HOST}${data.background.url}`} alt="" />
+        <img
+          src={`${process.env.NEXT_PUBLIC_HOST}${data.background.url}`}
+          alt=""
+        />
         <div className="container">
           <div className="content wow fadeIn" data-wow-duration="1s">
             <h2
@@ -26,7 +29,7 @@ const BottomPick = ({ data, image, title, para, url }) => {
                 {data.description}
               </p>
             )}
-            <Link href={'/'} passHref>
+            <Link href={"/"} passHref>
               <a
                 className="d-flex align-items-center wow fadeInUp"
                 data-wow-delay="750ms"
@@ -72,7 +75,7 @@ const BottomPick = ({ data, image, title, para, url }) => {
           }
           &:before,
           &:after {
-            content: '';
+            content: "";
             position: absolute;
             left: 0;
             right: 0;
@@ -197,7 +200,7 @@ const BottomPick = ({ data, image, title, para, url }) => {
         }
       `}</style>
     </>
-  )
-}
+  );
+};
 
-export default BottomPick
+export default BottomPick;
