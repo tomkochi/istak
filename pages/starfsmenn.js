@@ -4,6 +4,7 @@ import Layout from "../components/Layout";
 import fetch from "isomorphic-unfetch";
 
 const Employees = ({ data }) => {
+  console.log(data);
   return (
     <Layout>
       <div className="employees">
@@ -14,7 +15,7 @@ const Employees = ({ data }) => {
               return (
                 <Employee
                   key={e._id}
-                  photo={`${process.env.HOST}${e.picture.url}`}
+                  photo={`${process.env.NEXT_PUBLIC_HOST}${e.picture.url}`}
                   name={e.name}
                   designation={e.designation}
                   email={e.email}

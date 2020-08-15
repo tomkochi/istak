@@ -1,11 +1,11 @@
-import Link from 'next/link'
+import Link from "next/link";
 
-const Hero = (props) => {
+const Hero = ({ data }) => {
   return (
     <>
       <div className="hero container">
         <h1 className="f-gtam-bold wow fadeIn" data-wow-duration="300ms">
-          Þjónstudeildir
+          {data.title}
         </h1>
       </div>
       {/* .hero */}
@@ -41,7 +41,7 @@ const Hero = (props) => {
         }
       `}</style>
     </>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;

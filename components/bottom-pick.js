@@ -1,6 +1,6 @@
 const BottomPick = ({ data }) => {
   var video = `someulr`;
-  var image = `${process.env.HOST}${data.background.url}`;
+  var image = `${process.env.NEXT_PUBLIC_HOST}${data.background.url}`;
   return (
     <>
       <div

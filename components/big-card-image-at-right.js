@@ -1,5 +1,5 @@
-import Link from 'next/link'
-import LinkTo from './link-to'
+import Link from "next/link";
+import LinkTo from "./link-to";
 
 const BigCardRight = ({ data }) => {
   return (
@@ -9,7 +9,10 @@ const BigCardRight = ({ data }) => {
           <div className="d-md-flex">
             <div className="image order-2">
               <div className="wrapper">
-                <img src={`${process.env.HOST}${data.image.url}`} alt="" />
+                <img
+                  src={`${process.env.NEXT_PUBLIC_HOST}${data.image.url}`}
+                  alt=""
+                />
               </div>
               {/* .wrapper */}
             </div>
@@ -29,7 +32,7 @@ const BigCardRight = ({ data }) => {
                   >
                     {data.description}
                   </p>
-                  {data.button_text !== 'none' && (
+                  {data.button_text !== "none" && (
                     <LinkTo link={data.url}>
                       <h3
                         className="f-gtam-medium d-flex align-items-center wow fadeIn"
@@ -84,7 +87,7 @@ const BigCardRight = ({ data }) => {
             margin: 60px 0;
           }
           &:before {
-            content: '';
+            content: "";
             position: absolute;
             top: 0;
             left: 0;
@@ -211,7 +214,7 @@ const BigCardRight = ({ data }) => {
         }
       `}</style>
     </>
-  )
-}
+  );
+};
 
-export default BigCardRight
+export default BigCardRight;

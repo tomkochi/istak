@@ -1,30 +1,33 @@
-import ReactPlayer from 'react-player'
-import { useState, useEffect } from 'react'
+import ReactPlayer from "react-player";
+import { useState, useEffect } from "react";
 
 const BottomPick = ({ data, image, title, para, video }) => {
-  const [showVideo, setShowVideo] = useState(false)
+  const [showVideo, setShowVideo] = useState(false);
   const trackEscape = (e) => {
     if (e.keyCode === 27) {
-      setShowVideo(false)
+      setShowVideo(false);
     }
-  }
+  };
   useEffect(() => {
     if (showVideo) {
-      document.addEventListener('keydown', trackEscape, false)
+      document.addEventListener("keydown", trackEscape, false);
     } else {
-      document.removeEventListener('keydown', trackEscape, false)
+      document.removeEventListener("keydown", trackEscape, false);
     }
     return () => {
-      document.removeEventListener('keydown', trackEscape, false)
-    }
-  }, [showVideo])
+      document.removeEventListener("keydown", trackEscape, false);
+    };
+  }, [showVideo]);
   return (
     <>
       <div
         className="bottom-pick d-md-flex align-items-center wow fadeIn"
         data-wow-duration="1s"
       >
-        <img src={`${process.env.HOST}${data.background.url}`} alt="" />
+        <img
+          src={`${process.env.NEXT_PUBLIC_HOST}${data.background.url}`}
+          alt=""
+        />
         <div className="container">
           <div className="content wow fadeIn" data-wow-duration="1s">
             <h2
@@ -68,7 +71,7 @@ const BottomPick = ({ data, image, title, para, video }) => {
         </div>
         {/* .container */}
 
-        <div className={`video-overlay ${showVideo ? 'show' : ''}`}>
+        <div className={`video-overlay ${showVideo ? "show" : ""}`}>
           <div className="v-wrapper">
             <div className="d-inline-block">
               <div
@@ -101,7 +104,7 @@ const BottomPick = ({ data, image, title, para, video }) => {
             </div>
             <div className="video">
               <ReactPlayer
-                url0={`${process.env.HOST}${data.video.url}`}
+                url0={`${process.env.NEXT_PUBLIC_HOST}${data.video.url}`}
                 url="https://static.videezy.com/system/resources/previews/000/034/647/original/water-fall11.mp4"
                 loop
                 width="100%"
@@ -111,7 +114,7 @@ const BottomPick = ({ data, image, title, para, video }) => {
                 controls
                 className="react-player"
                 style={{
-                  margin: '0 auto',
+                  margin: "0 auto",
                 }}
               />
             </div>
@@ -138,7 +141,7 @@ const BottomPick = ({ data, image, title, para, video }) => {
           }
           &:before,
           &:after {
-            content: '';
+            content: "";
             position: absolute;
             left: 0;
             right: 0;
@@ -328,7 +331,7 @@ const BottomPick = ({ data, image, title, para, video }) => {
         }
       `}</style>
     </>
-  )
-}
+  );
+};
 
-export default BottomPick
+export default BottomPick;
