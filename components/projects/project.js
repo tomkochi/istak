@@ -3,7 +3,7 @@ import Link from 'next/link'
 const Project = ({ image, year, name, index, slug }) => {
   return (
     <>
-      <Link href={`/projects/${slug}`} passHref>
+      <Link href={`/verkefni/${slug}`} passHref>
         <a className="project wow fadeInUp">
           <img src={image} alt="" />
           <div className="overlay d-flex">

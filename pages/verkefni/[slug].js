@@ -251,12 +251,24 @@ const Project = ({ data }) => {
             @media (max-width: 991px) {
               margin-bottom: 20px;
             }
+            a:hover {
+              .icon {
+                background: $brand;
+              }
+              svg path {
+                stroke: #ffffff;
+              }
+            }
             .icon {
               width: 42px;
               height: 42px;
               border: 1px solid rgba(32, 79, 156, 0.2);
               border-radius: 50%;
               margin-right: 15px;
+              transition: 0.2s;
+              svg path {
+                transition: 0.2s;
+              }
             }
             h3 {
               font-size: 18px;

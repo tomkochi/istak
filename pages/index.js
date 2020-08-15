@@ -16,8 +16,8 @@ const Index = ({ data }) => {
 //data fetching
 export async function getServerSideProps() {
   // Fetch data from external API
-  const res = await fetch(`${process.env.HOST}/home`)
-  const data = await res.json()
+  const homeData = await fetch(`${process.env.HOST}/home`)
+  const data = await homeData.json()
   // Pass data to the page via props
   return { props: { data } }
 }

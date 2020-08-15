@@ -14,24 +14,10 @@ const Index = (props) => {
               key={news._id}
               image={`${process.env.HOST}${news.image.formats.medium.url}`}
               title={news.title}
-              link={`news/${news.slug}`}
+              link={`frettir/${news.slug}`}
             />
           )
         })}
-
-        {/* remove bellow cards */}
-        {/* remove bellow cards */}
-        {/* remove bellow cards */}
-        <NewsCard
-          image="/img/article-image-1.jpg"
-          title="Ístak byggir skóla í NUUK"
-          link="/"
-        />
-        <NewsCard
-          image="/img/article-image-2.jpg"
-          title="Verksmiðjuhús Algaennovation á Hellisheiði vígt"
-          link="/"
-        />
       </div>
       {/* .articles */}
     </Layout>

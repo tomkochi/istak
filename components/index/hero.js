@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react'
 
 const delay = 8
 
-const Hero = ({ data }) => {
+const Hero = ({ data, services }) => {
   const slides = data.hero_slider
   const count = slides.length
 
@@ -74,7 +74,7 @@ const Hero = ({ data }) => {
     <>
       <div className="carousel">
         <div className="header">
-          <Header reverse />
+          <Header reverse services={services} />
         </div>
         <div className="slides">
           {slides.map((s, i) => {
@@ -93,7 +93,7 @@ const Hero = ({ data }) => {
                       <h2 className="f-gtam-bold active">{data.title}</h2>
                       <p className="f-gtam-thin active">{data.description}</p>
                       <div className="link active">
-                        <Link href={data.url} passHref>
+                        <Link href="/thjonusta" passHref>
                           <a className="f-gtam-regular d-flex align-items-center">
                             <div className="icon d-flex align-items-center justify-content-center">
                               <svg

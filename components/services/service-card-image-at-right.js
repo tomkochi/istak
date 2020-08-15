@@ -6,7 +6,10 @@ const ServiceCard = ({ data }) => {
       <div className="service-card">
         <div className="container d-md-flex">
           <div className="image order-md-2">
-            <img src="/img/article-image-1.jpg" alt="" />
+            <img
+              src={`${process.env.HOST}${data.cover.formats.medium.url}`}
+              alt={data.cover.alternativeText}
+            />
           </div>
           {/* .image */}
           <div className="text order-md-1">
@@ -17,7 +20,7 @@ const ServiceCard = ({ data }) => {
               nesciunt obcaecati autem nostrum et suscipit blanditiis quibusdam
               vitae optio fugiat ad.
             </p>
-            <Link href={`/services/${data.slug}`} passHref>
+            <Link href={`/thjonusta/${data.slug}`} passHref>
               <a className="f-gtam-medium d-flex align-items-center">
                 <span className="icon d-flex align-items-center justify-content-center">
                   <svg
@@ -123,6 +126,18 @@ const ServiceCard = ({ data }) => {
                   border: 1px solid rgba(32, 79, 156, 0.2);
                   border-radius: 50%;
                   margin-right: 18px;
+                  transition: 0.2s;
+                  svg path {
+                    transition: 0.2s;
+                  }
+                }
+                &:hover {
+                  .icon {
+                    background: $brand;
+                    svg path {
+                      stroke: white;
+                    }
+                  }
                 }
               }
             }

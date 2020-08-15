@@ -7,10 +7,10 @@ import Projects from '../components/index/projects'
 import Contact from '../components/services/slug/contact'
 import BottomPickVideo from '../components/bottom-pick-with-video'
 
-export default function Slice({ data }) {
+export default function Slice({ data, services }) {
   switch (data.__component) {
     case 'home.hero':
-      return <Hero data={data} />
+      return <Hero data={data} services={services} />
     case 'home.text-section':
       return <BlueParaOnWhite data={data.text} />
     case 'home.img-left-txt-right':
@@ -18,7 +18,7 @@ export default function Slice({ data }) {
     case 'home.text-left-img-right':
       return <BigCardRight data={data} />
     case 'home.services':
-      return <ServiceDepartments data={data} />
+      return <ServiceDepartments data={data} services={services} />
     case 'home.featured-projects':
       return <Projects />
     case 'contact.contact':

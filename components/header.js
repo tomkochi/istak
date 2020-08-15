@@ -1,12 +1,22 @@
 import Link from 'next/link'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
+import Axios from 'axios'
 
 const Header = (props) => {
   const router = useRouter()
   const [serviceDeptDropdown, setServiceDeptDropdown] = useState(false)
   const [smMenu, setSmMenu] = useState(false)
   const { reverse } = props
+
+  const [serviceDepts, setServiceDepts] = useState(null)
+  useEffect(() => {
+    Axios.get(`https://istak.herokuapp.com/services`)
+      .then((services) => {
+        setServiceDepts(services.data)
+      })
+      .catch((e) => {})
+  }, [])
 
   return (
     <>
@@ -39,7 +49,7 @@ const Header = (props) => {
         <div className="right lg d-none d-lg-block">
           <ul className="navigation list-unstyled d-none d-lg-flex">
             <li className="navigation-item">
-              <Link href="/employees" passHref>
+              <Link href="/starfsmenn" passHref>
                 <a>Um okkur</a>
               </Link>
             </li>
@@ -54,46 +64,16 @@ const Header = (props) => {
                   serviceDeptDropdown ? 'show' : ''
                 }`}
               >
-                <li className="nav-dropdown-item list-unstyled">
-                  <Link href="/" passHref>
-                    <a>Lager</a>
-                  </Link>
-                </li>
-                <li className="nav-dropdown-item list-unstyled">
-                  <Link href="/" passHref>
-                    <a>Innkaupadeild</a>
-                  </Link>
-                </li>
-                <li className="nav-dropdown-item list-unstyled">
-                  <Link href="/" passHref>
-                    <a>Vélaverkstæði</a>
-                  </Link>
-                </li>
-                <li className="nav-dropdown-item list-unstyled">
-                  <Link href="/" passHref>
-                    <a>Rafmagnsverkstæði</a>
-                  </Link>
-                </li>
-                <li className="nav-dropdown-item list-unstyled">
-                  <Link href="/" passHref>
-                    <a>Vélsmiðja</a>
-                  </Link>
-                </li>
-                <li className="nav-dropdown-item list-unstyled">
-                  <Link href="/" passHref>
-                    <a>Steypuskáli</a>
-                  </Link>
-                </li>
-                <li className="nav-dropdown-item list-unstyled">
-                  <Link href="/" passHref>
-                    <a>Viðhaldsdeild</a>
-                  </Link>
-                </li>
-                <li className="nav-dropdown-item list-unstyled">
-                  <Link href="/" passHref>
-                    <a>VDC/BIM</a>
-                  </Link>
-                </li>
+                {serviceDepts &&
+                  serviceDepts.map((s, i) => {
+                    return (
+                      <li className="nav-dropdown-item list-unstyled">
+                        <Link href={`${process.env.HOST}/${s.slug}`} passHref>
+                          <a>{s.title}</a>
+                        </Link>
+                      </li>
+                    )
+                  })}
               </ul>
             </li>
             <li className="navigation-item">
@@ -157,7 +137,9 @@ const Header = (props) => {
         <div className={`sm-navigation d-lg-none ${smMenu ? 'show' : ''}`}>
           <ul className="list-unstyled">
             <li className="navigation-item">
-              <a href="#">Um okkur</a>
+              <Link href="/starfsmenn" passHref>
+                <a>Um okkur</a>
+              </Link>
             </li>
             <li className="navigation-item">
               <a
@@ -209,6 +191,32 @@ const Header = (props) => {
               <a href="#">Fréttir</a>
             </li>
           </ul>
+          <div className="company-info d-flex">
+            <div className="left w-50">
+              <ul className="list-unstyled">
+                <li>530 2700</li>
+                <li>istak@istak.is</li>
+                <li>lager@istak.is</li>
+                <li>Bugðufljót 19, 270</li>
+                <li>Senda ábendingu</li>
+              </ul>
+            </div>
+            {/* .left */}
+            <div className="right w-50">
+              <div className="one">
+                <h5 className="f-gtam-bold">Mánudaga - Fimmtudaga</h5>
+                <h6>08:15 - 16:00</h6>
+              </div>
+              {/* .top */}
+              <div className="two">
+                <h5 className="f-gtam-bold">Föstudag</h5>
+                <h6>8:15 - 15:00</h6>
+              </div>
+              {/* .bottom */}
+            </div>
+            {/* .right */}
+          </div>
+          {/* .company-info */}
         </div>
         {/* .sm-navigation */}
       </div>
@@ -388,7 +396,6 @@ const Header = (props) => {
             padding-top: 80px;
             left: 0;
             top: 0;
-            xwidth: 100vw;
             width: 100%;
             height: 100vh;
             background: $brand;
@@ -423,6 +430,11 @@ const Header = (props) => {
                     transition-delay: #{800 + ($i * 80)}ms;
                   }
                 }
+              }
+              .company-info {
+                transform: translateY(0);
+                transition: 1s;
+                transition-delay: 1.5s;
               }
             }
             .navigation-item {
@@ -475,6 +487,49 @@ const Header = (props) => {
                     font-size: 20px;
                     font-family: 'GT America Regular';
                   }
+                }
+              }
+            }
+            .company-info {
+              padding: 40px 20px 0;
+              margin-top: 40px;
+              position: relative;
+              transform: translateY(100%);
+              transition: 0.3s;
+              transition-delay: 0.2s;
+
+              &:before {
+                content: '';
+                position: absolute;
+                left: 20px;
+                top: 0;
+                width: calc(100% - 40px);
+                height: 1px;
+                background: rgba(255, 255, 255, 0.05);
+              }
+              .left {
+                ul {
+                  li {
+                    font-family: 'GT America Regular';
+                    font-size: 14px;
+                    color: #ffffff;
+                    margin-bottom: 18px;
+                  }
+                }
+              }
+              .right {
+                h5 {
+                  font-family: 'GT America Bold';
+                  font-size: 14px;
+                  color: #ffffff;
+                  opacity: 0.8;
+                  margin-bottom: 12px;
+                }
+                h6 {
+                  font-family: 'GT America Regular';
+                  font-size: 14px;
+                  color: #ffffff;
+                  margin-bottom: 29px;
                 }
               }
             }
