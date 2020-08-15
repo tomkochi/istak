@@ -15,13 +15,6 @@ const ServicesIndex = (props) => {
             <CardImageLeft key={s.id} data={s} />
           )
         })}
-        {props.data.map((s, i) => {
-          return !i % 2 ? (
-            <CardImageRight key={s.id} data={s} />
-          ) : (
-            <CardImageLeft key={s.id} data={s} />
-          )
-        })}
       </Layout>
     </>
   )

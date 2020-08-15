@@ -1,10 +1,14 @@
-import Document, { Head, Main, NextScript } from "next/document";
+import Document, { Head, Main, NextScript } from 'next/document'
 
 export default class MyDocument extends Document {
   render() {
     return (
       <html>
         <Head>
+          <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+          />
           <link
             rel="stylesheet"
             href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
@@ -38,6 +42,6 @@ export default class MyDocument extends Document {
           ></script>
         </body>
       </html>
-    );
+    )
   }
 }

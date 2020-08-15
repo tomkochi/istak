@@ -14,10 +14,8 @@ const Filter = (props) => {
   useEffect(() => {
     if (showDropdown) {
       document.addEventListener('click', handleOutsideClick, false)
-      console.log('Added')
     } else {
       document.removeEventListener('click', handleOutsideClick, false)
-      console.log('Removed')
     }
   }, [showDropdown])
 
@@ -142,7 +140,8 @@ const Filter = (props) => {
                 /* Microsoft Edge */
                 color: #5d749a;
               }
-              &:focus + .icon {
+              &:focus + .icon,
+              &:hover + .icon {
                 background: $brand;
                 svg * {
                   stroke: #ffffff;

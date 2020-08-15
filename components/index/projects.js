@@ -46,7 +46,7 @@ const Projects = ({ para }) => {
           })}
         </div>
         {/* .projects */}
-        <Link href="/projects" passHref>
+        <Link href="/verkefni" passHref>
           <a
             className="view-all-projects wow fadeIn d-flex align-items-center justify-content-center"
             data-wow-delay="500ms"

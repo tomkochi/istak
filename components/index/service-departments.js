@@ -1,5 +1,6 @@
 import Link from 'next/link'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import Axios from 'axios'
 
 var dummy = [
   {
@@ -40,8 +41,15 @@ var dummy = [
 ]
 
 const ServiceDepartments = ({ data }) => {
+  const [serviceDepts, setServiceDepts] = useState(null)
   const [dept, setDept] = useState(0)
-
+  useEffect(() => {
+    Axios.get(`https://istak.herokuapp.com/services`)
+      .then((services) => {
+        setServiceDepts(services.data)
+      })
+      .catch((e) => {})
+  }, [])
   return (
     <>
       <div className="service-dept">
@@ -54,34 +62,35 @@ const ServiceDepartments = ({ data }) => {
             <div className="wrapper">
               <h3 className="f-gtam-medium wow fadeInUp">Þjónustudeildir</h3>
               <ul className="list-unstyled">
-                {dummy.map((d, i) => {
-                  return (
-                    <li
-                      className="f-gtam-bold wow fadeIn"
-                      key={i}
-                      data-wow-duration={`${i * 0.75}s`}
-                    >
-                      <h2>
-                        <svg
-                          width="13"
-                          height="12"
-                          viewBox="0 0 13 12"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M0 6H11M11 6L5.92308 1M11 6L5.92308 11"
-                            stroke="#204F9C"
-                            stroke-width="1.75"
-                          />
-                        </svg>
-                        <Link href="#" passHref>
-                          <a>{d.name}</a>
-                        </Link>
-                      </h2>
-                    </li>
-                  )
-                })}
+                {serviceDepts &&
+                  serviceDepts.map((s, i) => {
+                    return (
+                      <li
+                        className="f-gtam-bold wow fadeIn"
+                        key={i}
+                        data-wow-duration={`${i * 0.75}s`}
+                      >
+                        <h2>
+                          <svg
+                            width="13"
+                            height="12"
+                            viewBox="0 0 13 12"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M0 6H11M11 6L5.92308 1M11 6L5.92308 11"
+                              stroke="#204F9C"
+                              stroke-width="1.75"
+                            />
+                          </svg>
+                          <Link href={`${process.env.HOST}/${s.slug}`} passHref>
+                            <a>{s.title}</a>
+                          </Link>
+                        </h2>
+                      </li>
+                    )
+                  })}
               </ul>
             </div>
             {/* .wrapper */}
@@ -90,29 +99,32 @@ const ServiceDepartments = ({ data }) => {
           <div className="text-sm d-md-none">
             <div className="wrapper">
               <ul className="list-unstyled d-flex">
-                {dummy.map((d, i) => {
-                  return (
-                    <li
-                      className="f-gtam-medium"
-                      key={i}
-                      data-wow-duration={`${i}s`}
-                    >
-                      <h2>
-                        <a
-                          className={i === dept ? 'active' : ''}
-                          onClick={(e) => setDept(i)}
-                        >
-                          {d.name}
-                        </a>
-                      </h2>
-                    </li>
-                  )
-                })}
+                {serviceDepts &&
+                  serviceDepts.map((s, i) => {
+                    return (
+                      <li
+                        className="f-gtam-medium"
+                        key={i}
+                        data-wow-duration={`${i}s`}
+                      >
+                        <h2>
+                          <a
+                            className={i === dept ? 'active' : ''}
+                            onClick={(e) => setDept(i)}
+                          >
+                            {s.title}
+                          </a>
+                        </h2>
+                      </li>
+                    )
+                  })}
               </ul>
             </div>
             {/* .wrapper */}
             <div className="matter">
-              <p className="f-gtam-thin">{dummy[dept].description}</p>
+              <p className="f-gtam-thin">
+                {serviceDepts ? serviceDepts[dept].description : ''}
+              </p>
               <div className="link-to d-flex align-items-center">
                 <div className="icon d-flex align-items-center justify-content-center">
                   <svg

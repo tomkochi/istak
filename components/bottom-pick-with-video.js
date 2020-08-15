@@ -2,7 +2,6 @@ import ReactPlayer from 'react-player'
 import { useState, useEffect } from 'react'
 
 const BottomPick = ({ data, image, title, para, video }) => {
-  console.log(data)
   const [showVideo, setShowVideo] = useState(false)
   const trackEscape = (e) => {
     if (e.keyCode === 27) {
