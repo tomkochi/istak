@@ -1,10 +1,9 @@
-import Hero from "../components/employees/hero";
-import Employee from "../components/employees/employee";
-import Layout from "../components/Layout";
-import fetch from "isomorphic-unfetch";
+import Hero from '../components/employees/hero'
+import Employee from '../components/employees/employee'
+import Layout from '../components/Layout'
+import fetch from 'isomorphic-unfetch'
 
 const Employees = ({ data }) => {
-  console.log(data);
   return (
     <Layout>
       <div className="employees">
@@ -21,7 +20,7 @@ const Employees = ({ data }) => {
                   email={e.email}
                   phone={e.phone}
                 />
-              );
+              )
             })}
           </div>
           {/* .employee-cards */}
@@ -36,16 +35,16 @@ const Employees = ({ data }) => {
         }
       `}</style>
     </Layout>
-  );
-};
+  )
+}
 
 //data fetching
 export async function getServerSideProps() {
   // Fetch data from external API
-  const res = await fetch(`${process.env.HOST}/team`);
-  const data = await res.json();
+  const res = await fetch(`${process.env.HOST}/team`)
+  const data = await res.json()
   // Pass data to the page via props
-  return { props: { data } };
+  return { props: { data } }
 }
 
-export default Employees;
+export default Employees
