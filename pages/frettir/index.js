@@ -1,9 +1,8 @@
-import Layout from "../../components/Layout";
-import Hero from "../../components/news/hero";
-import NewsCard from "../../components/news/news-card";
+import Layout from '../../components/Layout'
+import Hero from '../../components/news/hero'
+import NewsCard from '../../components/news/news-card'
 
 const Index = (props) => {
-  console.log(props);
   return (
     <Layout>
       <div className="articles">
@@ -16,22 +15,22 @@ const Index = (props) => {
               title={news.title}
               link={`frettir/${news.slug}`}
             />
-          );
+          )
         })}
       </div>
       {/* .articles */}
     </Layout>
-  );
-};
+  )
+}
 
 //data fetching
 export async function getServerSideProps(context) {
   // Fetch data from external API
-  const res = await fetch(`${process.env.HOST}/articles`);
-  const data = await res.json();
+  const res = await fetch(`${process.env.HOST}/articles`)
+  const data = await res.json()
 
   // Pass data to the page via props
-  return { props: { data } };
+  return { props: { data } }
 }
 
-export default Index;
+export default Index

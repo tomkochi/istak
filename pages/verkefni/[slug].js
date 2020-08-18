@@ -1,30 +1,30 @@
-import Layout from "../../components/Layout";
-import BottomPick from "../../components/bottom-pick-with-link";
-import { useState, useEffect } from "react";
-import Link from "next/link";
-import ReactMarkdown from "react-markdown";
-import moment from "moment";
+import Layout from '../../components/Layout'
+import BottomPick from '../../components/bottom-pick-with-link'
+import { useState, useEffect } from 'react'
+import Link from 'next/link'
+import ReactMarkdown from 'react-markdown'
+import moment from 'moment'
 
 const Project = ({ data }) => {
-  const [slides, setSlides] = useState(0);
-  const [slide, setSlide] = useState(1);
+  const [slides, setSlides] = useState(0)
+  const [slide, setSlide] = useState(1)
 
   const decCurrent = () => {
-    setSlide(slide === 1 ? slides : slide - 1);
-  };
+    setSlide(slide === 1 ? slides : slide - 1)
+  }
   const incCurrent = () => {
-    setSlide(slide === slides ? 1 : slide + 1);
-  };
+    setSlide(slide === slides ? 1 : slide + 1)
+  }
 
-  const showDate = (source) => moment(source).format("MM.DD.YY");
+  const showDate = (source) => moment(source).format('MM.DD.YY')
 
   useEffect(() => {
-    const s = document.getElementsByClassName("carousel-item").length;
-    setSlides(s);
-  }, []);
+    const s = document.getElementsByClassName('carousel-item').length
+    setSlides(s)
+  }, [])
 
   //
-  const d = data[0];
+  const d = data[0]
   return (
     <Layout>
       <div className="project">
@@ -104,7 +104,7 @@ const Project = ({ data }) => {
                     <h4>{item.key}</h4>
                     <h3>{item.value}</h3>
                   </div>
-                );
+                )
               })}
             </div>
             {/* .key-figures */}
@@ -118,7 +118,7 @@ const Project = ({ data }) => {
                       <h4>{item.key}</h4>
                       <h3>{item.value}</h3>
                     </div>
-                  );
+                  )
                 })}
               </div>
               {/* .consultant-details */}
@@ -141,7 +141,7 @@ const Project = ({ data }) => {
                   {d.gallery.map((item, i) => {
                     return (
                       <div
-                        className={`carousel-item ${i === 0 ? "active" : ""}`}
+                        className={`carousel-item ${i === 0 ? 'active' : ''}`}
                         key={i}
                       >
                         <img
@@ -150,7 +150,7 @@ const Project = ({ data }) => {
                           alt={`${process.env.NEXT_PUBLIC_HOST}${item.image[0].alternativeText}`}
                         />
                       </div>
-                    );
+                    )
                   })}
                 </div>
               </div>
@@ -216,9 +216,9 @@ const Project = ({ data }) => {
         <BottomPick
           data={{
             background: {
-              url: "/uploads/project_thumb_5_0bb7f17e84.jpeg",
+              url: '/uploads/project_thumb_5_0bb7f17e84.jpeg',
             },
-            title: "Nýja verkefnið okkar",
+            title: 'Nýja verkefnið okkar',
           }}
         />
       </div>
@@ -325,13 +325,13 @@ const Project = ({ data }) => {
                     }
                   }
                   h4 {
-                    font-family: "GT America Regular";
+                    font-family: 'GT America Regular';
                     font-size: 18px;
                     color: $brand;
                     margin-bottom: 12px;
                   }
                   h3 {
-                    font-family: "GT America Bold";
+                    font-family: 'GT America Bold';
                     font-size: 20px;
                     color: $black;
                   }
@@ -339,7 +339,7 @@ const Project = ({ data }) => {
               }
             }
             h2 {
-              font-family: "GT America Bold";
+              font-family: 'GT America Bold';
               font-size: 24px;
               line-height: 100%;
               color: $brand;
@@ -351,7 +351,7 @@ const Project = ({ data }) => {
             .matter {
               margin-bottom: 80px;
               p {
-                font-family: "GT America Regular";
+                font-family: 'GT America Regular';
                 font-size: 18px;
                 color: $black;
                 line-height: 160%;
@@ -368,13 +368,13 @@ const Project = ({ data }) => {
                   margin-bottom: 30px;
                 }
                 h4 {
-                  font-family: "GT America Regular";
+                  font-family: 'GT America Regular';
                   font-size: 18px;
                   color: $brand;
                   margin-bottom: 12px;
                 }
                 h3 {
-                  font-family: "GT America Bold";
+                  font-family: 'GT America Bold';
                   font-size: 20px;
                   color: $black;
                 }
@@ -390,13 +390,13 @@ const Project = ({ data }) => {
                   margin-bottom: 30px;
                 }
                 h4 {
-                  font-family: "GT America Regular";
+                  font-family: 'GT America Regular';
                   font-size: 18px;
                   color: $brand;
                   margin-bottom: 12px;
                 }
                 h3 {
-                  font-family: "GT America Bold";
+                  font-family: 'GT America Bold';
                   font-size: 20px;
                   color: $black;
                 }
@@ -436,20 +436,19 @@ const Project = ({ data }) => {
         }
       `}</style>
     </Layout>
-  );
-};
+  )
+}
 
 //data fetching
 export async function getServerSideProps(context) {
   // Fetch data from external API
   const res = await fetch(
-    `${process.env.HOST}/projects?slug=${context.params.slug}`
-  );
-  const data = await res.json();
-  console.log(context.params);
+    `${process.env.HOST}/projects?slug=${context.params.slug}`,
+  )
+  const data = await res.json()
 
   // Pass data to the page via props
-  return { props: { data } };
+  return { props: { data } }
 }
 
-export default Project;
+export default Project
