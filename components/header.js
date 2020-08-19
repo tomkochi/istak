@@ -443,8 +443,7 @@ const Header = (props) => {
                 }
               }
               .company-info {
-                transform: translateY(0);
-                transition: 1s;
+                opacity: 1;
                 transition-delay: 1.5s;
               }
             }
@@ -505,10 +504,10 @@ const Header = (props) => {
               padding: 40px 20px 0;
               margin-top: 40px;
               position: relative;
-              transform: translateY(100%);
+              transform: translateY(-30px);
               transition: 0.3s;
               transition-delay: 0.2s;
-
+              opacity: 0;
               &:before {
                 content: '';
                 position: absolute;
