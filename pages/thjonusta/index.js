@@ -21,7 +21,7 @@ const ServicesIndex = (props) => {
   );
 };
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   // Fetch data from external API
   const res = await fetch(`${process.env.HOST}/services`);
   const data = await res.json();

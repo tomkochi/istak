@@ -2,44 +2,6 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import Axios from "axios";
 
-var dummy = [
-  {
-    name: "Innkaupadeild",
-    description:
-      "Consectetur adipiscing elit. Aliquam sed ultricies nunc. Etiam venenatis eros vel ante sagittis, non luctus magna feugiat.",
-  },
-  {
-    name: "Vélaverkstæði",
-    description:
-      "Ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sed ultricies nunc. Etiam venenatis eros vel ante sagittis, non luctus magna feugiat.",
-  },
-  {
-    name: "Rafmagnsverkstæði",
-    description:
-      "Dolor sit amet, consectetur adipiscing elit. Aliquam sed ultricies nunc. Etiam venenatis eros vel ante sagittis, non luctus magna feugiat.",
-  },
-  {
-    name: "Vélsmiðja",
-    description:
-      "Amet, consectetur adipiscing elit. Aliquam sed ultricies nunc. Etiam venenatis eros vel ante sagittis, non luctus magna feugiat.",
-  },
-  {
-    name: "Steypuskáli",
-    description:
-      "Sit amet, consectetur adipiscing elit. Aliquam sed ultricies nunc. Etiam venenatis eros vel ante sagittis, non luctus magna feugiat.",
-  },
-  {
-    name: "Viðhaldsdeild",
-    description:
-      "Pum dolor sit amet, consectetur adipiscing elit. Aliquam sed ultricies nunc. Etiam venenatis eros vel ante sagittis, non luctus magna feugiat.",
-  },
-  {
-    name: "VDC/BIM",
-    description:
-      "Orem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sed ultricies nunc. Etiam venenatis eros vel ante sagittis, non luctus magna feugiat.",
-  },
-];
-
 const ServiceDepartments = ({ data }) => {
   const [serviceDepts, setServiceDepts] = useState(null);
   const [dept, setDept] = useState(0);
@@ -87,7 +49,7 @@ const ServiceDepartments = ({ data }) => {
                               stroke-width="1.75"
                             />
                           </svg>
-                          <Link href={`${process.env.HOST}/${s.slug}`} passHref>
+                          <Link href={`/thjonusta/${s.slug}`} passHref>
                             <a>{s.title}</a>
                           </Link>
                         </h2>

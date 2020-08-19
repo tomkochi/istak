@@ -30,7 +30,7 @@ const Projects = ({ data }) => {
 };
 
 //data fetching
-export async function getServerSideProps(context) {
+export async function getStaticProps(context) {
   // Fetch data from external API
   const res = await fetch(`${process.env.HOST}/projects`);
   const data = await res.json();

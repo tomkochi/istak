@@ -1,27 +1,10 @@
-import Link from 'next/link'
-import moment from 'moment'
+import Link from "next/link";
+import moment from "moment";
 
 const Projects = ({ data }) => {
-  const projects = [
-    {
-      image: '/img/project-thumb-1.jpg',
-      year: '1980',
-      name: 'Flugstöð Leifs Eiríkssonar',
-    },
-    {
-      image: '/img/project-thumb-2.jpg',
-      year: '2014',
-      name: 'Háskólinn í Reykjavík',
-    },
-    {
-      image: '/img/project-thumb-3.jpg',
-      year: '2020',
-      name: 'Smáralind',
-    },
-  ]
-
+  console.log(`projects`, data);
   var para =
-    'Við önnumst verkefni eins og byggingar, virkjanir, álversframkvæmdir, hafnarframkvæmdir auk vega- og brúargerðar.'
+    "Við önnumst verkefni eins og byggingar, virkjanir, álversframkvæmdir, hafnarframkvæmdir auk vega- og brúargerðar.";
   return (
     <>
       <div className="projects-component">
@@ -32,26 +15,28 @@ const Projects = ({ data }) => {
         <div className="projects">
           {data.projects.map((p, i) => {
             return (
-              <div className="wrapper" key={i}>
-                <div
-                  className="project wow fadeInUp"
-                  data-wow-delay={`${i / 4}s`}
-                >
-                  <div className="image">
-                    <img
-                      src={`${process.env.NEXT_PUBLIC_HOST}${p.image.url}`}
-                      alt="project image"
-                    />
-                  </div>
-                  <div className="overlay">
-                    <div className="year f-gtam-regular">
-                      {moment(p.period.from).format('YYYY')}
+              <Link href={`verkefni/${p.slug}`}>
+                <div className="wrapper" key={i}>
+                  <div
+                    className="project wow fadeInUp"
+                    data-wow-delay={`${i / 4}s`}
+                  >
+                    <div className="image">
+                      <img
+                        src={`${process.env.NEXT_PUBLIC_HOST}${p.image.url}`}
+                        alt="project image"
+                      />
                     </div>
-                    <div className="name f-gtam-bold">{p.title}</div>
+                    <div className="overlay">
+                      <div className="year f-gtam-regular">
+                        {moment(p.period.from).format("YYYY")}
+                      </div>
+                      <div className="name f-gtam-bold">{p.title}</div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            )
+              </Link>
+            );
           })}
         </div>
         {/* .projects */}
@@ -137,7 +122,7 @@ const Projects = ({ data }) => {
               }
               &:before,
               &:after {
-                content: '';
+                content: "";
                 position: absolute;
                 top: 0;
                 right: 0;
@@ -254,7 +239,7 @@ const Projects = ({ data }) => {
         }
       `}</style>
     </>
-  )
-}
+  );
+};
 
-export default Projects
+export default Projects;
