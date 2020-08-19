@@ -1,6 +1,7 @@
 import Link from 'next/link'
 
-const NewsCard = ({ image, title, link }) => {
+const NewsCard = (props, { image, title, link }) => {
+  console.log(props)
   return (
     <>
       <div className="article-card container">
