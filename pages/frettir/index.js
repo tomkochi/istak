@@ -13,7 +13,7 @@ const Index = (props) => {
               key={news._id}
               image={`${process.env.NEXT_PUBLIC_HOST}${news.image.formats.medium.url}`}
               title={news.title}
-              link={`frettir/${news.slug}`}
+              link={`/frettir/${news.slug}`}
             />
           );
         })}
@@ -24,7 +24,7 @@ const Index = (props) => {
 };
 
 //data fetching
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
   // Fetch data from external API
   const res = await fetch(`${process.env.HOST}/articles`);
   const data = await res.json();
