@@ -1,7 +1,6 @@
-import Link from 'next/link'
+import Link from "next/link";
 
-const NewsCard = (props, { image, title, link }) => {
-  console.log(props)
+const NewsCard = ({ image, title, link }) => {
   return (
     <>
       <div className="article-card container">
@@ -140,7 +139,7 @@ const NewsCard = (props, { image, title, link }) => {
         }
       `}</style>
     </>
-  )
-}
+  );
+};
 
-export default NewsCard
+export default NewsCard;

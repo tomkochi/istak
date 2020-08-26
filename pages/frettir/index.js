@@ -7,13 +7,13 @@ const Index = (props) => {
     <Layout>
       <div className="articles">
         <Hero />
-        {props.data.map((news) => {
+        {props.data.map((e) => {
           return (
             <NewsCard
-              key={news._id}
-              image={`${process.env.NEXT_PUBLIC_HOST}${news.image.formats.medium.url}`}
-              title={news.title}
-              link={`/frettir/${news.slug}`}
+              key={e._id}
+              image={`${process.env.NEXT_PUBLIC_HOST}${e.image.formats.medium.url}`}
+              title={e.title}
+              link={`/frettir/${e.slug}`}
             />
           );
         })}
