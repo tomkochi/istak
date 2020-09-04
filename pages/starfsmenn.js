@@ -1,16 +1,30 @@
-import Hero from '../components/employees/hero'
-import Employee from '../components/employees/employee'
-import Layout from '../components/Layout'
-import fetch from 'isomorphic-unfetch'
+import Hero from "../components/employees/hero";
+import Employee from "../components/employees/employee";
+import Layout from "../components/Layout";
+import fetch from "isomorphic-unfetch";
+import { useState } from "react";
 
 const Employees = ({ data }) => {
+  const [state, setstate] = useState(data.member);
+  function handleChange(e) {
+    const search = e.target.value;
+    var result = data.member.filter(
+      (item) =>
+        item.name.includes(search) ||
+        item.designation.includes(search) ||
+        item.phone.includes(search) ||
+        item.email.includes(search)
+    );
+    setstate(result);
+  }
+  //
   return (
     <Layout>
       <div className="employees">
-        <Hero data={data} />
+        <Hero data={data} change={handleChange} />
         <div className="container">
           <div className="employee-cards d-flex flex-wrap justify-content-between">
-            {data.member.map((e) => {
+            {state.map((e) => {
               return (
                 <Employee
                   key={e._id}
@@ -20,7 +34,7 @@ const Employees = ({ data }) => {
                   email={e.email}
                   phone={e.phone}
                 />
-              )
+              );
             })}
           </div>
           {/* .employee-cards */}
@@ -35,16 +49,16 @@ const Employees = ({ data }) => {
         }
       `}</style>
     </Layout>
-  )
-}
+  );
+};
 
 //data fetching
-export async function getServerSideProps() {
+export async function getStaticProps() {
   // Fetch data from external API
-  const res = await fetch(`${process.env.HOST}/team`)
-  const data = await res.json()
+  const res = await fetch(`${process.env.HOST}/team`);
+  const data = await res.json();
   // Pass data to the page via props
-  return { props: { data } }
+  return { props: { data } };
 }
 
-export default Employees
+export default Employees;
