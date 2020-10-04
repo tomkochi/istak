@@ -19,27 +19,27 @@ const Footer = (props) => {
                 <h4>Valmynd</h4>
                 <ul className="list-unstyled">
                   <li>
-                    <Link href="/" passHref>
+                    <Link href="/starfsmenn" passHref>
                       <a>Um Ístak</a>
                     </Link>
                   </li>
                   <li>
-                    <Link href="/" passHref>
+                    <Link href="/thjonusta" passHref>
                       <a>Þjónustur</a>
                     </Link>
                   </li>
                   <li>
-                    <Link href="/" passHref>
+                    <Link href="https://jobs.50skills.com/istak/is/" passHref>
                       <a>Störf</a>
                     </Link>
                   </li>
                   <li>
-                    <Link href="/projects" passHref>
+                    <Link href="/verkefni" passHref>
                       <a>Verkefni</a>
                     </Link>
                   </li>
                   <li>
-                    <Link href="/news" passHref>
+                    <Link href="/frettir" passHref>
                       <a>Fréttir</a>
                     </Link>
                   </li>
