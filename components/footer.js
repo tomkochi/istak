@@ -24,7 +24,7 @@ const Footer = (props) => {
                     </Link>
                   </li>
                   <li>
-                    <Link href="/thjonusta" passHref>
+                    <Link href="/thjonustur" passHref>
                       <a>Þjónustur</a>
                     </Link>
                   </li>
@@ -69,7 +69,7 @@ const Footer = (props) => {
           <div className="container d-flex">
             <div className="bottom w-100 d-flex align-items-center justify-content-between">
               <div className="social d-flex">
-                <a href="https://www.facebook.com/pages/category/Company/Ístak-hf-377474922277497/" className="icon facebook">
+                <a href="https://www.facebook.com" className="icon facebook">
                   <svg
                     width="40"
                     height="40"
@@ -88,7 +88,7 @@ const Footer = (props) => {
                     />
                   </svg>
                 </a>
-                <a href="https://is.linkedin.com/company/-stak" className="icon linkedin">
+                <a href="https://www.loinkedin.com" className="icon linkedin">
                   <svg
                     width="40"
                     height="40"
@@ -129,28 +129,28 @@ const Footer = (props) => {
               <h4>Valmynd</h4>
               <ul className="list-unstyled">
                 <li>
-                  <Link href="/starfsmenn" passHref>
-                    <a href="/starfsmenn">Um Ístak</a>
+                  <Link href="/" passHref>
+                    <a href="#">Um Ístak</a>
                   </Link>
                 </li>
                 <li>
-                  <Link href="/thjonustur" passHref>
-                    <a href="/thjonustur">Þjónustur</a>
+                  <Link href="/" passHref>
+                    <a href="#">Þjónustur</a>
                   </Link>
                 </li>
                 <li>
-                  <Link href="https://jobs.50skills.com/istak/is/" passHref>
-                    <a href="https://jobs.50skills.com/istak/is/">Störf</a>
+                  <Link href="/" passHref>
+                    <a href="#">Störf</a>
                   </Link>
                 </li>
                 <li>
-                  <Link href="/verkefni" passHref>
-                    <a href="/verkefni">Verkefni</a>
+                  <Link href="/projects" passHref>
+                    <a href="#">Verkefni</a>
                   </Link>
                 </li>
                 <li>
                   <Link href="/news" passHref>
-                    <a href="/frettir">Fréttir</a>
+                    <a href="#">Fréttir</a>
                   </Link>
                 </li>
               </ul>
@@ -176,12 +176,12 @@ const Footer = (props) => {
           <div className="bottom w-100 d-flex align-items-center justify-content-between">
             <div>
               <h4 className="f-gtam-regular">Kt. 430214 1520</h4>
-              <a href="/skilmalar" className="terms f-gtam-medium">
+              <a href="#" className="terms f-gtam-medium">
                 Skilmálar
               </a>
             </div>
             <div className="social d-flex">
-              <a href="https://www.facebook.com/pages/category/Company/Ístak-hf-377474922277497/" className="icon">
+              <a href="http://www.facebook.com" className="icon">
                 <svg
                   width="40"
                   height="40"
@@ -200,7 +200,7 @@ const Footer = (props) => {
                   />
                 </svg>
               </a>
-              <a href="https://is.linkedin.com/company/-stak" className="icon">
+              <a href="http://www.linkedin.com" className="icon">
                 <svg
                   width="40"
                   height="40"
