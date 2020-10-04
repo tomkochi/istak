@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const Hero = ({ data, change }) => {
+const Hero = ({ data }) => {
   return (
     <>
       <div className="hero container">
@@ -56,7 +56,6 @@ const Hero = ({ data, change }) => {
             type="text"
             className="f-gtam-medium"
             placeholder="Leita að grein"
-            onChange={(e) => change(e)}
           />
         </div>
         {/* .search */}

@@ -3,30 +3,15 @@ import Filter from "../../components/projects/filter";
 import Project from "../../components/projects/project";
 import Layout from "../../components/Layout";
 import moment from "moment";
-import { useState } from "react";
 
 const Projects = ({ data }) => {
-  const [state, setstate] = useState(data);
-  function handleChange(e) {
-    const search = e.target.value;
-    var result = data.filter(
-      (item) =>
-        item.client.includes(search) ||
-        item.title.includes(search) ||
-        item.description.includes(search) ||
-        item.period.from.includes(search) ||
-        item.period.to.includes(search)
-    );
-    setstate(result);
-  }
-  //
   return (
     <Layout>
       <div className="projects">
         <Hero />
-        <Filter childData={handleChange} />
+        <Filter />
         <div className="project-list d-flex flex-wrap">
-          {state.map((d) => {
+          {data.map((d) => {
             return (
               <Project
                 image={`${process.env.NEXT_PUBLIC_HOST}${d.image.formats.medium.url}`}
