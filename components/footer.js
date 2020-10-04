@@ -24,7 +24,7 @@ const Footer = (props) => {
                     </Link>
                   </li>
                   <li>
-                    <Link href="/thjonustur" passHref>
+                    <Link href="/thjonusta" passHref>
                       <a>Þjónustur</a>
                     </Link>
                   </li>
