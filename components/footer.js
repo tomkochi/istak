@@ -69,7 +69,7 @@ const Footer = (props) => {
           <div className="container d-flex">
             <div className="bottom w-100 d-flex align-items-center justify-content-between">
               <div className="social d-flex">
-                <a href="https://www.facebook.com" className="icon facebook">
+                <a href="https://www.facebook.com/pages/category/Company/Ístak-hf-377474922277497/" className="icon facebook">
                   <svg
                     width="40"
                     height="40"
@@ -88,7 +88,7 @@ const Footer = (props) => {
                     />
                   </svg>
                 </a>
-                <a href="https://www.loinkedin.com" className="icon linkedin">
+                <a href="https://is.linkedin.com/company/-stak" className="icon linkedin">
                   <svg
                     width="40"
                     height="40"
@@ -129,12 +129,12 @@ const Footer = (props) => {
               <h4>Valmynd</h4>
               <ul className="list-unstyled">
                 <li>
-                  <Link href="/" passHref>
+                  <Link href="/starfsmenn" passHref>
                     <a href="#">Um Ístak</a>
                   </Link>
                 </li>
                 <li>
-                  <Link href="/" passHref>
+                  <Link href="/thjonusta" passHref>
                     <a href="#">Þjónustur</a>
                   </Link>
                 </li>
@@ -144,12 +144,12 @@ const Footer = (props) => {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/projects" passHref>
+                  <Link href="/verkefni" passHref>
                     <a href="#">Verkefni</a>
                   </Link>
                 </li>
                 <li>
-                  <Link href="/news" passHref>
+                  <Link href="/frettir" passHref>
                     <a href="#">Fréttir</a>
                   </Link>
                 </li>
@@ -162,7 +162,6 @@ const Footer = (props) => {
               <h5>istak@istak.is</h5>
               <h5>lager@istak.is</h5>
               <h5>Bugðufljót 19, 270</h5>
-              <h5>Senda ábendingu</h5>
             </div>
             {/* .address */}
           </div>
@@ -176,12 +175,12 @@ const Footer = (props) => {
           <div className="bottom w-100 d-flex align-items-center justify-content-between">
             <div>
               <h4 className="f-gtam-regular">Kt. 430214 1520</h4>
-              <a href="#" className="terms f-gtam-medium">
+              <a href="/skilmalar" className="terms f-gtam-medium">
                 Skilmálar
               </a>
             </div>
             <div className="social d-flex">
-              <a href="http://www.facebook.com" className="icon">
+              <a href="https://www.facebook.com/pages/category/Company/Ístak-hf-377474922277497/" className="icon">
                 <svg
                   width="40"
                   height="40"
@@ -200,7 +199,7 @@ const Footer = (props) => {
                   />
                 </svg>
               </a>
-              <a href="http://www.linkedin.com" className="icon">
+              <a href="https://is.linkedin.com/company/-stak" className="icon">
                 <svg
                   width="40"
                   height="40"
