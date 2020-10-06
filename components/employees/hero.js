@@ -9,26 +9,7 @@ const Hero = ({ data }) => {
           data-wow-delay="500ms"
           data-wow-duration="300ms"
         >
-          <Link href="/" passHref>
-            <a href="#" className="d-flex align-items-center">
-              <div className="icon d-flex align-items-center justify-content-center">
-                <svg
-                  width="13"
-                  height="12"
-                  viewBox="0 0 13 12"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M13 6H2M2 6L7.07692 1M2 6L7.07692 11"
-                    stroke="#204F9C"
-                    stroke-width="1.75"
-                  />
-                </svg>
-              </div>
-              <h3 className="f-gtam-medium">Verkefni</h3>
-            </a>
-          </Link>
+          
         </div>
         {/* .nav-back */}
         <h1 className="f-gtam-bold wow fadeInUp" data-wow-duration="300ms">
@@ -55,7 +36,7 @@ const Hero = ({ data }) => {
           <input
             type="text"
             className="f-gtam-medium"
-            placeholder="Leita að grein"
+            placeholder="Leita að starfsmanni"
           />
         </div>
         {/* .search */}

@@ -52,7 +52,6 @@ const Footer = (props) => {
                 <h5>istak@istak.is</h5>
                 <h5>lager@istak.is</h5>
                 <h5>Bugðufljót 19, 270</h5>
-                <h5>Senda ábendingu</h5>
               </div>
               {/* .address */}
               <div className="timing">
