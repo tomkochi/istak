@@ -105,7 +105,7 @@ const BottomPick = ({ data, image, title, para, video }) => {
             <div className="video">
               <ReactPlayer
                 url0={`${process.env.NEXT_PUBLIC_HOST}${data.video.url}`}
-                url="https://static.videezy.com/system/resources/previews/000/034/647/original/water-fall11.mp4"
+                url="https://www.youtube.com/watch?v=CWu29PRCUvQ"
                 loop
                 width="100%"
                 height="100%"
