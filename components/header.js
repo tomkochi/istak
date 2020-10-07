@@ -199,7 +199,6 @@ const Header = (props) => {
                 <li>istak@istak.is</li>
                 <li>lager@istak.is</li>
                 <li>Bugðufljót 19, 270</li>
-                <li>Senda ábendingu</li>
               </ul>
             </div>
             {/* .left */}
