@@ -42,7 +42,7 @@ const Article = ({ data }) => {
                     />
                   </svg>
                 </div>
-                <h3 className="f-gtam-medium">Verkefni</h3>
+                <h3 className="f-gtam-medium">Greinar</h3>
               </a>
             </Link>
           </div>
@@ -170,7 +170,7 @@ const Article = ({ data }) => {
               })}
             </div>
             <div className="more-articles wow fadeInUp">
-              <h2>Viltu sjá fleirri greinar?</h2>
+              <h2>Viltu sjá fleiri greinar?</h2>
               <Link href="/frettir" passHref>
                 <a className="link d-flex justify-content-center align-items-center">
                   <div className="icon d-flex align-items-center justify-content-center">
@@ -189,7 +189,7 @@ const Article = ({ data }) => {
                     </svg>
                   </div>
                   {/* .icon */}
-                  <h3>Sjá fleirri greinar</h3>
+                  <h3>Sjá fleiri greinar</h3>
                 </a>
                 {/* .link */}
               </Link>
