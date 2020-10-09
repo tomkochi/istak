@@ -77,9 +77,9 @@ const Header = (props) => {
               </ul>
             </li>
             <li className="navigation-item">
-              <a href="https://jobs.50skills.com/istak/is/" targe="_blank">
-                Störf
-              </a>
+              <Link href="/" passHref>
+                <a>Störf</a>
+              </Link>
             </li>
             <li className="navigation-item">
               <Link href="/verkefni" passHref>
