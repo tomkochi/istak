@@ -7,6 +7,7 @@ const Filter = (props) => {
   const dropdownRef = useRef()
 
   const handleOutsideClick = (e) => {
+    console.log(dropdownRef)
     if (dropdownRef.current.contains(e.target)) return
     setShowDropdown(false)
   }
@@ -15,6 +16,9 @@ const Filter = (props) => {
     if (showDropdown) {
       document.addEventListener('click', handleOutsideClick, false)
     } else {
+      document.removeEventListener('click', handleOutsideClick, false)
+    }
+    return () => {
       document.removeEventListener('click', handleOutsideClick, false)
     }
   }, [showDropdown])
