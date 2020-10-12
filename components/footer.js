@@ -60,7 +60,7 @@ const Footer = (props) => {
               <div className="timing">
                 <h5>Mánudaga - Fimmtudaga</h5>
                 <h4>08:15 - 16:00</h4>
-                <h5>Föstudag</h5>
+                <h5>Föstudaga</h5>
                 <h4>8:15 - 15:00</h4>
               </div>
               {/* .timing */}
@@ -176,7 +176,7 @@ const Footer = (props) => {
           <div className="timing">
             <h5>Mánudaga - Fimmtudaga</h5>
             <h4>08:15 - 16:00</h4>
-            <h5>Föstudag</h5>
+            <h5>Föstudaga</h5>
             <h4>8:15 - 15:00</h4>
           </div>
           {/* .timing */}
