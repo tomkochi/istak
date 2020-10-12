@@ -77,7 +77,7 @@ const Header = (props) => {
               </ul>
             </li>
             <li className="navigation-item">
-              <a href="https://jobs.50skills.com/istak/is/" targe="_blank">
+              <a href="https://jobs.50skills.com/istak/is/" target="_blank">
                 Störf
               </a>
             </li>

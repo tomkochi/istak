@@ -37,6 +37,7 @@ const Hero = ({ data }) => {
       <style jsx>{`
         $brand: #204f9c;
         $black: #202020;
+        $text: #222222;
 
         .container {
           @media (max-width: 767px) {
@@ -44,7 +45,6 @@ const Hero = ({ data }) => {
             padding: 0 20px;
           }
         }
-
         .hero {
           margin-top: 150px;
           @media (max-width: 991px) {

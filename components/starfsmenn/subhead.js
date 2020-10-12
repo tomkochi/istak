@@ -1,20 +1,18 @@
-import Link from "next/link";
+import Link from 'next/link'
 
-const Hero = ({ data }) => {
+const Subhead = ({ data }) => {
   return (
     <>
-      <div className="hero container">
+      <div className="subhead container">
         <div
           className="nav-back wow fadeInUp"
           data-wow-delay="500ms"
           data-wow-duration="300ms"
-        >
-          
-        </div>
+        ></div>
         {/* .nav-back */}
-        <h1 className="f-gtam-bold wow fadeInUp" data-wow-duration="300ms">
+        <h2 className="f-gtam-bold wow fadeInUp" data-wow-duration="300ms">
           {data.Heading}
-        </h1>
+        </h2>
         <div
           className="search d-flex wow fadeInUp"
           data-wow-delay="1s"
@@ -33,11 +31,7 @@ const Hero = ({ data }) => {
             </svg>
           </div>
           {/* .icon */}
-          <input
-            type="text"
-            className="f-gtam-medium"
-            placeholder="Leita að starfsmanni"
-          />
+          <input type="text" className="f-gtam-medium" placeholder="Leita" />
         </div>
         {/* .search */}
       </div>
@@ -58,7 +52,7 @@ const Hero = ({ data }) => {
           }
         }
 
-        .hero {
+        .subhead {
           margin-top: 150px;
           @media (max-width: 991px) {
             margin-top: 90px;
@@ -84,10 +78,10 @@ const Hero = ({ data }) => {
               color: $brand;
             }
           }
-          h1 {
-            font-size: 64px;
+          h2 {
+            font-size: 48px;
             line-height: 120%;
-            max-width: 750px;
+            max-width: 551px;
             margin-bottom: 60px;
             color: $brand;
             @media (max-width: 991px) {
@@ -101,7 +95,7 @@ const Hero = ({ data }) => {
             }
           }
           .search {
-            margin-bottom: 177px;
+            margin-bottom: 80px;
             width: 100%;
             max-width: 400px;
             @media (max-width: 991px) {
@@ -142,7 +136,7 @@ const Hero = ({ data }) => {
         }
       `}</style>
     </>
-  );
-};
+  )
+}
 
-export default Hero;
+export default Subhead

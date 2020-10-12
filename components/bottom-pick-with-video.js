@@ -1,23 +1,24 @@
-import ReactPlayer from "react-player";
-import { useState, useEffect } from "react";
+//import ReactPlayer from "react-player";
+import ResponsivePlayer from '../components/responsivePlayer'
+import { useState, useEffect } from 'react'
 
 const BottomPick = ({ data, image, title, para, video }) => {
-  const [showVideo, setShowVideo] = useState(false);
+  const [showVideo, setShowVideo] = useState(false)
   const trackEscape = (e) => {
     if (e.keyCode === 27) {
-      setShowVideo(false);
+      setShowVideo(false)
     }
-  };
+  }
   useEffect(() => {
     if (showVideo) {
-      document.addEventListener("keydown", trackEscape, false);
+      document.addEventListener('keydown', trackEscape, false)
     } else {
-      document.removeEventListener("keydown", trackEscape, false);
+      document.removeEventListener('keydown', trackEscape, false)
     }
     return () => {
-      document.removeEventListener("keydown", trackEscape, false);
-    };
-  }, [showVideo]);
+      document.removeEventListener('keydown', trackEscape, false)
+    }
+  }, [showVideo])
   return (
     <>
       <div
@@ -71,58 +72,46 @@ const BottomPick = ({ data, image, title, para, video }) => {
         </div>
         {/* .container */}
 
-        <div className={`video-overlay ${showVideo ? "show" : ""}`}>
-          <div className="v-wrapper">
-            <div className="d-inline-block">
-              <div
-                onClick={(e) => setShowVideo(false)}
-                className="close-videopopup d-flex justify-content-center align-items-center"
-              >
-                <div className="icon d-flex justify-content-center align-items-center">
-                  <svg
-                    width="10"
-                    height="10"
-                    viewBox="0 0 10 10"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M0.968995 1L8.96899 9"
-                      stroke="white"
-                      stroke-width="1.5"
-                    />
-                    <path
-                      d="M0.968995 8.99902L8.96899 0.999023"
-                      stroke="white"
-                      stroke-width="1.5"
-                    />
-                  </svg>
+        {showVideo && (
+          <div className={`video-overlay`}>
+            <div className="v-wrapper">
+              <div className="d-inline-block">
+                <div
+                  onClick={(e) => setShowVideo(false)}
+                  className="close-videopopup d-flex justify-content-center align-items-center"
+                >
+                  <div className="icon d-flex justify-content-center align-items-center">
+                    <svg
+                      width="10"
+                      height="10"
+                      viewBox="0 0 10 10"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M0.968995 1L8.96899 9"
+                        stroke="white"
+                        stroke-width="1.5"
+                      />
+                      <path
+                        d="M0.968995 8.99902L8.96899 0.999023"
+                        stroke="white"
+                        stroke-width="1.5"
+                      />
+                    </svg>
+                  </div>
+                  {/* .icon */}
+                  <h3 className="f-gtam-bold">Loka myndbandi</h3>
                 </div>
-                {/* .icon */}
-                <h3 className="f-gtam-bold">Loka myndbandi</h3>
               </div>
+              <div className="video">
+                <ResponsivePlayer data="https://www.youtube.com/watch?v=CWu29PRCUvQ" />
+              </div>
+              {/* .video */}
             </div>
-            <div className="video">
-              <ReactPlayer
-                url0={`${process.env.NEXT_PUBLIC_HOST}${data.video.url}`}
-                url="https://www.youtube.com/watch?v=CWu29PRCUvQ"
-                loop
-                width="100%"
-                height="100%"
-                muted={true}
-                playing={showVideo}
-                controls
-                className="react-player"
-                style={{
-                  margin: "0 auto",
-                }}
-              />
-            </div>
-            {/* .video */}
+            {/* .wrapper */}
           </div>
-          {/* .wrapper */}
-        </div>
-        {/* .video-overlay */}
+        )}
       </div>
       <style jsx>{`
         $brand: #204f9c;
@@ -141,7 +130,7 @@ const BottomPick = ({ data, image, title, para, video }) => {
           }
           &:before,
           &:after {
-            content: "";
+            content: '';
             position: absolute;
             left: 0;
             right: 0;
@@ -272,15 +261,6 @@ const BottomPick = ({ data, image, title, para, video }) => {
             padding: 50px;
             background: rgba(0, 0, 0, 0.9);
             z-index: 1000;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-200px);
-            transition: 0.3s;
-            &.show {
-              opacity: 1;
-              visibility: visible;
-              transform: translateY(0);
-            }
             .v-wrapper {
               position: relative;
               top: 50%;
@@ -331,7 +311,7 @@ const BottomPick = ({ data, image, title, para, video }) => {
         }
       `}</style>
     </>
-  );
-};
+  )
+}
 
-export default BottomPick;
+export default BottomPick

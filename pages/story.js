@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import Scrollspy from 'react-scrollspy'
 
 import Layout from '../components/Layout'
@@ -10,16 +11,71 @@ const Story = ({ data }) => {
     description:
       'Ístak er verktakafyrirtæki sem annast margskonar verkefni. Byggingaframkvæmdir, virkjanir, stóriðjuframkvæmdir, jarðvinnuverk, mannvirkjagerð, hafnarframkvæmdir auk vega- og brúagerðar. Ístak hefur verið leiðandi á íslenskum verktakaiðnaði í 50 ár og hefur haft mikil áhrif á þróun bygginga og annarra mannvirkja á Íslandi sem og á erlendri grundu.',
   }
+  const sections = [
+    'Kynning',
+    'Verkefnin',
+    'Samvinna með Aarsleff',
+    'Keflavíkurflugvöllur',
+    'Stækkunin í Ísal',
+    'Deildir',
+    'Aðsetur',
+  ]
   const scrollToTop = () => {
     document.body.scrollTop = 0
     document.documentElement.scrollTop = 0
   }
+  const handleScroll = (event) => {
+    // make the side-navigation sticky
+
+    // get the window scroll position
+    const winScroll =
+      document.body.scrollTop || document.documentElement.scrollTop
+
+    // get side-navigation scroll position
+    const el = document.querySelector('.side-navigation')
+    const elmTop = document.querySelector('.story.body').getBoundingClientRect()
+      .top
+
+    // make sticky or unsticky
+    if (elmTop <= -40) {
+      el.classList.add('fixed')
+    } else {
+      el.classList.remove('fixed')
+    }
+
+    // if window scroll past too much,
+    // prevent the side-navigation from overlapping
+    // the footer by hiding it.
+
+    const storyBottom = document
+      .querySelector('.story.body')
+      .getBoundingClientRect().bottom
+
+    if (storyBottom <= el.getBoundingClientRect().height) {
+      el.classList.add('hidden')
+    } else {
+      el.classList.remove('hidden')
+    }
+  }
+  const showSection = (section) => {
+    const storyTop = document.querySelector('.story.body').offsetTop - 60
+    window.scrollTo({
+      top: document.querySelector(`${section}`).offsetTop + storyTop,
+      behavior: 'smooth',
+    })
+  }
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
 
   return (
     <Layout>
       <Hero data={heroData} />
       <Video />
-      <div className="body">
+      <div className="story body">
         {/*
          * If there is only one image in a .images section, it doesn't need to have
            any other classes, eg: <div class="images">...</div>
@@ -28,8 +84,32 @@ const Story = ({ data }) => {
          * For three or more images it should be .images-multiple,
            eg: <div class="images images-multiple">...</div>
          */}
+        <Scrollspy
+          className="side-navigation nav-list list-unstyled"
+          items={[
+            'section-1',
+            'section-2',
+            'section-3',
+            'section-4',
+            'section-5',
+            'section-6',
+            'section-7',
+          ]}
+          currentClassName="current"
+          offset={-300}
+        >
+          {sections.map((s, i) => {
+            return (
+              <li key={i} onClick={() => showSection(`#section-${i + 1}`)}>
+                <span className="line-number">{i + 1}.</span>
+                {s}
+              </li>
+            )
+          })}
+        </Scrollspy>
+        {/* .side-navigation */}
         <div className="container">
-          <div className="section" id="kynning">
+          <div className="section" id="section-1">
             <div className="text">
               <h3>Sagan, stofnendur, eigendur og stjórnendur</h3>
               <p>
@@ -104,8 +184,8 @@ const Story = ({ data }) => {
             </div>
             {/* .images */}
           </div>
-          {/* .section#kynning */}
-          <div className="section" id="Verkefnin">
+          {/* .section */}
+          <div className="section" id="section-2">
             <div className="text">
               <h3>Verkefnin</h3>
               <p>
@@ -215,7 +295,7 @@ const Story = ({ data }) => {
             {/* .text */}
           </div>
           {/* .section */}
-          <div className="section" id="samvinna-með-aarsleff">
+          <div className="section" id="section-3">
             <div className="text">
               <h3>Samvinna með Aarsleff</h3>
               <p>
@@ -264,7 +344,7 @@ const Story = ({ data }) => {
             {/* .images */}
           </div>
           {/* .section*/}
-          <div className="section" id="verkefni-istaks-á-keflavíkurflugvelli">
+          <div className="section" id="section-4">
             <div className="text">
               <h3>Verkefni Ístaks á Keflavíkurflugvelli</h3>
               <p>
@@ -331,7 +411,7 @@ const Story = ({ data }) => {
             {/* .images */}
           </div>
           {/* .section */}
-          <div className="section" id="stækkunin-i-isal">
+          <div className="section" id="section-5">
             <div className="text">
               <h3>Stækkunin í Ísal</h3>
               <p>
@@ -372,7 +452,7 @@ const Story = ({ data }) => {
             {/* .text */}
           </div>
           {/* .section */}
-          <div className="section" id="viðhaldsþjónusta">
+          <div className="section">
             <div className="text">
               <h3>Viðhaldsþjónusta</h3>
               <p>
@@ -398,7 +478,7 @@ const Story = ({ data }) => {
             {/* .text */}
           </div>
           {/* .section */}
-          <div className="section" id="innkaupadeild">
+          <div className="section">
             <div className="text">
               <h3>Innkaupadeild</h3>
               <p>
@@ -415,7 +495,7 @@ const Story = ({ data }) => {
             {/* .text */}
           </div>
           {/* .section */}
-          <div className="section" id="stafræn-þróun-í-byggingariðnaði">
+          <div className="section" id="section-6">
             <div className="text">
               <h3>Stafræn þróun í byggingariðnaði</h3>
               <p>
@@ -437,7 +517,7 @@ const Story = ({ data }) => {
             </div>
           </div>
           {/* .section */}
-          <div className="section" id="skipulag-og-sérstaða">
+          <div className="section">
             <div className="text">
               <h3>Skipulag og sérstaða</h3>
               <p>
@@ -453,7 +533,7 @@ const Story = ({ data }) => {
             {/* .text */}
           </div>
           {/* .section */}
-          <div className="section" id="framtíðarsýn">
+          <div className="section">
             <div className="text">
               <h3>Framtíðarsýn</h3>
               <p>
@@ -467,7 +547,7 @@ const Story = ({ data }) => {
             </div>
           </div>
           {/* .section */}
-          <div className="section" id="Aðsetur">
+          <div className="section" id="section-7">
             <div className="text">
               <h3>Aðsetur</h3>
               <p>
@@ -489,7 +569,7 @@ const Story = ({ data }) => {
             {/* .images */}
           </div>
           {/* .section */}
-          <div className="section" id="mannauður-og-starfsmannafjöldi">
+          <div className="section">
             <div className="text">
               <h3>Mannauður og starfsmannafjöldi</h3>
               <p>
@@ -559,16 +639,54 @@ const Story = ({ data }) => {
         </div>
         Aftur upp
       </div>
+      <style jsx global>{`
+        .story.body .side-navigation {
+          position: absolute;
+          left: 60px;
+          top: 100px;
+          transition: opacity 0.3s;
+          li {
+            font-family: 'GT America Regular';
+            font-size: 16px;
+            line-height: 110%;
+            letter-spacing: -0.02em;
+            color: #202020;
+            margin-bottom: 14px;
+            opacity: 0.5;
+            cursor: pointer;
+            transition: 0.2s;
+            &:hover,
+            &.current {
+              opacity: 1;
+            }
+            span {
+              display: inline-block;
+              width: 15px;
+              margin-right: 21px;
+            }
+          }
+          &.fixed {
+            position: fixed;
+            top: 60px;
+          }
+          &.hidden {
+            opacity: 0;
+          }
+        }
+      `}</style>
       <style jsx>{`
         .body {
           padding: 40px 0;
+          position: relative;
           @media (max-width: 991px) {
             padding: 20px 0;
           }
           .container {
-            margin: 0;
-            width: 100%;
-            padding: 0 20px;
+            @media (max-width: 767px) {
+              margin: 0;
+              width: 100%;
+              padding: 0 20px;
+            }
           }
           .section {
             .text {
