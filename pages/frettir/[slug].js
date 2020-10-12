@@ -25,7 +25,7 @@ const Article = ({ data }) => {
       <div className="article">
         <div className="hero container">
           <div className="nav-back wow fadeIn">
-            <Link href="/verkefni" passHref>
+            <Link href="/frettir" passHref>
               <a href="#" className="d-flex align-items-center">
                 <div className="icon d-flex align-items-center justify-content-center">
                   <svg
