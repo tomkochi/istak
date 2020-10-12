@@ -150,7 +150,7 @@ const BigCardRight = ({ data }) => {
           }
           .text {
             .wrapper {
-              max-width: 290px;
+              max-width: 400px;
               height: 600px;
               @media (max-width: 991px) {
                 height: 388px;

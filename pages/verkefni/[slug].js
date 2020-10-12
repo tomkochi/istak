@@ -218,7 +218,7 @@ const Project = ({ data }) => {
             background: {
               url: '/uploads/project_thumb_5_0bb7f17e84.jpeg',
             },
-            title: 'Nýja verkefnið okkar',
+            title: 'Stolt verk frá yfir 50 ár af vinnu',
           }}
         />
       </div>
