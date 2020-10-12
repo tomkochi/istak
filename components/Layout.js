@@ -16,9 +16,9 @@ const Layout = (props) => {
 
   return (
     <div className="layout">
-      {router.pathname !== '/' && <Header />}
+      {!props.hideheader && <Header />}
       {props.children}
-      <Footer />
+      {!props.hidefooter && <Footer />}
     </div>
   )
 }

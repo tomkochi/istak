@@ -1,74 +1,74 @@
-import Header from "../../components/header";
+import Header from '../../components/header'
 
-import Link from "next/link";
-import { useState, useEffect } from "react";
+import Link from 'next/link'
+import { useState, useEffect } from 'react'
 
-const delay = 8;
+const delay = 8
 
 const Hero = ({ data, services }) => {
-  const slides = data.hero_slider;
-  const count = slides.length;
+  const slides = data.hero_slider
+  const count = slides.length
 
   // current slide
-  const [slide, setSlide] = useState(1);
+  const [slide, setSlide] = useState(1)
   // I think this is no longer used
-  const [loaded, setLoaded] = useState(false);
+  const [loaded, setLoaded] = useState(false)
   // counting seconds for auto-slide
-  const [counter, setCounter] = useState(0);
+  const [counter, setCounter] = useState(0)
   // need to disable sliding for mobile and tablet
-  const [slidable, setSlidable] = useState(0);
+  const [slidable, setSlidable] = useState(0)
 
   const previousSlide = () => {
-    setSlide(slide === 1 ? count : slide - 1);
-    setCounter(0);
-  };
+    setSlide(slide === 1 ? count : slide - 1)
+    setCounter(0)
+  }
 
   const nextSlide = () => {
-    setSlide(slide === count ? 1 : slide + 1);
-    setCounter(0);
-  };
+    setSlide(slide === count ? 1 : slide + 1)
+    setCounter(0)
+  }
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCounter((c) => c + 0.1);
-    }, 100);
+      setCounter((c) => c + 0.1)
+    }, 100)
 
     // guess not used
     setTimeout(() => {
-      setLoaded(true);
-    }, 1000);
+      setLoaded(true)
+    }, 1000)
 
     // track window resize
     function handleResize() {
-      const windowWidth = window.innerWidth;
+      const windowWidth = window.innerWidth
 
       // prevent sliding for mobile and tablet
       if (windowWidth < 992) {
-        setSlidable(0);
-        setSlide(1);
+        setSlidable(0)
+        setSlide(1)
       }
       if (windowWidth >= 992) {
-        setCounter(0);
-        setSlidable(1);
+        setCounter(0)
+        setSlidable(1)
       }
     }
-    window.addEventListener("resize", handleResize);
+    window.addEventListener('resize', handleResize)
 
     // set the slidable var initially
-    handleResize();
+    handleResize()
 
     // clean up
     return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [])
 
   useEffect(() => {
     // show next slide if delay reached
     if (counter >= delay && slidable) {
-      nextSlide();
+      nextSlide()
     }
-  }, [counter]);
+  }, [counter])
 
   return (
     <>
@@ -80,7 +80,7 @@ const Hero = ({ data, services }) => {
           {slides.map((s, i) => {
             return (
               <div className="slide" key={i}>
-                <div className={`image ${slide === i + 1 ? "active" : ""}`}>
+                <div className={`image ${slide === i + 1 ? 'active' : ''}`}>
                   <img
                     src={`${process.env.NEXT_PUBLIC_HOST}${s.image.url}`}
                     alt=""
@@ -88,7 +88,7 @@ const Hero = ({ data, services }) => {
                 </div>
                 <div
                   className={`overlay d-flex align-items-center ${
-                    loaded ? "loaded" : ""
+                    loaded ? 'loaded' : ''
                   }`}
                 >
                   <div className="container d-flex justify-content-between">
@@ -122,14 +122,14 @@ const Hero = ({ data, services }) => {
                     <div className="navigation d-none d-lg-block align-self-end">
                       <h3
                         className={`f-gtam-regular name ${
-                          slide === i + 1 ? "active" : ""
+                          slide === i + 1 ? 'active' : ''
                         }`}
                       >
                         {s.name}
                       </h3>
                       <h3
                         className={`f-gtam-regular year ${
-                          slide === i + 1 ? "active" : ""
+                          slide === i + 1 ? 'active' : ''
                         }`}
                       >
                         {s.year}
@@ -180,7 +180,7 @@ const Hero = ({ data, services }) => {
                 </div>
                 {/* .overlay */}
               </div>
-            );
+            )
           })}
         </div>
         {/* .slides */}
@@ -242,7 +242,7 @@ const Hero = ({ data, services }) => {
                 height: 326px;
               }
               &:after {
-                content: "";
+                content: '';
                 position: absolute;
                 left: 0;
                 top: 0;
@@ -439,7 +439,7 @@ const Hero = ({ data, services }) => {
         }
       `}</style>
     </>
-  );
-};
+  )
+}
 
-export default Hero;
+export default Hero

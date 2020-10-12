@@ -29,9 +29,12 @@ const Footer = (props) => {
                     </Link>
                   </li>
                   <li>
-                    <Link href="https://jobs.50skills.com/istak/is/" passHref>
-                      <a>Störf</a>
-                    </Link>
+                    <a
+                      target="_blabk"
+                      href="https://jobs.50skills.com/istak/is/"
+                    >
+                      Störf
+                    </a>
                   </li>
                   <li>
                     <Link href="/verkefni" passHref>
@@ -68,7 +71,10 @@ const Footer = (props) => {
           <div className="container d-flex">
             <div className="bottom w-100 d-flex align-items-center justify-content-between">
               <div className="social d-flex">
-                <a href="https://www.facebook.com/pages/category/Company/Ístak-hf-377474922277497/" className="icon facebook">
+                <a
+                  href="https://www.facebook.com/pages/category/Company/Ístak-hf-377474922277497/"
+                  className="icon facebook"
+                >
                   <svg
                     width="40"
                     height="40"
@@ -87,7 +93,10 @@ const Footer = (props) => {
                     />
                   </svg>
                 </a>
-                <a href="https://is.linkedin.com/company/-stak" className="icon linkedin">
+                <a
+                  href="https://is.linkedin.com/company/-stak"
+                  className="icon linkedin"
+                >
                   <svg
                     width="40"
                     height="40"
@@ -179,7 +188,10 @@ const Footer = (props) => {
               </a>
             </div>
             <div className="social d-flex">
-              <a href="https://www.facebook.com/pages/category/Company/Ístak-hf-377474922277497/" className="icon">
+              <a
+                href="https://www.facebook.com/pages/category/Company/Ístak-hf-377474922277497/"
+                className="icon"
+              >
                 <svg
                   width="40"
                   height="40"

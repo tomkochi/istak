@@ -77,9 +77,9 @@ const Header = (props) => {
               </ul>
             </li>
             <li className="navigation-item">
-              <Link href="/" passHref>
-                <a>Störf</a>
-              </Link>
+              <a href="https://jobs.50skills.com/istak/is/" target="_blank">
+                Störf
+              </a>
             </li>
             <li className="navigation-item">
               <Link href="/verkefni" passHref>
@@ -199,6 +199,7 @@ const Header = (props) => {
                 <li>istak@istak.is</li>
                 <li>lager@istak.is</li>
                 <li>Bugðufljót 19, 270</li>
+                <li>Senda ábendingu</li>
               </ul>
             </div>
             {/* .left */}
