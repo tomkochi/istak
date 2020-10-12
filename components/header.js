@@ -11,7 +11,7 @@ const Header = (props) => {
 
   const [serviceDepts, setServiceDepts] = useState(null)
   useEffect(() => {
-    Axios.get(`https://istak.herokuapp.com/services`)
+    Axios.get(`https://istak.viska.io/services`)
       .then((services) => {
         setServiceDepts(services.data)
       })
