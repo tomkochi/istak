@@ -6,7 +6,7 @@ const ServiceDepartments = ({ data }) => {
   const [serviceDepts, setServiceDepts] = useState(null);
   const [dept, setDept] = useState(0);
   useEffect(() => {
-    Axios.get(`https://istak.herokuapp.com/services`)
+    Axios.get(`https://istak.viska.io/services`)
       .then((services) => {
         setServiceDepts(services.data);
       })
