@@ -96,7 +96,7 @@ const Hero = ({ data, services }) => {
                       <h2 className="f-gtam-bold active">{data.title}</h2>
                       <p className="f-gtam-thin active">{data.description}</p>
                       <div className="link active">
-                        <Link href="/thjonusta" passHref>
+                        <Link href="/sagan" passHref>
                           <a className="f-gtam-regular d-flex align-items-center">
                             <div className="icon d-flex align-items-center justify-content-center">
                               <svg
