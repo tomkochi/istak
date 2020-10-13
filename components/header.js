@@ -160,30 +160,16 @@ const Header = (props) => {
                   serviceDeptDropdown ? 'show' : ''
                 }`}
               >
-                <li className="nav-dropdown-item list-unstyled">
-                  <a href="#">Lager</a>
-                </li>
-                <li className="nav-dropdown-item list-unstyled">
-                  <a href="#">Innkaupadeild</a>
-                </li>
-                <li className="nav-dropdown-item list-unstyled">
-                  <a href="#">Vélaverkstæði</a>
-                </li>
-                <li className="nav-dropdown-item list-unstyled">
-                  <a href="#">Rafmagnsverkstæði</a>
-                </li>
-                <li className="nav-dropdown-item list-unstyled">
-                  <a href="#">Vélsmiðja</a>
-                </li>
-                <li className="nav-dropdown-item list-unstyled">
-                  <a href="#">Steypuskáli</a>
-                </li>
-                <li className="nav-dropdown-item list-unstyled">
-                  <a href="#">Viðhaldsdeild</a>
-                </li>
-                <li className="nav-dropdown-item list-unstyled">
-                  <a href="#">VDC/BIM</a>
-                </li>
+                {serviceDepts &&
+                  serviceDepts.map((s, i) => {
+                    return (
+                      <li className="nav-dropdown-item list-unstyled">
+                        <Link href={`/thjonusta/${s.slug}`} passHref>
+                          <a>{s.title}</a>
+                        </Link>
+                      </li>
+                    )
+                  })}
               </ul>
             </li>
             <li className="navigation-item">

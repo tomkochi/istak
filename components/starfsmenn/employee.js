@@ -54,10 +54,13 @@ const Employee = ({ photo, name, designation, email, phone }) => {
           }
           .image {
             width: 100%;
-            height: 242px;
+            height: 325px;
             margin-bottom: 26px;
+            @media (max-width: 991px) {
+              height: 260px;
+            }
             @media (max-width: 767px) {
-              height: 152px;
+              height: 182px;
             }
             img {
               width: 100%;
