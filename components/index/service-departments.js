@@ -1,17 +1,17 @@
-import Link from "next/link";
-import { useState, useEffect } from "react";
-import Axios from "axios";
+import Link from 'next/link'
+import { useState, useEffect } from 'react'
+import Axios from 'axios'
 
 const ServiceDepartments = ({ data }) => {
-  const [serviceDepts, setServiceDepts] = useState(null);
-  const [dept, setDept] = useState(0);
+  const [serviceDepts, setServiceDepts] = useState(null)
+  const [dept, setDept] = useState(0)
   useEffect(() => {
-    Axios.get(`https://istak.herokuapp.com/services`)
+    Axios.get(`${process.env.NEXT_PUBLIC_HOST}/services`)
       .then((services) => {
-        setServiceDepts(services.data);
+        setServiceDepts(services.data)
       })
-      .catch((e) => {});
-  }, []);
+      .catch((e) => {})
+  }, [])
   return (
     <>
       <div className="service-dept">
@@ -54,7 +54,7 @@ const ServiceDepartments = ({ data }) => {
                           </Link>
                         </h2>
                       </li>
-                    );
+                    )
                   })}
               </ul>
             </div>
@@ -74,21 +74,21 @@ const ServiceDepartments = ({ data }) => {
                       >
                         <h2>
                           <a
-                            className={i === dept ? "active" : ""}
+                            className={i === dept ? 'active' : ''}
                             onClick={(e) => setDept(i)}
                           >
                             {s.title}
                           </a>
                         </h2>
                       </li>
-                    );
+                    )
                   })}
               </ul>
             </div>
             {/* .wrapper */}
             <div className="matter">
               <p className="f-gtam-thin">
-                {serviceDepts ? serviceDepts[dept].description : ""}
+                {serviceDepts ? serviceDepts[dept].description : ''}
               </p>
               <div className="link-to d-flex align-items-center">
                 <div className="icon d-flex align-items-center justify-content-center">
@@ -144,7 +144,7 @@ const ServiceDepartments = ({ data }) => {
             }
           }
           &:before {
-            content: "";
+            content: '';
             position: absolute;
             top: 0;
             width: calc(50% + 155px);
@@ -255,7 +255,7 @@ const ServiceDepartments = ({ data }) => {
                     transition: all 0.2s;
                     position: relative;
                     &:after {
-                      content: "";
+                      content: '';
                       position: absolute;
                       left: 0;
                       bottom: -16px;
@@ -302,7 +302,7 @@ const ServiceDepartments = ({ data }) => {
         }
       `}</style>
     </>
-  );
-};
+  )
+}
 
-export default ServiceDepartments;
+export default ServiceDepartments

@@ -85,12 +85,13 @@ const Subhead = ({ data }) => {
             margin-bottom: 60px;
             color: $brand;
             @media (max-width: 991px) {
-              font-size: 48px;
+              font-size: 36px;
               max-width: 545px;
               margin-bottom: 40px;
             }
             @media (max-width: 767px) {
-              font-size: 36px;
+              max-width: 100%;
+              font-size: 24px;
               margin-bottom: 30px;
             }
           }

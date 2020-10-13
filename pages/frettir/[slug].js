@@ -50,7 +50,10 @@ const Article = ({ data }) => {
           <div className="article-card wow fadeInUp">
             <div className="wrapper d-lg-flex align-items-center">
               <div className="image">
-                <img src="/img/article-image-1.jpg" alt="" />
+                <img
+                  src={`${process.env.NEXT_PUBLIC_HOST}${data[0].image.formats.medium.url}`}
+                  alt=""
+                />
               </div>
               {/* .image */}
               <div className="text">
