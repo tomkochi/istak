@@ -14,12 +14,7 @@ const ServiceCard = ({ data }) => {
           {/* .image */}
           <div className="text order-md-1">
             <h3 className="f-gtam-bold">{data.title}</h3>
-            <p className="f-gtam-thin">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate
-              nisi impedit, iusto vero doloribus pariatur a, cumque, nihil
-              nesciunt obcaecati autem nostrum et suscipit blanditiis quibusdam
-              vitae optio fugiat ad.
-            </p>
+            <p className="f-gtam-thin">{data.description}</p>
             <Link href={`/thjonusta/${data.slug}`} passHref>
               <a className="f-gtam-medium d-flex align-items-center">
                 <span className="icon d-flex align-items-center justify-content-center">

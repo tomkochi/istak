@@ -28,87 +28,59 @@ const Employee = ({ photo, name, designation, email, phone }) => {
         $black: #202020;
 
         .employee {
-          margin-bottom: 90px;
+          width: calc(100% / 4 - 20px);
+          margin-bottom: 45px;
+          margin-right: 20px;
+          &:nth-child(4n + 4) {
+            margin-right: 0;
+          }
           @media (max-width: 991px) {
-            margin-bottom: 40px;
+            width: calc(100% / 3 - 20px);
+            &:nth-child(3n + 3) {
+              margin-right: 0;
+            }
+            &:nth-child(4n + 4) {
+              margin-right: 20px;
+            }
           }
           @media (max-width: 767px) {
-            width: calc(50vw - 35px);
+            width: calc(100% / 2 - 20px);
+            &:nth-child(2n + 2) {
+              margin-right: 0;
+            }
+            &:nth-child(3n + 3) {
+              margin-right: 20px;
+            }
           }
           .image {
             width: 100%;
-            height: 253px;
+            height: 325px;
             margin-bottom: 26px;
             @media (max-width: 991px) {
-              width: calc(100vw / 3 - 35px);
-              height: 173px;
+              height: 260px;
             }
             @media (max-width: 767px) {
-              width: 100%;
-              height: 173px;
-              margin-bottom: 20px;
+              height: 182px;
             }
             img {
-              width: 287px;
-              height: 253px;
+              width: 100%;
+              height: 100%;
               object-fit: cover;
-              margin-bottom: 26px;
-              @media (max-width: 991px) {
-                width: calc(100vw / 3 - 35px);
-                height: 173px;
-              }
-              @media (max-width: 767px) {
-                width: calc(50vw - 35px);
-                height: 173px;
-              }
             }
           }
           .employee-details {
-            @media (max-width: 991px) {
-              width: calc(100vw / 3 - 35px);
-              height: 173px;
-            }
-            @media (max-width: 767px) {
-              width: calc(50vw - 35px);
-            }
             .name {
-              font-size: 18px;
-              line-height: 150%;
-              color: $black;
-              margin-bottom: 6px;
-              @media (max-width: 767px) {
-                font-size: 16px;
-              }
-            }
-            .designation {
+              font-family: 'GT America Medium';
               font-size: 16px;
               line-height: 150%;
-              color: $brand;
-              margin-bottom: 20px;
-              @media (max-width: 767px) {
-                font-size: 14px;
-              }
+              color: #202020;
             }
-            .contact {
-              .email {
-                font-size: 16px;
-                color: $black;
-                margin-bottom: 12px;
-                -ms-word-break: break-all;
-                word-break: break-all;
-                word-break: break-word;
-                @media (max-width: 767px) {
-                  font-size: 14px;
-                }
-              }
-              .phone {
-                font-size: 16px;
-                color: $black;
-                line-height: 100%;
-                @media (max-width: 767px) {
-                  font-size: 14px;
-                }
-              }
+            .designation {
+              font-size: 14px;
+              line-height: 150%;
+              letter-spacing: -0.01em;
+              color: #204f9c;
+              margin-bottom: 12px;
             }
           }
         }

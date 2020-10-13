@@ -7,7 +7,7 @@ const Videos = ({ data }) => {
     <>
       <div className="videos">
         <div className="container">
-          <div className="d-flex justify-content-between">
+          <div className="d-md-flex justify-content-between">
             {data.map((v, i) => {
               return (
                 <div key={i} className="video">
@@ -82,9 +82,24 @@ const Videos = ({ data }) => {
         $text: #222222;
         .videos {
           margin: 100px 0 300px;
+          @media (max-width: 991px) {
+            margin: 100px 0;
+          }
+          @media (max-width: 767px) {
+            margin: 60px 0;
+          }
           .video {
             width: calc(50% - 20px);
             position: relative;
+            height: 510px;
+            @media (max-width: 767px) {
+              width: 100vw;
+              height: 290px;
+              margin-left: -50px;
+              &:first-of-type {
+                margin-bottom: 40px;
+              }
+            }
             img {
               width: 100%;
               height: 100%;

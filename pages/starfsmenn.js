@@ -47,8 +47,9 @@ const Employees = ({ data }) => {
       <div className="employees">
         <Hero data={heroData} />
         <Subhead data={data} />
+
         <div className="container">
-          <div className="employee-cards d-flex flex-wrap justify-content-between">
+          <div className="employee-cards">
             {data.member.map((e) => {
               return (
                 <Employee
@@ -72,8 +73,12 @@ const Employees = ({ data }) => {
       {/* .employees */}
       <style jsx>{`
         .employee-cards {
-          width: calc(100% + 50px);
-          margin-left: -25px;
+          display: flex;
+          flex-wrap: wrap;
+          @media (max-width: 767px) {
+            width: calc(100vw - 40px);
+            margin-left: -20px;
+          }
         }
       `}</style>
     </Layout>
