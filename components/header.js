@@ -11,11 +11,7 @@ const Header = (props) => {
 
   const [serviceDepts, setServiceDepts] = useState(null)
   useEffect(() => {
-<<<<<<< HEAD
-    Axios.get(`https://istak.viska.io/services`)
-=======
     Axios.get(`${process.env.NEXT_PUBLIC_HOST}/services`)
->>>>>>> tom8oct
       .then((services) => {
         setServiceDepts(services.data)
       })

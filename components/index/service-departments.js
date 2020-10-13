@@ -6,11 +6,7 @@ const ServiceDepartments = ({ data }) => {
   const [serviceDepts, setServiceDepts] = useState(null)
   const [dept, setDept] = useState(0)
   useEffect(() => {
-<<<<<<< HEAD
-    Axios.get(`https://istak.viska.io/services`)
-=======
     Axios.get(`${process.env.NEXT_PUBLIC_HOST}/services`)
->>>>>>> tom8oct
       .then((services) => {
         setServiceDepts(services.data)
       })
