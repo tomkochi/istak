@@ -112,9 +112,9 @@ const Project = ({ data }) => {
             <div className="consultants wow fadeInUp">
               <h2>Ráðgjafar</h2>
               <div className="consultant-details d-flex flex-wrap">
-                {d.consultants.map((item) => {
+                {d.consultants.map((item, i) => {
                   return (
-                    <div className="consultant">
+                    <div key={i} className="consultant">
                       <h4>{item.key}</h4>
                       <h3>{item.value}</h3>
                     </div>

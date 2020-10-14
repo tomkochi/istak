@@ -27,35 +27,17 @@ const Story = ({ data }) => {
   const handleScroll = (event) => {
     // make the side-navigation sticky
 
-    // get the window scroll position
-    const winScroll =
-      document.body.scrollTop || document.documentElement.scrollTop
-
-    // get side-navigation scroll position
-    const el = document.querySelector('.side-navigation')
-    const elmTop = document.querySelector('.story.body').getBoundingClientRect()
-      .top
-
-    // make sticky or unsticky
-    if (elmTop <= -40) {
-      el.classList.add('fixed')
+    // get position of .story.body
+    const bodyPosition = document.querySelector('.story.body').getBoundingClientRect()
+    // set .side-navigation's top to .story.body's top
+    const newSideNavTop = bodyPosition.top + 100
+    const sideNav = document.querySelector('.side-navigation')
+    if (newSideNavTop >= 100) {
+      sideNav.style.top = bodyPosition.top + 100 + 'px'
     } else {
-      el.classList.remove('fixed')
+      sideNav.style.top = '100px'
     }
-
-    // if window scroll past too much,
-    // prevent the side-navigation from overlapping
-    // the footer by hiding it.
-
-    const storyBottom = document
-      .querySelector('.story.body')
-      .getBoundingClientRect().bottom
-
-    if (storyBottom <= el.getBoundingClientRect().height) {
-      el.classList.add('hidden')
-    } else {
-      el.classList.remove('hidden')
-    }
+    
   }
   const showSection = (section) => {
     const storyTop = document.querySelector('.story.body').offsetTop - 60
@@ -633,7 +615,7 @@ const Story = ({ data }) => {
             <path
               d="M5.5 10.5L5.5 1.5M5.5 1.5L9.5 5.65385M5.5 1.5L1.5 5.65385"
               stroke="#204F9C"
-              stroke-width="1.5"
+              strokeWidth="1.5"
             />
           </svg>
         </div>
@@ -641,10 +623,13 @@ const Story = ({ data }) => {
       </div>
       <style jsx global>{`
         .story.body .side-navigation {
-          position: absolute;
+          position: fixed;
           left: 60px;
           top: 100px;
           transition: opacity 0.3s;
+          @media (max-width: 1530px) {
+            display: none;
+          }
           li {
             font-family: 'GT America Regular';
             font-size: 16px;

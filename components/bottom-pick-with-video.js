@@ -91,12 +91,12 @@ const BottomPick = ({ data, image, title, para, video }) => {
                       <path
                         d="M0.968995 1L8.96899 9"
                         stroke="white"
-                        stroke-width="1.5"
+                        strokeWidth="1.5"
                       />
                       <path
                         d="M0.968995 8.99902L8.96899 0.999023"
                         stroke="white"
-                        stroke-width="1.5"
+                        strokeWidth="1.5"
                       />
                     </svg>
                   </div>

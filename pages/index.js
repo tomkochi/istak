@@ -6,8 +6,8 @@ const Index = ({ data }) => {
   const { content } = data
   return (
     <Layout hideheader>
-      {content.map((item) => (
-        <Slice data={item} />
+      {content.map((item, i) => (
+        <Slice key={i} data={item} />
       ))}
     </Layout>
   )

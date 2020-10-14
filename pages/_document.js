@@ -15,7 +15,6 @@ export default class MyDocument extends Document {
             integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
             crossOrigin="anonymous"
           />
-          <link rel="stylesheet" href="../public/css/global.css" />
           <link
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css"

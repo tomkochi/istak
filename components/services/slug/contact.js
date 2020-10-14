@@ -11,7 +11,7 @@ const Contact = ({ data }) => {
               Tengiliður
             </div>
             {/* .overlay */}
-            <img src={`${process.env.HOST}${data.picture.url}`} alt="" />
+            <img src={`${process.env.NEXT_PUBLIC_HOST}${data.picture.url}`} alt="" />
           </div>
           {/* .image */}
           <div className="text wow fadeInUp" data-wow-delay="500ms">
