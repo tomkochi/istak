@@ -29,7 +29,7 @@ const BottomPick = ({ data, image, title, para, url }) => {
                 {data.description}
               </p>
             )}
-            <Link href={"/"} passHref>
+            <Link href="/verkefni" passHref>
               <a
                 className="d-flex align-items-center wow fadeInUp"
                 data-wow-delay="750ms"
@@ -46,7 +46,7 @@ const BottomPick = ({ data, image, title, para, url }) => {
                     <path
                       d="M0 5.99951H11M11 5.99951L5.92308 0.999512M11 5.99951L5.92308 10.9995"
                       stroke="white"
-                      stroke-width="1.75"
+                      strokeWidth="1.75"
                     />
                   </svg>
                 </div>

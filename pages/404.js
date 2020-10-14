@@ -25,7 +25,7 @@ const NotFound = ({ data }) => {
                   <path
                     d="M0 5H9M9 5L4.84615 1M9 5L4.84615 9"
                     stroke="white"
-                    stroke-width="1.5"
+                    strokeWidth="1.5"
                   />
                 </svg>
               </div>

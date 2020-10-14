@@ -71,7 +71,7 @@ const Header = (props) => {
                 {serviceDepts &&
                   serviceDepts.map((s, i) => {
                     return (
-                      <li className="nav-dropdown-item list-unstyled">
+                      <li key={i} className="nav-dropdown-item list-unstyled">
                         <Link href={`/thjonusta/${s.slug}`} passHref>
                           <a>{s.title}</a>
                         </Link>
@@ -167,7 +167,7 @@ const Header = (props) => {
                 {serviceDepts &&
                   serviceDepts.map((s, i) => {
                     return (
-                      <li className="nav-dropdown-item list-unstyled">
+                      <li key={i} className="nav-dropdown-item list-unstyled">
                         <Link href={`/thjonusta/${s.slug}`} passHref>
                           <a>{s.title}</a>
                         </Link>

@@ -50,7 +50,7 @@ const ServiceDepartments = ({ data }) => {
                             <path
                               d="M0 6H11M11 6L5.92308 1M11 6L5.92308 11"
                               stroke="#204F9C"
-                              stroke-width="1.75"
+                              strokeWidth="1.75"
                             />
                           </svg>
                           <Link href={`/thjonusta/${s.slug}`} passHref>

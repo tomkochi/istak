@@ -11,9 +11,9 @@ const Projects = ({ data }) => {
         <Hero />
         <Filter />
         <div className="project-list d-flex flex-wrap">
-          {data.map((d) => {
+          {data.map((d, i) => {
             return (
-              <Project
+              <Project key={i}
                 image={`${process.env.NEXT_PUBLIC_HOST}${d.image.formats.medium.url}`}
                 year={moment(d.period.from).format("YYYY")}
                 name={`${d.title}`}
