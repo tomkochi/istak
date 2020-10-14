@@ -160,15 +160,15 @@ const Article = ({ data }) => {
               <div className="marked">
                 <ReactMarkdown source={d.content} />
               </div>
-              {d.gallery.map((item) => {
+              {d.gallery.map((item, i) => {
                 return (
-                  <>
+                  <div key={i}>
                     <img
                       src={`${process.env.NEXT_PUBLIC_HOST}${item.image[0].url}`}
                       alt={`${process.env.NEXT_PUBLIC_HOST}${item.image[0].alternativeText}`}
                     />
                     <div className="image-caption">{item.description}</div>
-                  </>
+                  </div>
                 )
               })}
             </div>

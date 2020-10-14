@@ -8,7 +8,6 @@ const Index = (props) => {
       <div className="articles">
         <Hero />
         {props.data.map((e) => {
-          console.log(e)
           return (
             <NewsCard
               key={e._id}

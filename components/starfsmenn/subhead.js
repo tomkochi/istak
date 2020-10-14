@@ -26,7 +26,7 @@ const Subhead = ({ data }) => {
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <circle cx="6" cy="6" r="5" stroke="#204F9C" stroke-width="2" />
+              <circle cx="6" cy="6" r="5" stroke="#204F9C" strokeWidth="2" />
               <path d="M10 10L13.5 13.5" stroke="#204F9C" strokeWidth="2" />
             </svg>
           </div>

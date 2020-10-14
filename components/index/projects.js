@@ -2,7 +2,6 @@ import Link from "next/link";
 import moment from "moment";
 
 const Projects = ({ data }) => {
-  console.log(`projects`, data);
   var para =
     "Við önnumst verkefni eins og byggingar, virkjanir, álversframkvæmdir, hafnarframkvæmdir auk vega- og brúargerðar.";
   return (
@@ -15,7 +14,7 @@ const Projects = ({ data }) => {
         <div className="projects">
           {data.projects.map((p, i) => {
             return (
-              <Link href={`verkefni/${p.slug}`}>
+              <Link key={i} href={`verkefni/${p.slug}`}>
                 <div className="wrapper" key={i}>
                   <div
                     className="project wow fadeInUp"

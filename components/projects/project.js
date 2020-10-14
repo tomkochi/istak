@@ -23,7 +23,7 @@ const Project = ({ image, year, name, index, slug }) => {
                   <path
                     d="M0 6H11M11 6L5.92308 1M11 6L5.92308 11"
                     stroke="white"
-                    stroke-width="1.75"
+                    strokeWidth="1.75"
                   />
                 </svg>
               </div>
