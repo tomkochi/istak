@@ -1,5 +1,6 @@
 import Header from '../components/header'
 import Layout from '../components/Layout'
+import Link from 'next/link'
 
 const NotFound = ({ data }) => {
   return (
@@ -13,7 +14,8 @@ const NotFound = ({ data }) => {
               Úps, ekkert hér! Smelltu á hnappinn til að komast aftur á
               forsíðuna.
             </p>
-            <div className="nav-back">
+            <Link href="/" passHref>
+            <a className="nav-back">
               <div className="icon">
                 <svg
                   width="11"
@@ -30,8 +32,9 @@ const NotFound = ({ data }) => {
                 </svg>
               </div>
               Aftur á forsíðu
-            </div>
+            </a>
             {/* .nav-back */}
+            </Link>
           </div>
           {/* .wrapper */}
         </div>
