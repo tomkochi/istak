@@ -47,6 +47,7 @@ const Story = ({ data }) => {
     })
   }
   useEffect(() => {
+    handleScroll()
     window.addEventListener('scroll', handleScroll)
     return () => {
       window.removeEventListener('scroll', handleScroll)
@@ -78,7 +79,7 @@ const Story = ({ data }) => {
             'section-7',
           ]}
           currentClassName="current"
-          offset={-300}
+          offset={-600}
         >
           {sections.map((s, i) => {
             return (
