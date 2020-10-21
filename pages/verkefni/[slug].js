@@ -216,7 +216,7 @@ const Project = ({ data }) => {
         <BottomPick
           data={{
             background: {
-              url: 'https://istak.viska.io/uploads/project_thumb_5_fd02ff5e04.jpeg',
+              url: '/uploads/project_thumb_5_fd02ff5e04.jpeg',
             },
             title: 'Stolt verk frá yfir 50 ár af vinnu',
           }}
