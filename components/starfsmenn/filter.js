@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 
 const Filter = (props) => {
   const [searchText, setSearchText] = useState("");
