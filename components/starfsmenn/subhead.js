@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import Link from "next/link";
 
 const Subhead = ({ data }) => {
   return (
@@ -13,27 +13,6 @@ const Subhead = ({ data }) => {
         <h2 className="f-gtam-bold wow fadeInUp" data-wow-duration="300ms">
           {data.Heading}
         </h2>
-        <div
-          className="search d-flex wow fadeInUp"
-          data-wow-delay="1s"
-          data-wow-duration="300ms"
-        >
-          <div className="icon d-flex align-items-center justify-content-center">
-            <svg
-              width="15"
-              height="15"
-              viewBox="0 0 15 15"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <circle cx="6" cy="6" r="5" stroke="#204F9C" strokeWidth="2" />
-              <path d="M10 10L13.5 13.5" stroke="#204F9C" strokeWidth="2" />
-            </svg>
-          </div>
-          {/* .icon */}
-          <input type="text" className="f-gtam-medium" placeholder="Leita" />
-        </div>
-        {/* .search */}
       </div>
       {/* .hero */}
 
@@ -95,49 +74,10 @@ const Subhead = ({ data }) => {
               margin-bottom: 30px;
             }
           }
-          .search {
-            margin-bottom: 80px;
-            width: 100%;
-            max-width: 400px;
-            @media (max-width: 991px) {
-              margin-bottom: 116px;
-            }
-            @media (max-width: 767px) {
-              margin-bottom: 60px;
-            }
-            .icon {
-              width: 42px;
-              height: 42px;
-              border: 1px solid rgba(32, 79, 156, 0.2);
-              border-radius: 50%;
-              margin-right: 15px;
-            }
-            input {
-              border: none;
-              font-size: 18px;
-              line-height: 120%;
-              padding: 0;
-              outline: none;
-              box-shadow: none !important;
-              color: $brand;
-              &::placeholder {
-                /* Chrome, Firefox, Opera, Safari 10.1+ */
-                color: #5d749a;
-              }
-              &:-ms-input-placeholder {
-                /* Internet Explorer 10-11 */
-                color: #5d749a;
-              }
-              &::-ms-input-placeholder {
-                /* Microsoft Edge */
-                color: #5d749a;
-              }
-            }
-          }
         }
       `}</style>
     </>
-  )
-}
+  );
+};
 
-export default Subhead
+export default Subhead;

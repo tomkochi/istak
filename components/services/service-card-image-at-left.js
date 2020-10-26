@@ -1,7 +1,8 @@
-import Link from 'next/link'
+import Link from "next/link";
+import ReactMarkdown from "react-markdown";
 
 const ServiceCard = ({ data }) => {
-  console.log(data)
+  console.log(data);
   return (
     <>
       <div className="service-card">
@@ -15,7 +16,9 @@ const ServiceCard = ({ data }) => {
           {/* .image */}
           <div className="text">
             <h3 className="f-gtam-bold">{data.title}</h3>
-            <p className="f-gtam-thin">{data.description}</p>
+            <p className="f-gtam-thin">
+              <ReactMarkdown className="richtext" source={data.description} />
+            </p>
             <Link href={`/thjonusta/${data.slug}`} passHref>
               <a className="f-gtam-medium d-flex align-items-center">
                 <span className="icon d-flex align-items-center justify-content-center">
@@ -58,7 +61,7 @@ const ServiceCard = ({ data }) => {
             margin-bottom: 50px;
           }
           &:before {
-            content: '';
+            content: "";
             position: absolute;
             top: 0;
             right: 0;
@@ -159,7 +162,7 @@ const ServiceCard = ({ data }) => {
         }
       `}</style>
     </>
-  )
-}
+  );
+};
 
-export default ServiceCard
+export default ServiceCard;

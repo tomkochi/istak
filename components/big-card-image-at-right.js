@@ -1,5 +1,6 @@
 import Link from "next/link";
 import LinkTo from "./link-to";
+import ReactMarkdown from "react-markdown";
 
 const BigCardRight = ({ data }) => {
   return (
@@ -30,7 +31,10 @@ const BigCardRight = ({ data }) => {
                     className="f-gtam-thin wow fadeInUp"
                     data-wow-delay="500ms"
                   >
-                    {data.description}
+                    <ReactMarkdown
+                      className="richtext"
+                      source={data.description}
+                    />
                   </p>
                   {data.button_text !== "none" && (
                     <LinkTo link={data.url}>

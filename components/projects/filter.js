@@ -1,27 +1,31 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef } from "react";
 
 const Filter = (props) => {
-  const options = ['Raða eftir', 'Nýtt fyrst', 'Gamalt fyrst']
-  const [selection, setSelection] = useState(options[0])
-  const [showDropdown, setShowDropdown] = useState(false)
-  const dropdownRef = useRef()
+  const options = ["Nýtt fyrst", "Gamalt fyrst"];
+  const [selection, setSelection] = useState(options[0]);
+  const [showDropdown, setShowDropdown] = useState(false);
+  const [searchText, setSearchText] = useState("");
+  const dropdownRef = useRef();
 
   const handleOutsideClick = (e) => {
-    console.log(dropdownRef)
-    if (dropdownRef.current.contains(e.target)) return
-    setShowDropdown(false)
-  }
+    if (dropdownRef.current.contains(e.target)) return;
+    setShowDropdown(false);
+  };
 
   useEffect(() => {
     if (showDropdown) {
-      document.addEventListener('click', handleOutsideClick, false)
+      document.addEventListener("click", handleOutsideClick, false);
     } else {
-      document.removeEventListener('click', handleOutsideClick, false)
+      document.removeEventListener("click", handleOutsideClick, false);
     }
     return () => {
-      document.removeEventListener('click', handleOutsideClick, false)
-    }
-  }, [showDropdown])
+      document.removeEventListener("click", handleOutsideClick, false);
+    };
+  }, [showDropdown]);
+
+  useEffect(() => {
+    props.onSearchChange(searchText, selection);
+  }, [selection]);
 
   return (
     <>
@@ -32,6 +36,13 @@ const Filter = (props) => {
               type="text"
               className="f-gtam-medium"
               placeholder="Leita að verkefni"
+              value={searchText}
+              onChange={(e) => setSearchText(e.target.value)}
+              onKeyDown={(e) =>
+                e.key === "Enter"
+                  ? props.onSearchChange(searchText, selection)
+                  : null
+              }
             />
             <div className="icon d-flex align-items-center justify-content-center">
               <svg
@@ -55,7 +66,7 @@ const Filter = (props) => {
                 onClick={() => setShowDropdown(!showDropdown)}
               >
                 <h4 className="f-gtam-medium">{selection}</h4>
-                <div className={`icon ${showDropdown ? 'showing' : ''}`}>
+                <div className={`icon ${showDropdown ? "showing" : ""}`}>
                   <svg
                     width="42"
                     height="42"
@@ -79,7 +90,7 @@ const Filter = (props) => {
               </div>
               <ul
                 className={`sort-dropdown list-unstyled ${
-                  showDropdown ? 'show' : ''
+                  showDropdown ? "show" : ""
                 }`}
               >
                 {options.map((o, i) => {
@@ -89,14 +100,14 @@ const Filter = (props) => {
                       key={i}
                       onClick={() => {
                         if (selection !== o) {
-                          setSelection(o)
-                          setShowDropdown(false)
+                          setSelection(o);
+                          setShowDropdown(false);
                         }
                       }}
                     >
                       {o}
                     </li>
-                  )
+                  );
                 })}
               </ul>
             </div>
@@ -216,7 +227,7 @@ const Filter = (props) => {
         }
       `}</style>
     </>
-  )
-}
+  );
+};
 
-export default Filter
+export default Filter;

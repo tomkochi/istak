@@ -3,28 +3,56 @@ import Filter from "../../components/projects/filter";
 import Project from "../../components/projects/project";
 import Layout from "../../components/Layout";
 import moment from "moment";
+import { useEffect, useState } from "react";
 
 const Projects = ({ data }) => {
+  const [projectList, setProjectList] = useState([]);
+
+  const search = (text, sortOn) => {
+    let newList = data;
+    if (text) {
+      newList = data.filter((d) => {
+        return d.title.toLowerCase().search(text.toLowerCase()) !== -1;
+      });
+    }
+    setProjectList(newList);
+  };
+
+  useEffect(() => {
+    search();
+  }, []);
   return (
     <Layout>
       <div className="projects">
         <Hero />
-        <Filter />
+        <Filter onSearchChange={search} />
         <div className="project-list d-flex flex-wrap">
-          {data.map((d, i) => {
-            return (
-              <Project key={i}
-                image={`${process.env.NEXT_PUBLIC_HOST}${d.image.formats.medium.url}`}
-                year={moment(d.period.from).format("YYYY")}
-                name={`${d.title}`}
-                slug={d.slug}
-              />
-            );
-          })}
+          {projectList.length ? (
+            projectList.map((d, i) => {
+              return (
+                <Project
+                  key={i}
+                  image={`${process.env.NEXT_PUBLIC_HOST}${d.image.formats.medium.url}`}
+                  year={moment(d.period.from).format("YYYY")}
+                  name={`${d.title}`}
+                  slug={d.slug}
+                />
+              );
+            })
+          ) : (
+            <div className="not-found">No records found</div>
+          )}
         </div>
         {/* .project-list */}
       </div>
       {/* .projects */}
+      <style jsx>{`
+        .not-found {
+          width: 100%;
+          text-align: center;
+          margin-bottom: 90px;
+        }
+      `}</style>
     </Layout>
   );
 };
