@@ -58,7 +58,7 @@ const Header = (props) => {
               onMouseEnter={(e) => setServiceDeptDropdown(true)}
               onMouseLeave={(e) => setServiceDeptDropdown(false)}
             >
-              <a className="has-dropdown">Þjónustudeildir</a>
+              <a className="has-dropdown">Þjónusta</a>
               <ul
                 className={`nav-dropdown list-unstyled ${
                   serviceDeptDropdown ? 'show' : ''

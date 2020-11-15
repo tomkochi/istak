@@ -4,7 +4,7 @@ import CardImageRight from "../../components/services/service-card-image-at-righ
 import CardImageLeft from "../../components/services/service-card-image-at-left";
 
 const ServicesIndex = (props) => {
-  const title = { title: "Þjónstudeildir" };
+  const title = { title: "Þjónusta" };
   return (
     <>
       <Layout>
