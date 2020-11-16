@@ -1,4 +1,4 @@
-const Employee = ({ photo, name, designation, email, phone }) => {
+const Employee = ({ photo, name, designation, email, phone, phone2 }) => {
   return (
     <>
       <div className="employee">
@@ -16,6 +16,7 @@ const Employee = ({ photo, name, designation, email, phone }) => {
           <div className="contact">
             <div className="email f-gtam-thin">{email}</div>
             <div className="phone f-gtam-thin">{phone}</div>
+            <div className="phone f-gtam-thin">{phone2}</div>
           </div>
           {/* .contact */}
         </div>

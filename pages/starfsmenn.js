@@ -81,6 +81,7 @@ const Employees = ({ data }) => {
                     designation={e.designation}
                     email={e.email}
                     phone={e.phone}
+                    phone2={e.phone2}
                   />
                 );
               })
