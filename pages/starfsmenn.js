@@ -28,28 +28,7 @@ const Employees = ({ data }) => {
     search();
   }, []);
 
-  const heroData = {
-    title:
-      "Við sjáum um framkvæmdir, virkjanir, stóriðju, jarðvinnu, mannvirkjun, auk vega- og brúargerðir.",
-    image: "/img/big-card-image-2.jpg",
-  };
-  const hqCardData = {
-    image: "/img/article-image-1.jpg",
-    title: "Höfuðstöðvar okkar eru í Bugðufljóti 19, 270 Mosfellsbæ",
-    description:
-      "Við sjáum bæði um stór og smá verkefni, ekki hika við að hafa samband.",
-    address1: "Bugðufljót 19",
-    address2: " 270, Mosfellsbær",
-    tel: "530 2700",
-    email: "istak@istak.is",
-  };
-  const storyCardData = {
-    image: "/img/article-image-2.jpg",
-    title: "Kynntu þér upprunan",
-    description: "Við höfum verið starfandi í 50 ár, Kynntu þér söguna",
-    url: "/story",
-    button_text: "Sagan okkar",
-  };
+
   const videosData = [
     {
       image: "/img/article-image-2.jpg",
@@ -65,7 +44,7 @@ const Employees = ({ data }) => {
   return (
     <Layout>
       <div className="employees">
-        <Hero data={heroData} />
+        <Hero data={data.Hero} />
         <Subhead data={data} />
         <Filter onSearchChange={search} />
 
@@ -92,8 +71,8 @@ const Employees = ({ data }) => {
           {/* .employee-cards */}
         </div>
         {/* .container */}
-        <HqCard data={hqCardData} />
-        <StoryCard data={storyCardData} />
+        <HqCard data={data.HeadQuarter} />
+        <StoryCard data={data.Story} />
         <Videos data={videosData} />
       </div>
       {/* .employees */}
