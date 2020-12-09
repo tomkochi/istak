@@ -9,8 +9,14 @@ const Footer = (props) => {
             <div className="left">
               <img src="/img/logo-white.svg" alt="" />
               <h4 className="f-gtam-regular">Kt. 430214 1520</h4>
-              <a href="#" className="terms f-gtam-medium">
-                Skilmálar
+              <a href="/skilmalar" className="terms f-gtam-medium">
+                Skilmálar <br></br>
+              </a>
+              <a href="/jafnlaunastefna" className="terms f-gtam-medium">
+                Jafnlaunastefna <br></br>
+              </a>
+              <a href="/Gaedastefna" className="terms f-gtam-medium">
+                Gæðastefna <br></br>
               </a>
             </div>
             {/* .left */}
@@ -184,8 +190,14 @@ const Footer = (props) => {
             <div>
               <h4 className="f-gtam-regular">Kt. 430214 1520</h4>
               <a href="/skilmalar" className="terms f-gtam-medium">
-                Skilmálar
+                Skilmálar <br></br>
               </a>
+              <a href="/jafnlaunastefna" className="terms f-gtam-medium">
+                Jafnlaunastefna <br></br>
+              </a>
+              <a href="/Gaedastefna" className="terms f-gtam-medium">
+                Gæðastefna <br></br>
+              </a>            
             </div>
             <div className="social d-flex">
               <a
