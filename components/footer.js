@@ -9,8 +9,14 @@ const Footer = (props) => {
             <div className="left">
               <img src="/img/logo-white.svg" alt="" />
               <h4 className="f-gtam-regular">Kt. 430214 1520</h4>
-              <a href="#" className="terms f-gtam-medium">
-                Skilmálar
+              <a href="/skilmalar" className="terms f-gtam-medium">
+                Skilmálar <br></br>
+              </a>
+              <a href="/jafnlaunastefna" className="terms f-gtam-medium">
+                Jafnlaunastefna <br></br>
+              </a>
+              <a href="/Gaedastefna" className="terms f-gtam-medium">
+                Gæðastefna <br></br>
               </a>
               <div className="social">
                 <a
@@ -175,7 +181,6 @@ const Footer = (props) => {
                 <img src="/img/cert-2.svg" />
                 <img src="/img/cert-3.svg" />
                 <img src="/img/cert-4.svg" />
-                <img src="/img/cert-5.svg" />
               </div>
               <div className="copyright f-tgam-regular">
                 &copy; Ístak ehf. 2020
@@ -241,7 +246,13 @@ const Footer = (props) => {
             <div>
               <h4 className="f-gtam-regular">Kt. 430214 1520</h4>
               <a href="/skilmalar" className="terms f-gtam-medium">
-                Skilmálar
+                Skilmálar <br></br>
+              </a>
+              <a href="/jafnlaunastefna" className="terms f-gtam-medium">
+                Jafnlaunastefna <br></br>
+              </a>
+              <a href="/Gaedastefna" className="terms f-gtam-medium">
+                Gæðastefna <br></br>
               </a>
             </div>
             <div className="social d-flex">
@@ -298,7 +309,6 @@ const Footer = (props) => {
             <img src="/img/cert-2.svg" />
             <img src="/img/cert-3.svg" />
             <img src="/img/cert-4.svg" />
-            <img src="/img/cert-5.svg" />
           </div>
         </div>
         {/* .small-screen */}

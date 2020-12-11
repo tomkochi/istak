@@ -10,7 +10,7 @@ const HqCard = ({ data }) => {
           <div className="d-md-flex">
             <div className="image order-2">
               <div className="wrapper">
-                <img src={data.image} alt="" />
+                <img src={`${process.env.NEXT_PUBLIC_HOST}${data.image.url}`} alt="" />
               </div>
               {/* .wrapper */}
             </div>

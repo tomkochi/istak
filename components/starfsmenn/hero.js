@@ -7,7 +7,7 @@ const Hero = ({ data }) => {
         </div>
         {/* .container */}
         <div className="image">
-          <img src={data.image} alt="" />
+        <img src={`${process.env.NEXT_PUBLIC_HOST}${data.image.url}`} alt="" />
         </div>
         {/* .image */}
       </div>

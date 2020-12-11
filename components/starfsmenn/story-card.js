@@ -9,7 +9,7 @@ const StoryCard = ({ data }) => {
           <div className="d-md-flex">
             <div className="image order-2">
               <div className="wrapper">
-                <img src={data.image} alt="" />
+                <img src={`${process.env.NEXT_PUBLIC_HOST}${data.image.url}`} alt="" />
               </div>
               {/* .wrapper */}
             </div>
@@ -29,8 +29,8 @@ const StoryCard = ({ data }) => {
                   >
                     {data.description}
                   </p>
-                  {data.button_text !== 'none' && (
-                    <LinkTo link={data.url}>
+                  {data.Link != null && (
+                    <LinkTo link={data.Link.url}>
                       <h3
                         className="f-gtam-medium d-flex align-items-center wow fadeIn"
                         data-wow-delay="750ms"
@@ -51,7 +51,7 @@ const StoryCard = ({ data }) => {
                             />
                           </svg>
                         </div>
-                        {data.button_text}
+                        {data.Link.title}
                       </h3>
                     </LinkTo>
                   )}
