@@ -1,58 +1,59 @@
-import { useEffect } from 'react'
-import Scrollspy from 'react-scrollspy'
+import { useEffect } from "react";
+import Scrollspy from "react-scrollspy";
 
-import Layout from '../components/Layout'
-import Hero from '../components/story/hero'
-import Video from '../components/story/video'
+import Layout from "../components/Layout";
+import Hero from "../components/story/hero";
+import Video from "../components/story/video";
 
 const Story = ({ data }) => {
   const heroData = {
-    title: 'Við höfum verið í 50 ár starfandi',
+    title: "Við höfum verið í 50 ár starfandi",
     description:
-      'Ístak er verktakafyrirtæki sem annast margskonar verkefni. Byggingaframkvæmdir, virkjanir, stóriðjuframkvæmdir, jarðvinnuverk, mannvirkjagerð, hafnarframkvæmdir auk vega- og brúagerðar. Ístak hefur verið leiðandi á íslenskum verktakaiðnaði í 50 ár og hefur haft mikil áhrif á þróun bygginga og annarra mannvirkja á Íslandi sem og á erlendri grundu.',
-  }
+      "Ístak er verktakafyrirtæki sem annast margskonar verkefni. Byggingaframkvæmdir, virkjanir, stóriðjuframkvæmdir, jarðvinnuverk, mannvirkjagerð, hafnarframkvæmdir auk vega- og brúagerðar. Ístak hefur verið leiðandi á íslenskum verktakaiðnaði í 50 ár og hefur haft mikil áhrif á þróun bygginga og annarra mannvirkja á Íslandi sem og á erlendri grundu.",
+  };
   const sections = [
-    'Kynning',
-    'Verkefnin',
-    'Samvinna með Aarsleff',
-    'Keflavíkurflugvöllur',
-    'Stækkunin í Ísal',
-    'Deildir',
-    'Aðsetur',
-  ]
+    "Kynning",
+    "Verkefnin",
+    "Samvinna með Aarsleff",
+    "Keflavíkurflugvöllur",
+    "Stækkunin í Ísal",
+    "Deildir",
+    "Aðsetur",
+  ];
   const scrollToTop = () => {
-    document.body.scrollTop = 0
-    document.documentElement.scrollTop = 0
-  }
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  };
   const handleScroll = (event) => {
     // make the side-navigation sticky
 
     // get position of .story.body
-    const bodyPosition = document.querySelector('.story.body').getBoundingClientRect()
+    const bodyPosition = document
+      .querySelector(".story.body")
+      .getBoundingClientRect();
     // set .side-navigation's top to .story.body's top
-    const newSideNavTop = bodyPosition.top + 100
-    const sideNav = document.querySelector('.side-navigation')
+    const newSideNavTop = bodyPosition.top + 100;
+    const sideNav = document.querySelector(".side-navigation");
     if (newSideNavTop >= 100) {
-      sideNav.style.top = bodyPosition.top + 100 + 'px'
+      sideNav.style.top = bodyPosition.top + 100 + "px";
     } else {
-      sideNav.style.top = '100px'
+      sideNav.style.top = "100px";
     }
-    
-  }
+  };
   const showSection = (section) => {
-    const storyTop = document.querySelector('.story.body').offsetTop - 60
+    const storyTop = document.querySelector(".story.body").offsetTop - 60;
     window.scrollTo({
       top: document.querySelector(`${section}`).offsetTop + storyTop,
-      behavior: 'smooth',
-    })
-  }
+      behavior: "smooth",
+    });
+  };
   useEffect(() => {
-    handleScroll()
-    window.addEventListener('scroll', handleScroll)
+    handleScroll();
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener('scroll', handleScroll)
-    }
-  }, [])
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <Layout>
@@ -70,13 +71,13 @@ const Story = ({ data }) => {
         <Scrollspy
           className="side-navigation nav-list list-unstyled"
           items={[
-            'section-1',
-            'section-2',
-            'section-3',
-            'section-4',
-            'section-5',
-            'section-6',
-            'section-7',
+            "section-1",
+            "section-2",
+            "section-3",
+            "section-4",
+            "section-5",
+            "section-6",
+            "section-7",
           ]}
           currentClassName="current"
           offset={-600}
@@ -87,7 +88,7 @@ const Story = ({ data }) => {
                 <span className="line-number">{i + 1}.</span>
                 {s}
               </li>
-            )
+            );
           })}
         </Scrollspy>
         {/* .side-navigation */}
@@ -229,7 +230,7 @@ const Story = ({ data }) => {
                 Náttúrufræðihús Urriðaholti, endurgerð á Sundhöll Reykjavíkur,
                 Helgafellsskóli, Uppsteypa á hóteli og íbúðum við Hörpu,
                 Fiskvinnsla Grun í Grundafirði, Stúdentagarðar við Sæmundargötu
-                og Hús íslenskunnar við Arngrímsgötu.{' '}
+                og Hús íslenskunnar við Arngrímsgötu.{" "}
               </p>
             </div>
             {/* .text */}
@@ -370,7 +371,7 @@ const Story = ({ data }) => {
                 nýja spennistöð á milli kerskála, nýja loftþjöppustöð,
                 baðefnageymslu, stækkuðum hliðhúsið og fleira. Ístak sá einnig
                 um fjölþætta langa og jarðvinnu á svæðinu, háspennustrengir,
-                vatnsrör og fráveita var grafið niður á milli bygginga.{' '}
+                vatnsrör og fráveita var grafið niður á milli bygginga.{" "}
               </p>
               <p>
                 Verkefnið var mjög krefjandi, öll vinnan var inná svokölluðu
@@ -429,7 +430,7 @@ const Story = ({ data }) => {
                 réttu hugarfari tókst starfsmönnum Ístaks að ná mjög góðum
                 árangri í þessu umhverfi. Þeir starfsmenn Ístaks sem tóku þátt í
                 verkefninu eru mjög stoltir af sínu framlagi og lærðu mikið af
-                þessu stóra alþjóðlegaverkefni fyrir kröfuharðan verkkaupa.{' '}
+                þessu stóra alþjóðlegaverkefni fyrir kröfuharðan verkkaupa.{" "}
               </p>
             </div>
             {/* .text */}
@@ -455,7 +456,7 @@ const Story = ({ data }) => {
               <p>
                 Með viðhaldsþjónustusamningi geta viðskiptavinir fengið alla
                 viðhaldsvinnu á einum stað, hvort sem um er að ræða trésmiði,
-                málara, múrara, rafvirkja, pípara eða aðra sérhæfða iðnaðarmenn.{' '}
+                málara, múrara, rafvirkja, pípara eða aðra sérhæfða iðnaðarmenn.{" "}
               </p>
             </div>
             {/* .text */}
@@ -535,7 +536,7 @@ const Story = ({ data }) => {
               <h3>Aðsetur</h3>
               <p>
                 Frá árinu 2012 hefur yfirstjórn og skrifstofa Ístaks verið til
-                húsa að Bugðufljóti 19, 270 Mosfellsbæ.{' '}
+                húsa að Bugðufljóti 19, 270 Mosfellsbæ.{" "}
               </p>
             </div>
             {/* .text */}
@@ -565,7 +566,7 @@ const Story = ({ data }) => {
                 eru oftast menntaðir í trésmíði, en einnig í málmiðn, véliðn og
                 rafiðn. Ófaglærðir starfsmenn Ístaks vinna aðalega á
                 byggingasvæðum eða við jarðvegsframkvæmdir og sem
-                tækjastjórnendur & bílstjórar.{' '}
+                tækjastjórnendur & bílstjórar.{" "}
               </p>
             </div>
             {/* .text */}
@@ -632,7 +633,7 @@ const Story = ({ data }) => {
             display: none;
           }
           li {
-            font-family: 'GT America Regular';
+            font-family: "GT America Regular";
             font-size: 16px;
             line-height: 110%;
             letter-spacing: -0.02em;
@@ -679,7 +680,7 @@ const Story = ({ data }) => {
               max-width: 760px;
               margin: 0 auto;
               h3 {
-                font-family: 'GT America Medium';
+                font-family: "GT America Medium";
                 font-size: 24px;
                 font-style: normal;
                 font-weight: 500;
@@ -693,7 +694,7 @@ const Story = ({ data }) => {
                 }
               }
               h6 {
-                font-family: 'GT America Medium';
+                font-family: "GT America Medium";
                 font-size: 20px;
                 font-style: normal;
                 font-weight: 500;
@@ -704,7 +705,7 @@ const Story = ({ data }) => {
                 margin-top: 60px;
               }
               p {
-                font-family: 'GT America Regular';
+                font-family: "GT America Regular";
                 font-style: normal;
                 font-weight: normal;
                 font-size: 18px;
@@ -761,7 +762,7 @@ const Story = ({ data }) => {
                   width: 100%;
                 }
                 h5 {
-                  font-family: 'GT America Regular';
+                  font-family: "GT America Regular";
                   font-style: normal;
                   font-weight: normal;
                   font-size: 15px;
@@ -782,7 +783,7 @@ const Story = ({ data }) => {
           }
         }
         .go-up {
-          font-family: 'GT America Medium';
+          font-family: "GT America Medium";
           font-size: 15px;
           line-height: 120%;
           color: #204f9c;
@@ -817,7 +818,7 @@ const Story = ({ data }) => {
         }
       `}</style>
     </Layout>
-  )
-}
+  );
+};
 
-export default Story
+export default Story;
