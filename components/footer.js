@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import Link from "next/link";
 
 const Footer = (props) => {
   return (
@@ -12,6 +12,56 @@ const Footer = (props) => {
               <a href="#" className="terms f-gtam-medium">
                 Skilmálar
               </a>
+              <div className="social">
+                <a
+                  href="https://www.facebook.com/pages/category/Company/Ístak-hf-377474922277497/"
+                  className="icon facebook"
+                >
+                  <svg
+                    width="40"
+                    height="40"
+                    viewBox="0 0 40 40"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M39.5 19.9973C39.5 30.7653 30.7696 39.4946 20 39.4946C9.23038 39.4946 0.5 30.7653 0.5 19.9973C0.5 9.22931 9.23038 0.5 20 0.5C30.7696 0.5 39.5 9.22931 39.5 19.9973Z"
+                      stroke="white"
+                      strokeOpacity="0.12"
+                    />
+                    <path
+                      d="M30 20.0594C30 14.5032 25.5234 10 20 10C14.4766 10 10 14.5032 10 20.0594C10 25.0813 13.6562 29.2426 18.4375 29.9971V22.9672H15.8984V20.0594H18.4375V17.8432C18.4375 15.3225 19.9297 13.9295 22.2148 13.9295C23.3086 13.9295 24.4531 14.1259 24.4531 14.1259V16.6015H23.1914C21.9492 16.6015 21.5625 17.3776 21.5625 18.1733V20.0594H24.3359L23.8926 22.9672H21.5625V29.9971C26.3438 29.2426 30 25.0813 30 20.0594Z"
+                      fill="white"
+                    />
+                  </svg>
+                </a>
+                <a
+                  href="https://is.linkedin.com/company/-stak"
+                  className="icon linkedin"
+                >
+                  <svg
+                    width="40"
+                    height="40"
+                    viewBox="0 0 40 40"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M13.28 16.9777H16.811V26.9971H13.28V16.9777ZM15.0465 11.9971C15.451 11.9972 15.8465 12.1032 16.1828 12.3018C16.5191 12.5003 16.7811 12.7824 16.9358 13.1124C17.0905 13.4424 17.1309 13.8055 17.0519 14.1557C16.9729 14.506 16.7779 14.8277 16.4918 15.0802C16.2057 15.3327 15.8412 15.5046 15.4444 15.5742C15.0475 15.6438 14.6363 15.608 14.2625 15.4712C13.8888 15.3345 13.5694 15.103 13.3446 14.806C13.1199 14.5091 13 14.1599 13 13.8028C13.0001 13.5656 13.053 13.3308 13.1559 13.1116C13.2588 12.8925 13.4095 12.6934 13.5996 12.5258C13.7896 12.3581 14.0152 12.2251 14.2635 12.1344C14.5117 12.0437 14.7778 11.997 15.0465 11.9971"
+                      fill="white"
+                    />
+                    <path
+                      d="M18.4531 16.354H21.3879V17.8093H21.4299C21.8381 16.9724 22.8371 16.0898 24.3267 16.0898C27.4266 16.0898 27.9995 18.294 27.9995 21.1609V26.999H24.9381V21.8223C24.9381 20.5879 24.9185 18.9998 23.3473 18.9998C21.7542 18.9998 21.5111 20.3453 21.5111 21.734V26.999H18.4531V16.354Z"
+                      fill="white"
+                    />
+                    <path
+                      d="M39.5 19.9973C39.5 30.7653 30.7696 39.4946 20 39.4946C9.23038 39.4946 0.5 30.7653 0.5 19.9973C0.5 9.22931 9.23038 0.5 20 0.5C30.7696 0.5 39.5 9.22931 39.5 19.9973Z"
+                      stroke="white"
+                      strokeOpacity="0.12"
+                    />
+                  </svg>
+                </a>
+              </div>
             </div>
             {/* .left */}
             <div className="right d-flex">
@@ -70,7 +120,7 @@ const Footer = (props) => {
           {/* .container */}
           <div className="container d-flex">
             <div className="bottom w-100 d-flex align-items-center justify-content-between">
-              <div className="social d-flex">
+              <div className="social">
                 <a
                   href="https://www.facebook.com/pages/category/Company/Ístak-hf-377474922277497/"
                   className="icon facebook"
@@ -119,6 +169,13 @@ const Footer = (props) => {
                     />
                   </svg>
                 </a>
+              </div>
+              <div className="certificates">
+                <img src="/img/cert-1.svg" />
+                <img src="/img/cert-2.svg" />
+                <img src="/img/cert-3.svg" />
+                <img src="/img/cert-4.svg" />
+                <img src="/img/cert-5.svg" />
               </div>
               <div className="copyright f-tgam-regular">
                 &copy; Ístak ehf. 2020
@@ -236,6 +293,13 @@ const Footer = (props) => {
             </div>
           </div>
           {/* .bottom */}
+          <div className="certificates">
+            <img src="/img/cert-1.svg" />
+            <img src="/img/cert-2.svg" />
+            <img src="/img/cert-3.svg" />
+            <img src="/img/cert-4.svg" />
+            <img src="/img/cert-5.svg" />
+          </div>
         </div>
         {/* .small-screen */}
       </div>
@@ -268,6 +332,22 @@ const Footer = (props) => {
               a {
                 text-decoration: underline;
               }
+              .social {
+                margin-top: 48px;
+                display: flex;
+                a {
+                  margin-right: 12px;
+                  svg {
+                    transition: 0.3s;
+                  }
+                  &:hover svg {
+                    transform: scale(1.3);
+                  }
+                }
+                @media (max-width: 991px) {
+                  display: none;
+                }
+              }
             }
             .right {
               .navigation,
@@ -288,41 +368,48 @@ const Footer = (props) => {
               }
               .navigation {
                 h4 {
-                  font-family: 'GT America Medium';
+                  font-family: "GT America Medium";
                   margin-bottom: 22px;
                 }
                 ul li {
                   margin-bottom: 18px;
                   a {
-                    font-family: 'GT America Regular';
+                    font-family: "GT America Regular";
                     text-decoration: none;
                   }
                 }
               }
               .address {
                 h4 {
-                  font-family: 'GT America Medium';
+                  font-family: "GT America Medium";
                   margin-bottom: 22px;
                 }
                 h5 {
-                  font-family: 'GT America Regular';
+                  font-family: "GT America Regular";
                   margin-bottom: 18px;
                 }
               }
               .timing {
                 h5 {
-                  font-family: 'GT America Medium';
+                  font-family: "GT America Medium";
                   margin-bottom: 12px;
                 }
                 h4 {
-                  font-family: 'GT America Regular';
+                  font-family: "GT America Regular";
                   margin-bottom: 29px;
                 }
               }
             }
             .bottom {
               margin-top: 67px;
+              .certificates {
+                img {
+                  margin-right: 15px;
+                }
+              }
               .social {
+                margin-top: 48px;
+                display: none;
                 a {
                   margin-right: 12px;
                   svg {
@@ -332,10 +419,16 @@ const Footer = (props) => {
                     transform: scale(1.3);
                   }
                 }
+                @media (max-width: 992px) {
+                  display: flex;
+                }
               }
               .copyright {
-                font-family: 'GT America Medium';
+                font-family: "GT America Medium";
                 font-size: 14px;
+                @media (max-width: 991px) {
+                  display: none;
+                }
               }
             }
           }
@@ -348,7 +441,7 @@ const Footer = (props) => {
             .navigation {
               margin-bottom: 50px;
               h4 {
-                font-family: 'GT America Medium';
+                font-family: "GT America Medium";
                 margin-bottom: 22px;
                 font-size: 14px;
               }
@@ -363,7 +456,7 @@ const Footer = (props) => {
             .address {
               margin-bottom: 50px;
               h4 {
-                font-family: 'GT America Medium';
+                font-family: "GT America Medium";
                 margin-bottom: 22px;
                 font-size: 14px;
               }
@@ -398,11 +491,19 @@ const Footer = (props) => {
                 }
               }
             }
+            .certificates {
+              display: flex;
+              justify-content: space-between;
+              margin-top: 78px;
+              img {
+                height: 40px;
+              }
+            }
           }
         }
       `}</style>
     </>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;
