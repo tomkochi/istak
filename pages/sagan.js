@@ -6,18 +6,6 @@ import Hero from "../components/story/hero";
 import Video from "../components/story/video";
 
 const Story = ({ data }) => {
-  const heroData = {
-<<<<<<< HEAD
-    title: "Við höfum verið í 50 ár starfandi",
-    description:
-      "Ístak er verktakafyrirtæki sem annast margskonar verkefni. Byggingaframkvæmdir, virkjanir, stóriðjuframkvæmdir, jarðvinnuverk, mannvirkjagerð, hafnarframkvæmdir auk vega- og brúagerðar. Ístak hefur verið leiðandi á íslenskum verktakaiðnaði í 50 ár og hefur haft mikil áhrif á þróun bygginga og annarra mannvirkja á Íslandi sem og á erlendri grundu.",
-  };
-=======
-    title: '',
-    description:
-      '',
-  }
->>>>>>> aa6fb0db7bd8262eddadabad13c8548467cb8233
   const sections = [
     "Kynning",
     "Verkefnin",
@@ -110,12 +98,18 @@ const Story = ({ data }) => {
             {/* .text */}
             <div className="images images-2">
               <div className="image">
-                <img src={`${process.env.NEXT_PUBLIC_HOST}${data.SaganContent.image1.url}`} alt="" />
+                <img
+                  src={`${process.env.NEXT_PUBLIC_HOST}${data.SaganContent.image1.url}`}
+                  alt=""
+                />
                 <h5>{data.SaganContent.image1_caption}</h5>
               </div>
               {/* .image */}
               <div className="image">
-              <img src={`${process.env.NEXT_PUBLIC_HOST}${data.SaganContent.image2.url}`} alt="" />
+                <img
+                  src={`${process.env.NEXT_PUBLIC_HOST}${data.SaganContent.image2.url}`}
+                  alt=""
+                />
                 <h5>{data.SaganContent.image2_caption}</h5>
               </div>
               {/* .image */}
@@ -127,12 +121,18 @@ const Story = ({ data }) => {
             {/* .text */}
             <div className="images images-2">
               <div className="image">
-              <img src={`${process.env.NEXT_PUBLIC_HOST}${data.SaganContent.image3.url}`} alt="" />
+                <img
+                  src={`${process.env.NEXT_PUBLIC_HOST}${data.SaganContent.image3.url}`}
+                  alt=""
+                />
                 <h5>{data.SaganContent.image3_caption}</h5>
               </div>
               {/* .image */}
               <div className="image">
-              <img src={`${process.env.NEXT_PUBLIC_HOST}${data.SaganContent.image4.url}`} alt="" />
+                <img
+                  src={`${process.env.NEXT_PUBLIC_HOST}${data.SaganContent.image4.url}`}
+                  alt=""
+                />
                 <h5>{data.SaganContent.image4_caption}</h5>
               </div>
               {/* .image */}
@@ -149,69 +149,82 @@ const Story = ({ data }) => {
             {/* .text */}
             <div className="images images-multiple">
               <div className="image">
-              <img src={`${process.env.NEXT_PUBLIC_HOST}${data.SaganContent.image5.url}`} alt="" />
+                <img
+                  src={`${process.env.NEXT_PUBLIC_HOST}${data.SaganContent.image5.url}`}
+                  alt=""
+                />
                 <h5>{data.SaganContent.image5_caption}</h5>
               </div>
               {/* .image */}
               <div className="image">
-              <img src={`${process.env.NEXT_PUBLIC_HOST}${data.SaganContent.image6.url}`} alt="" />
+                <img
+                  src={`${process.env.NEXT_PUBLIC_HOST}${data.SaganContent.image6.url}`}
+                  alt=""
+                />
                 <h5>{data.SaganContent.image6_caption}</h5>
               </div>
               {/* .image */}
               <div className="image">
-              <img src={`${process.env.NEXT_PUBLIC_HOST}${data.SaganContent.image7.url}`} alt="" />
-              <h5>{data.SaganContent.image7_caption}</h5>
+                <img
+                  src={`${process.env.NEXT_PUBLIC_HOST}${data.SaganContent.image7.url}`}
+                  alt=""
+                />
+                <h5>{data.SaganContent.image7_caption}</h5>
               </div>
               {/* .image */}
               <div className="image">
-              <img src={`${process.env.NEXT_PUBLIC_HOST}${data.SaganContent.image8.url}`} alt="" />
-              <h5>{data.SaganContent.image8_caption}</h5>
+                <img
+                  src={`${process.env.NEXT_PUBLIC_HOST}${data.SaganContent.image8.url}`}
+                  alt=""
+                />
+                <h5>{data.SaganContent.image8_caption}</h5>
               </div>
               {/* .image */}
               <div className="image">
-              <img src={`${process.env.NEXT_PUBLIC_HOST}${data.SaganContent.image9.url}`} alt="" />
-              <h5>{data.SaganContent.image9_caption}</h5>
+                <img
+                  src={`${process.env.NEXT_PUBLIC_HOST}${data.SaganContent.image9.url}`}
+                  alt=""
+                />
+                <h5>{data.SaganContent.image9_caption}</h5>
               </div>
               {/* .image */}
             </div>
             {/* .images */}
             <div className="text">
-<<<<<<< HEAD
-              <p>
-                Á Íslandi voru framkvæmdir á ábyrgð Ístaks meðal annars
-                byggingar eins og Háskólann í Reykjavík, Klettaskóli,
-                Náttúrufræðihús Urriðaholti, endurgerð á Sundhöll Reykjavíkur,
-                Helgafellsskóli, Uppsteypa á hóteli og íbúðum við Hörpu,
-                Fiskvinnsla Grun í Grundafirði, Stúdentagarðar við Sæmundargötu
-                og Hús íslenskunnar við Arngrímsgötu.{" "}
-              </p>
-=======
-            <p>{data.SaganContent.text8}</p>
->>>>>>> aa6fb0db7bd8262eddadabad13c8548467cb8233
+              <p>{data.SaganContent.text8}</p>
             </div>
             {/* .text */}
             <div className="images images-multiple">
-            <div className="image">
-              <img src={`${process.env.NEXT_PUBLIC_HOST}${data.SaganContent.image10.url}`} alt="" />
-              <h5>{data.SaganContent.image10_caption}</h5>
+              <div className="image">
+                <img
+                  src={`${process.env.NEXT_PUBLIC_HOST}${data.SaganContent.image10.url}`}
+                  alt=""
+                />
+                <h5>{data.SaganContent.image10_caption}</h5>
               </div>
               {/* .image */}
               <div className="image">
-              <img src={`${process.env.NEXT_PUBLIC_HOST}${data.SaganContent.image11.url}`} alt="" />
-              <h5>{data.SaganContent.image11_caption}</h5>
+                <img
+                  src={`${process.env.NEXT_PUBLIC_HOST}${data.SaganContent.image11.url}`}
+                  alt=""
+                />
+                <h5>{data.SaganContent.image11_caption}</h5>
               </div>
               {/* .image */}
               <div className="image">
-              <img src={`${process.env.NEXT_PUBLIC_HOST}${data.SaganContent.image12.url}`} alt="" />
-              <h5>{data.SaganContent.image12_caption}</h5>
+                <img
+                  src={`${process.env.NEXT_PUBLIC_HOST}${data.SaganContent.image12.url}`}
+                  alt=""
+                />
+                <h5>{data.SaganContent.image12_caption}</h5>
               </div>
             </div>
             {/* .images */}
             <div className="text">
-            <p>{data.SaganContent.text9}</p>
-            <p>{data.SaganContent.text10}</p>
-            <p>{data.SaganContent.text11}</p>
-            <p>{data.SaganContent.text12}</p>
+              <p>{data.SaganContent.text9}</p>
+              <p>{data.SaganContent.text10}</p>
+              <p>{data.SaganContent.text11}</p>
+              <p>{data.SaganContent.text12}</p>
             </div>
             {/* .text */}
           </div>
@@ -226,14 +239,20 @@ const Story = ({ data }) => {
             </div>
             {/* .text */}
             <div className="images images-2">
-            <div className="image">
-              <img src={`${process.env.NEXT_PUBLIC_HOST}${data.SaganContent.image13.url}`} alt="" />
-              <h5>{data.SaganContent.image13_caption}</h5>
+              <div className="image">
+                <img
+                  src={`${process.env.NEXT_PUBLIC_HOST}${data.SaganContent.image13.url}`}
+                  alt=""
+                />
+                <h5>{data.SaganContent.image13_caption}</h5>
               </div>
               {/* .image */}
               <div className="image">
-              <img src={`${process.env.NEXT_PUBLIC_HOST}${data.SaganContent.image14.url}`} alt="" />
-              <h5>{data.SaganContent.image14_caption}</h5>
+                <img
+                  src={`${process.env.NEXT_PUBLIC_HOST}${data.SaganContent.image14.url}`}
+                  alt=""
+                />
+                <h5>{data.SaganContent.image14_caption}</h5>
               </div>
               {/* .image */}
             </div>
@@ -242,75 +261,21 @@ const Story = ({ data }) => {
           {/* .section*/}
           <div className="section" id="section-4">
             <div className="text">
-<<<<<<< HEAD
-              <h3>Verkefni Ístaks á Keflavíkurflugvelli</h3>
-              <p>
-                Umsvif Ístaks á Keflavíkurflugvelli hafa verið mikil á 50 ára
-                sögu Ístaks. Afskipti Ístaks hófust á Keflavíkurflugvelli með
-                uppsteypu og utanhúss frágangi fyrsta áfanga
-                flugstöðvarinnar(Norðurbygging) sem reist var á árunum
-                1985-1987. Síðar var flugstöðin stækkuð og svokölluð
-                Suðurbygging reist við enda landgangsins sem tengir saman
-                Suðurbyggingu og Norðurbyggingu og vann Ístak það verk í
-                samstarfi við Højgaard & Shultz árunum 2000-2001.
-              </p>
-              <p>
-                Á árunum 2004-2005 vann Ístak að stækkun norðurbyggingarinnar,
-                en þá voru móttöku- og komusalir stækkaðir auk þess sem þaki var
-                lyft og gerð voru skrifstofurými á 3. hæð. Árin 2014 – 2016 sá
-                Ístak um innanhússfrágang á stækkun á Suðurbyggingu til vestur
-                og einnig um stækkun farangursflokkunarstöðvar sem er viðbygging
-                við Norðurbyggingu. Ístak sá um stækkun Suðurbyggingar til
-                norðurs ásamt 1. hluta á breikkun landgangsins. Loks vann Ístak
-                við stækkun á steyptum flughlöðum austan flugstöðvar á árunum
-                2016 – 2018.
-              </p>
-              <h6>Stækkunin í Ísal</h6>
-              <p>
-                Rio Tinto Alcan eigandi ISAL ákvað að ráðast í uppfærslu á
-                álverinu í Straumsvík árin 2010-2015 sem kallað var IPU
-                verkefnið. Verkefnið var fjölþætt og gekk meðal annars út á að
-                auka framleiðslugetu á áli um 20% en á sama tíma bæta
-                áreiðanleika verksmiðjunnar. Einnig voru gerðar miklar
-                breytingar á steypuskála en nú eru verðmætari ál boltar
-                framleiddir í stað barra. Aðkoma Ístaks að verkefninu byrjaði
-                haustið 2010 þegar við vorum lægst bjóðendur í viðbyggingu
-                steypuskálans. Um var að ræða 10.000 m2 stálgrindarhús undir
-                breytta framleiðslu í steypuskála. Næstu árin tók Ístak einnig
-                að sér fjölda annarra verkefna á svæðinu. Stærsta verkefnið var
-                uppsetning á nýjum reykhreinsivirkjum fyrir kerskála 1 og 2. Auk
-                þess sáum við um uppsetningu á nýjum bolta steypuvélum í
-                steypuskála ásamt tilheyrandi vélbúnaði. Ístak byggði einnig
-                nýja spennistöð á milli kerskála, nýja loftþjöppustöð,
-                baðefnageymslu, stækkuðum hliðhúsið og fleira. Ístak sá einnig
-                um fjölþætta langa og jarðvinnu á svæðinu, háspennustrengir,
-                vatnsrör og fráveita var grafið niður á milli bygginga.{" "}
-              </p>
-              <p>
-                Verkefnið var mjög krefjandi, öll vinnan var inná svokölluðu
-                „Brown field“ þar sem unnið er við hlið verksmiðju í rekstri og
-                því þurfti mikla samræmingu til þess að tryggja að áhrif á
-                framleiðslu væru lágmörkuð. Einnig voru kröfur í öryggis og
-                gæðamálum með því strangasta sem sést hefur á Íslandi en með
-                réttu hugarfari tókst starfsmönnum Ístaks að ná mjög góðum
-                árangri í þessu umhverfi. Þeir starfsmenn Ístaks sem tóku þátt í
-                verkefninu eru mjög stoltir af sínu framlagi og lærðu mikið af
-                þessu stóra alþjóðlegaverkefni fyrir kröfuharðan verkkaupa.
-              </p>
-=======
               <h3>{data.SaganContent.title4}</h3>
               <p>{data.SaganContent.text17}</p>
               <p>{data.SaganContent.text18}</p>
               <h6>{data.SaganContent.subtitle}</h6>
               <p>{data.SaganContent.text19}</p>
               <p>{data.SaganContent.text20}</p>
->>>>>>> aa6fb0db7bd8262eddadabad13c8548467cb8233
             </div>
             {/* .text */}
             <div className="images">
               <div className="image">
-              <img src={`${process.env.NEXT_PUBLIC_HOST}${data.SaganContent.image15.url}`} alt="" />
-              <h5>{data.SaganContent.image15_caption}</h5>
+                <img
+                  src={`${process.env.NEXT_PUBLIC_HOST}${data.SaganContent.image15.url}`}
+                  alt=""
+                />
+                <h5>{data.SaganContent.image15_caption}</h5>
               </div>
             </div>
             {/* .images */}
@@ -318,81 +283,20 @@ const Story = ({ data }) => {
           {/* .section */}
           <div className="section" id="section-5">
             <div className="text">
-<<<<<<< HEAD
-              <h3>Stækkunin í Ísal</h3>
-              <p>
-                Rio Tinto Alcan eigandi ISAL ákvað að ráðast í uppfærslu á
-                álverinu í Straumsvík árin 2010-2015 sem kallað var IPU
-                verkefnið. Verkefnið var fjölþætt og gekk meðal annars út á að
-                auka framleiðslugetu á áli um 20% en á sama tíma bæta
-                áreiðanleika verksmiðjunnar. Einnig voru gerðar miklar
-                breytingar á steypuskála en nú eru verðmætari ál boltar
-                framleiddir í stað barra.
-              </p>
-              <p>
-                Aðkoma Ístaks að verkefninu byrjaði haustið 2010 þegar við vorum
-                lægst bjóðendur í viðbyggingu steypuskálans. Um var að ræða
-                10.000 m2 stálgrindarhús undir breytta framleiðslu í
-                steypuskála. Næstu árin tók Ístak einnig að sér fjölda annarra
-                verkefna á svæðinu. Stærsta verkefnið var uppsetning á nýjum
-                reykhreinsivirkjum fyrir kerskála 1 og 2. Auk þess sáum við um
-                uppsetningu á nýjum bolta steypuvélum í steypuskála ásamt
-                tilheyrandi vélbúnaði. Ístak byggði einnig nýja spennistöð á
-                milli kerskála, nýja loftþjöppustöð, baðefnageymslu, stækkuðum
-                hliðhúsið og fleira. Ístak sá einnig um fjölþætta langa og
-                jarðvinnu á svæðinu, háspennustrengir, vatnsrör og fráveita var
-                grafið niður á milli bygginga.
-              </p>
-              <p>
-                Verkefnið var mjög krefjandi, öll vinnan var inná svokölluðu
-                „Brown field“ þar sem unnið er við hlið verksmiðju í rekstri og
-                því þurfti mikla samræmingu til þess að tryggja að áhrif á
-                framleiðslu væru lágmörkuð. Einnig voru kröfur í öryggis og
-                gæðamálum með því strangasta sem sést hefur á Íslandi en með
-                réttu hugarfari tókst starfsmönnum Ístaks að ná mjög góðum
-                árangri í þessu umhverfi. Þeir starfsmenn Ístaks sem tóku þátt í
-                verkefninu eru mjög stoltir af sínu framlagi og lærðu mikið af
-                þessu stóra alþjóðlegaverkefni fyrir kröfuharðan verkkaupa.{" "}
-              </p>
-=======
               <h3>{data.SaganContent.title5}</h3>
               <p>{data.SaganContent.text21}</p>
               <p>{data.SaganContent.text22}</p>
               <p>{data.SaganContent.text23}</p>
->>>>>>> aa6fb0db7bd8262eddadabad13c8548467cb8233
             </div>
             {/* .text */}
           </div>
           {/* .section */}
           <div className="section">
             <div className="text">
-<<<<<<< HEAD
-              <h3>Viðhaldsþjónusta</h3>
-              <p>
-                Árið 2018 setti Ístak á laggirnar sér deild viðhaldsþjónustu sem
-                sinnir viðhaldi og endurbótum fasteigna fyrir fagaðila á
-                fasteignamarkaði, stærri fyrirtæki, fasteignafélög, ríki og
-                sveitarfélög. Hvort sem um er að ræða stór, skipulögð
-                viðhaldsverkefni eða tilfallandi verk þá er Ístak traustur
-                samstarfsaðili á sviði viðhalds.
-              </p>
-              <p>
-                Með þessari deild byrjaði Ístak að bjóða viðskiptavinum upp á
-                viðhaldsþjónustusamninga sem tryggja greiðan aðgang að færum
-                iðnaðarmönnum ásamt verkefnastýringu og umsjón framkvæmda, allt
-                eftir þörfum viðskiptavinarins.
-              </p>
-              <p>
-                Með viðhaldsþjónustusamningi geta viðskiptavinir fengið alla
-                viðhaldsvinnu á einum stað, hvort sem um er að ræða trésmiði,
-                málara, múrara, rafvirkja, pípara eða aðra sérhæfða iðnaðarmenn.{" "}
-              </p>
-=======
               <h3>{data.SaganContent.title6}</h3>
               <p>{data.SaganContent.text24}</p>
               <p>{data.SaganContent.text25}</p>
               <p>{data.SaganContent.text26}</p>
->>>>>>> aa6fb0db7bd8262eddadabad13c8548467cb8233
             </div>
             {/* .text */}
           </div>
@@ -430,22 +334,17 @@ const Story = ({ data }) => {
           {/* .section */}
           <div className="section" id="section-7">
             <div className="text">
-<<<<<<< HEAD
-              <h3>Aðsetur</h3>
-              <p>
-                Frá árinu 2012 hefur yfirstjórn og skrifstofa Ístaks verið til
-                húsa að Bugðufljóti 19, 270 Mosfellsbæ.{" "}
-              </p>
-=======
               <h3>{data.SaganContent.title11}</h3>
               <p>{data.SaganContent.text32}</p>
->>>>>>> aa6fb0db7bd8262eddadabad13c8548467cb8233
             </div>
             {/* .text */}
             <div className="images">
               <div className="image">
-              <img src={`${process.env.NEXT_PUBLIC_HOST}${data.SaganContent.image16.url}`} alt="" />
-              <h5>{data.SaganContent.image16_caption}</h5>
+                <img
+                  src={`${process.env.NEXT_PUBLIC_HOST}${data.SaganContent.image16.url}`}
+                  alt=""
+                />
+                <h5>{data.SaganContent.image16_caption}</h5>
               </div>
               {/* .image */}
             </div>
@@ -454,34 +353,24 @@ const Story = ({ data }) => {
           {/* .section */}
           <div className="section">
             <div className="text">
-<<<<<<< HEAD
-              <h3>Mannauður og starfsmannafjöldi</h3>
-              <p>
-                Í ársbyrjun 2020 voru starfsmenn Ístaks rúmlega 300. Starfsfólk
-                Ístaks skiptist upp í fjóra hópa eftir starfssviði. Sérfræðingar
-                og stjórnendur eru oftast tæknimenntaðir með annaðhvort
-                prófgráður í verk-eða tæknifræði. Verkstjórar Ístaks hafa
-                fjölbreyttan menntunarbakgrunn en allir hafa þeir mikla reynslu
-                í því að stýra framkvæmdum á vinnusvæðum. Iðnaðarmenn hjá Ístaki
-                eru oftast menntaðir í trésmíði, en einnig í málmiðn, véliðn og
-                rafiðn. Ófaglærðir starfsmenn Ístaks vinna aðalega á
-                byggingasvæðum eða við jarðvegsframkvæmdir og sem
-                tækjastjórnendur & bílstjórar.{" "}
-              </p>
-=======
-            <h3>{data.SaganContent.title12}</h3>
-            <p>{data.SaganContent.text33}</p>
->>>>>>> aa6fb0db7bd8262eddadabad13c8548467cb8233
+              <h3>{data.SaganContent.title12}</h3>
+              <p>{data.SaganContent.text33}</p>
             </div>
             {/* .text */}
             <div className="images images-2">
               <div className="image">
-                <img src={`${process.env.NEXT_PUBLIC_HOST}${data.SaganContent.image17.url}`} alt="" />
+                <img
+                  src={`${process.env.NEXT_PUBLIC_HOST}${data.SaganContent.image17.url}`}
+                  alt=""
+                />
                 <h5></h5>
               </div>
               {/* .image */}
               <div className="image">
-              <img src={`${process.env.NEXT_PUBLIC_HOST}${data.SaganContent.image18.url}`} alt="" />
+                <img
+                  src={`${process.env.NEXT_PUBLIC_HOST}${data.SaganContent.image18.url}`}
+                  alt=""
+                />
                 <h5></h5>
               </div>
               {/* .image */}
@@ -713,9 +602,6 @@ const Story = ({ data }) => {
   );
 };
 
-<<<<<<< HEAD
-export default Story;
-=======
 //data fetching
 export async function getServerSideProps() {
   // Fetch data from external API
@@ -725,5 +611,4 @@ export async function getServerSideProps() {
   return { props: { data } };
 }
 
-export default Story
->>>>>>> aa6fb0db7bd8262eddadabad13c8548467cb8233
+export default Story;
