@@ -31,13 +31,13 @@ const Employees = ({ data }) => {
 
   const videosData = [
     {
-      image: "/img/article-image-2.jpg",
-      videoUrl: "https://www.youtube.com/watch?v=zpR_m2_7XDI",
+      image: "/img/hvalfjardargong-thumb.jpg",
+      videoUrl: "https://youtu.be/kmveOUUWdgI",
       text: "Hvalfjarðargöngin",
     },
     {
-      image: "/img/article-image-1.jpg",
-      videoUrl: "https://www.youtube.com/watch?v=zpR_m2_7XDI",
+      image: "/img/stofnun-istaks-thumb.jpg",
+      videoUrl: "https://youtu.be/SUh-r5JRLSo",
       text: "Ístak 50 ára",
     },
   ];

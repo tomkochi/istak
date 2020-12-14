@@ -105,7 +105,7 @@ const BottomPick = ({ data, image, title, para, video }) => {
                 </div>
               </div>
               <div className="video">
-                <ResponsivePlayer data="https://www.youtube.com/watch?v=CWu29PRCUvQ" />
+                <ResponsivePlayer data="https://youtu.be/SUh-r5JRLSo" />
               </div>
               {/* .video */}
             </div>

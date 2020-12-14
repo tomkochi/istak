@@ -69,7 +69,7 @@ const Videos = ({ data }) => {
               </div>
             </div>
             <div className="video">
-              <ResponsivePlayer data="https://www.youtube.com/watch?v=CWu29PRCUvQ" />
+              <ResponsivePlayer data="https://www.youtube.com/watch?v=SUh-r5JRLSo&feature=youtu.be" />
             </div>
             {/* .video */}
           </div>

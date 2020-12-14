@@ -182,6 +182,7 @@ const Filter = (props) => {
             line-height: 120%;
             color: $brand;
             .sort {
+              display: none; /* removes filter projects by date  */
               position: relative;
               cursor: pointer;
               h4 {
