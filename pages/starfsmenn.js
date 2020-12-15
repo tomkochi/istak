@@ -30,12 +30,12 @@ const Employees = ({ data }) => {
 
   const videosData = [
     {
-      image: "/img/article-image-2.jpg",
+      image: "/img/hvalfjardargong-thumb.jpg",
       videoUrl: "https://www.youtube.com/watch?v=zpR_m2_7XDI",
       text: "Hvalfjarðargöngin",
     },
     {
-      image: "/img/article-image-1.jpg",
+      image: "/img/stofnun-istaks-thumb.jpg",
       videoUrl: "https://www.youtube.com/watch?v=CWu29PRCUvQ",
       text: "Ístak 50 ára",
     },
