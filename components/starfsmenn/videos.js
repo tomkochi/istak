@@ -1,8 +1,8 @@
-import { useState } from 'react'
-import ResponsivePlayer from '../responsivePlayer'
+import { useState } from "react";
+import ResponsivePlayer from "../responsivePlayer";
 
 const Videos = ({ data }) => {
-  const [showVideo, setShowVideo] = useState(false)
+  const [videoUrl, setVideoUrl] = useState("");
   return (
     <>
       <div className="videos">
@@ -12,7 +12,10 @@ const Videos = ({ data }) => {
               return (
                 <div key={i} className="video">
                   <img src={v.image} alt="" />
-                  <div className="overlay" onClick={(e) => setShowVideo(true)}>
+                  <div
+                    className="overlay"
+                    onClick={(e) => setVideoUrl(v.videoUrl)}
+                  >
                     <div className="play">
                       <svg
                         width="7"
@@ -29,19 +32,19 @@ const Videos = ({ data }) => {
                   </div>
                   {/* .overlay */}
                 </div>
-              )
+              );
             })}
           </div>
         </div>
         {/* .container */}
       </div>
       {/* .videoos */}
-      {showVideo && (
+      {videoUrl && (
         <div className={`video-overlay`}>
           <div className="v-wrapper">
             <div className="d-inline-block">
               <div
-                onClick={(e) => setShowVideo(false)}
+                onClick={(e) => setVideoUrl("")}
                 className="close-videopopup d-flex justify-content-center align-items-center"
               >
                 <div className="icon d-flex justify-content-center align-items-center">
@@ -69,7 +72,7 @@ const Videos = ({ data }) => {
               </div>
             </div>
             <div className="video">
-              <ResponsivePlayer data="https://www.youtube.com/watch?v=CWu29PRCUvQ" />
+              <ResponsivePlayer data={videoUrl} />
             </div>
             {/* .video */}
           </div>
@@ -132,7 +135,7 @@ const Videos = ({ data }) => {
                 margin-bottom: 15px;
               }
               h3 {
-                font-family: 'GT America Regular';
+                font-family: "GT America Regular";
                 font-size: 18px;
                 line-height: 100%;
                 color: #ffffff;
@@ -198,7 +201,7 @@ const Videos = ({ data }) => {
         }
       `}</style>
     </>
-  )
-}
+  );
+};
 
-export default Videos
+export default Videos;

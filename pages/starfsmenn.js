@@ -28,7 +28,6 @@ const Employees = ({ data }) => {
     search();
   }, []);
 
-
   const videosData = [
     {
       image: "/img/article-image-2.jpg",
@@ -37,7 +36,7 @@ const Employees = ({ data }) => {
     },
     {
       image: "/img/article-image-1.jpg",
-      videoUrl: "https://www.youtube.com/watch?v=zpR_m2_7XDI",
+      videoUrl: "https://www.youtube.com/watch?v=CWu29PRCUvQ",
       text: "Ístak 50 ára",
     },
   ];
