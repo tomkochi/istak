@@ -210,7 +210,9 @@ const Project = ({ data }) => {
         {/* section.photos */}
         <section className="d-none d-lg-flex bottom-para">
           <div className="container">
-            <p className="f-gtam-thin">{d.gallery[slide - 1].description}</p>
+            <p className="f-gtam-thin">
+              {d.gallery[slide - 1] ? d.gallery[slide - 1].description : ""}
+            </p>
           </div>
           {/* .container */}
         </section>
@@ -441,8 +443,22 @@ const Project = ({ data }) => {
   );
 };
 
+export async function getStaticPaths() {
+  // fetch data fro API
+  const res = await fetch(`${process.env.HOST}/projects`);
+  const data = await res.json();
+  console.log({ data });
+
+  const paths = data.map((d) => ({
+    params: { slug: d.slug },
+  }));
+
+  // {fallback:false} means 404 for all unspecified routes
+  return { paths, fallback: false };
+}
+
 //data fetching
-export async function getServerSideProps(context) {
+export async function getStaticProps(context) {
   // Fetch data from external API
   const res = await fetch(
     `${process.env.HOST}/projects?slug=${context.params.slug}`

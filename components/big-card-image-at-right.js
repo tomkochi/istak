@@ -11,7 +11,11 @@ const BigCardRight = ({ data }) => {
             <div className="image order-2">
               <div className="wrapper">
                 <img
-                  src={`${process.env.NEXT_PUBLIC_HOST}${data.image.url}`}
+                  src={`${
+                    data.image
+                      ? `${process.env.NEXT_PUBLIC_HOST}${data.image.url}`
+                      : ""
+                  }`}
                   alt=""
                 />
               </div>

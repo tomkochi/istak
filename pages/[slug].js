@@ -1,23 +1,21 @@
-import Layout from '../components/Layout'
-
+import Layout from "../components/Layout";
 
 const Policy = ({ data }) => {
   return (
     <Layout>
       <div className="policy">
         <div className="container">
-
-        {data[0].SkilmalarBody.map((item, i) => {
-                return (
-                  <>
-                  {item.type == 'heading' ? (
+          {data[0].SkilmalarBody.map((item, i) => {
+            return (
+              <div key={i}>
+                {item.type == "heading" ? (
                   <h1>{item.text}</h1>
-                  ) : (
+                ) : (
                   <p>{item.text}</p>
-                  )}
-                  </>
-                )
-              })}
+                )}
+              </div>
+            );
+          })}
         </div>
         {/* .container */}
       </div>
@@ -35,7 +33,7 @@ const Policy = ({ data }) => {
             max-width: 860px;
           }
           h1 {
-            font-family: 'GT America Bold';
+            font-family: "GT America Bold";
             font-size: 64px;
             letter-spacing: 0em;
             text-align: left;
@@ -51,7 +49,7 @@ const Policy = ({ data }) => {
             }
           }
           p {
-            font-family: 'GT America Regular';
+            font-family: "GT America Regular";
             font-size: 20px;
             font-style: normal;
             font-weight: 300;
@@ -72,16 +70,31 @@ const Policy = ({ data }) => {
         }
       `}</style>
     </Layout>
-  )
+  );
+};
+
+export async function getStaticPaths() {
+  // fetch data fro API
+  const res = await fetch(`${process.env.HOST}/skilmalars`);
+  const data = await res.json();
+
+  const paths = data.map((d) => ({
+    params: { slug: d.slug },
+  }));
+
+  // {fallback:false} means 404 for all unspecified routes
+  return { paths, fallback: false };
 }
 
 //data fetching
-export async function getServerSideProps(context) {
+export async function getStaticProps(context) {
   // Fetch data from external API
-  const res = await fetch(`${process.env.HOST}/skilmalars?slug=${context.params.slug}`,)
+  const res = await fetch(
+    `${process.env.HOST}/skilmalars?slug=${context.params.slug}`
+  );
   const data = await res.json();
   // Pass data to the page via props
   return { props: { data } };
 }
 
-export default Policy
+export default Policy;

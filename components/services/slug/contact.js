@@ -11,7 +11,14 @@ const Contact = ({ data }) => {
               Tengiliður
             </div>
             {/* .overlay */}
-            <img src={`${process.env.NEXT_PUBLIC_HOST}${data.picture.url}`} alt="" />
+            <img
+              src={`${
+                data.picture
+                  ? `${process.env.NEXT_PUBLIC_HOST}${data.picture.url}`
+                  : ""
+              }`}
+              alt=""
+            />
           </div>
           {/* .image */}
           <div className="text wow fadeInUp" data-wow-delay="500ms">
@@ -53,7 +60,7 @@ const Contact = ({ data }) => {
               padding: 0 20px;
             }
             &:before {
-              content: '';
+              content: "";
               position: absolute;
               left: 25%;
               right: 0;
@@ -142,7 +149,7 @@ const Contact = ({ data }) => {
         }
       `}</style>
     </>
-  )
-}
+  );
+};
 
-export default Contact
+export default Contact;

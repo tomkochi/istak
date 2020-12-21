@@ -603,7 +603,7 @@ const Story = ({ data }) => {
 };
 
 //data fetching
-export async function getServerSideProps() {
+export async function getStaticProps() {
   // Fetch data from external API
   const res = await fetch(`${process.env.HOST}/sagan`);
   const data = await res.json();

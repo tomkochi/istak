@@ -94,7 +94,7 @@ const Employees = ({ data }) => {
 };
 
 //data fetching
-export async function getServerSideProps() {
+export async function getStaticProps() {
   // Fetch data from external API
   const res = await fetch(`${process.env.HOST}/team`);
   const data = await res.json();

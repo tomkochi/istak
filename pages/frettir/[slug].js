@@ -1,24 +1,24 @@
-import Layout from '../../components/Layout'
-import Link from 'next/link'
-import ReactMarkdown from 'react-markdown'
-import moment from 'moment'
+import Layout from "../../components/Layout";
+import Link from "next/link";
+import ReactMarkdown from "react-markdown";
+import moment from "moment";
 //
 
 import {
   FacebookShareButton,
   TwitterShareButton,
   LinkedinShareButton,
-} from 'react-share'
-import { useEffect, useState } from 'react'
+} from "react-share";
+import { useEffect, useState } from "react";
 
 const Article = ({ data }) => {
-  const d = data[0]
-  const showDate = (source) => moment(source).format('MM.DD.YY')
-  const [fullUrl, setFullUrl] = useState('')
+  const d = data[0];
+  const showDate = (source) => moment(source).format("MM.DD.YY");
+  const [fullUrl, setFullUrl] = useState("");
 
   useEffect(() => {
-    setFullUrl(window.location.href)
-  }, [])
+    setFullUrl(window.location.href);
+  }, []);
 
   return (
     <Layout>
@@ -169,7 +169,7 @@ const Article = ({ data }) => {
                     />
                     <div className="image-caption">{item.description}</div>
                   </div>
-                )
+                );
               })}
             </div>
             <div className="more-articles wow fadeInUp">
@@ -305,7 +305,7 @@ const Article = ({ data }) => {
 
         .marked {
           padding: 0 50px;
-          font-family: 'GT America Thin';
+          font-family: "GT America Thin";
           font-size: 20px;
           margin-bottom: 2em !important;
           color: $black;
@@ -437,7 +437,7 @@ const Article = ({ data }) => {
             }
             p {
               padding: 0 50px;
-              font-family: 'GT America Thin';
+              font-family: "GT America Thin";
               font-size: 20px;
               margin-bottom: 2em;
               color: $black;
@@ -451,7 +451,7 @@ const Article = ({ data }) => {
               margin: 40px 0;
             }
             .image-caption {
-              font-family: 'GT America Regular';
+              font-family: "GT America Regular";
               font-size: 16px;
               line-height: 150%;
               color: $black;
@@ -470,7 +470,7 @@ const Article = ({ data }) => {
               margin: 80px 0 40px 0;
             }
             h2 {
-              font-family: 'GT America Bold';
+              font-family: "GT America Bold";
               font-size: 24px;
               color: $black;
               text-align: center;
@@ -505,7 +505,7 @@ const Article = ({ data }) => {
           .social-sharing {
             text-align: center;
             h2 {
-              font-family: 'GT America Bold';
+              font-family: "GT America Bold";
               font-size: 24px;
               color: $black;
               text-align: center;
@@ -522,19 +522,32 @@ const Article = ({ data }) => {
         }
       `}</style>
     </Layout>
-  )
+  );
+};
+
+export async function getStaticPaths() {
+  // fetch data fro API
+  const res = await fetch(`${process.env.HOST}/articles`);
+  const data = await res.json();
+
+  const paths = data.map((d) => ({
+    params: { slug: d.slug },
+  }));
+
+  // {fallback:false} means 404 for all unspecified routes
+  return { paths, fallback: false };
 }
 
 //data fetching
-export async function getServerSideProps(context) {
+export async function getStaticProps(context) {
   // Fetch data from external API
   const res = await fetch(
-    `${process.env.HOST}/articles?slug=${context.params.slug}`,
-  )
-  const data = await res.json()
+    `${process.env.HOST}/articles?slug=${context.params.slug}`
+  );
+  const data = await res.json();
 
   // Pass data to the page via props
-  return { props: { data } }
+  return { props: { data } };
 }
 
-export default Article
+export default Article;
