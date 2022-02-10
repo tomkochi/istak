@@ -21,7 +21,7 @@
     "wow.js": "^1.2.2"
   },
   "devDependencies": {
-    "node-sass": "^4.14.0",
+    "node-sass": "^7.0.0",
     "styled-jsx-plugin-sass": "^1.0.0"
   }
 }
